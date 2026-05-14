@@ -13,7 +13,12 @@ const MAP_STYLE = {
   sources: {
     cartoDark: {
       type: 'raster',
-      tiles: ['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'],
+      tiles: [
+        'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://d.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+      ],
       tileSize: 256,
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
     },
@@ -26,9 +31,11 @@ const MAP_STYLE = {
       minzoom: 0,
       maxzoom: 20,
       paint: {
-        'raster-opacity': 0.92,
-        'raster-saturation': -0.35,
-        'raster-contrast': 0.1,
+        'raster-opacity': 1,
+        'raster-brightness-min': 0.08,
+        'raster-brightness-max': 0.9,
+        'raster-saturation': -0.15,
+        'raster-contrast': 0.32,
       },
     },
   ],
@@ -179,7 +186,7 @@ export default function Disaster() {
   }, []);
 
   useEffect(() => {
-    if (!mapContainerRef.current || mapRef.current) return;
+    if (loading || !mapContainerRef.current || mapRef.current) return;
 
     mapRef.current = new maplibregl.Map({
       container: mapContainerRef.current,
@@ -193,12 +200,19 @@ export default function Disaster() {
     });
 
     mapRef.current.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+    mapRef.current.once('load', () => mapRef.current?.resize());
+
+    const observer = new ResizeObserver(() => {
+      mapRef.current?.resize();
+    });
+    observer.observe(mapContainerRef.current);
 
     return () => {
+      observer.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [loading]);
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -433,8 +447,13 @@ export default function Disaster() {
 
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
         <section className="relative h-[620px] overflow-hidden rounded-3xl border border-white/10 bg-slate-950 shadow-2xl">
-          <div ref={mapContainerRef} className="absolute inset-0" />
+          <div className="absolute inset-0">
+            <div ref={mapContainerRef} className="h-full w-full" />
+          </div>
           <DeckGL
+            width="100%"
+            height="100%"
+            style={{ position: 'absolute', inset: 0, zIndex: 1 }}
             viewState={viewState}
             controller
             layers={layers}
