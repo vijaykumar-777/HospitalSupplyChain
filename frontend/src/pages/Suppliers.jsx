@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { fetchSuppliers } from '../api';
-import { ShieldCheck, ShieldAlert } from 'lucide-react';
 
 export default function Suppliers() {
   const [suppliers, setSuppliers] = useState([]);

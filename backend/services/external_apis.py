@@ -2,11 +2,9 @@ import os
 import httpx
 import logging
 from xml.etree import ElementTree as ET
+from backend.settings import NEWS_API_KEY, ORS_API_KEY
 
 logger = logging.getLogger(__name__)
-
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "")
-ORS_API_KEY = os.getenv("ORS_API_KEY", "")
 
 async def fetch_gdacs_alerts() -> list[dict]:
     """Fetch active disaster alerts from GDACS."""

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchActiveDisaster, fetchDisasterEvents, triggerDisasterCheck, simulateDisaster } from '../api';
-import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import { fetchActiveDisaster, fetchAffectedRoutes, fetchDisasterContext, fetchDisasterEvents, triggerDisasterCheck, simulateDisaster } from '../api';
+import { MapContainer, TileLayer, Marker, Popup, Circle, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { AlertTriangle, RefreshCw, Radio, PlayCircle } from 'lucide-react';
+import { AlertTriangle, RefreshCw, Radio, PlayCircle, MapPinned, Route } from 'lucide-react';
 import { format } from 'date-fns';
 import L from 'leaflet';
 
@@ -20,34 +20,69 @@ L.Marker.prototype.options.icon = DefaultIcon;
 export default function Disaster() {
   const [activeEvent, setActiveEvent] = useState(null);
   const [history, setHistory] = useState([]);
+  const [hospital, setHospital] = useState({
+    lat: 12.9716,
+    lng: 77.5946,
+    city: 'Bengaluru',
+  });
+  const [routes, setRoutes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [checking, setChecking] = useState(false);
 
-  // Default hospital location (approximate center for demo)
-  const hospitalPos = [21.1458, 79.0882]; // Updated to Nagpur
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        const [contextRes, activeRes, histRes, routesRes] = await Promise.all([
+          fetchDisasterContext(),
+          fetchActiveDisaster(),
+          fetchDisasterEvents(),
+          fetchAffectedRoutes(),
+        ]);
+        if (cancelled) return;
+
+        setHospital(contextRes.data.hospital);
+        setActiveEvent(activeRes.data.active ? activeRes.data.event : null);
+        setHistory(histRes.data);
+        setRoutes(routesRes.data);
+      } catch (err) {
+        if (!cancelled) {
+          console.error("Failed to load disaster info", err);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
+
+    void loadData();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const loadData = async () => {
     setLoading(true);
     try {
-      const activeRes = await fetchActiveDisaster();
-      if (activeRes.data.active) {
-        setActiveEvent(activeRes.data.event);
-      } else {
-        setActiveEvent(null);
-      }
-
-      const histRes = await fetchDisasterEvents();
+      const [contextRes, activeRes, histRes, routesRes] = await Promise.all([
+        fetchDisasterContext(),
+        fetchActiveDisaster(),
+        fetchDisasterEvents(),
+        fetchAffectedRoutes(),
+      ]);
+      setHospital(contextRes.data.hospital);
+      setActiveEvent(activeRes.data.active ? activeRes.data.event : null);
       setHistory(histRes.data);
+      setRoutes(routesRes.data);
     } catch (err) {
       console.error("Failed to load disaster info", err);
     } finally {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    loadData();
-  }, []);
 
   const handleManualTrigger = async () => {
     setChecking(true);
@@ -74,6 +109,9 @@ export default function Disaster() {
   };
 
   if (loading) return <div>Loading disaster intelligence...</div>;
+
+  const hospitalPos = [hospital.lat, hospital.lng];
+  const disasterCenter = activeEvent?.lat && activeEvent?.lng ? [activeEvent.lat, activeEvent.lng] : hospitalPos;
 
   return (
     <div className="space-y-6">
@@ -102,7 +140,7 @@ export default function Disaster() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Map View */}
         <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden h-[500px] relative z-0">
-          <MapContainer center={hospitalPos} zoom={5} scrollWheelZoom={false} className="h-full w-full">
+          <MapContainer center={hospitalPos} zoom={7} scrollWheelZoom={false} className="h-full w-full">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
@@ -110,7 +148,7 @@ export default function Disaster() {
             {/* Hospital Marker */}
             <Marker position={hospitalPos}>
               <Popup>
-                <strong>Central Hospital</strong><br />
+                <strong>{hospital.city} Central Hospital</strong><br />
                 Main supply hub.
               </Popup>
             </Marker>
@@ -118,16 +156,43 @@ export default function Disaster() {
             {/* Active Disaster Highlight */}
             {activeEvent && (
               <Circle 
-                center={hospitalPos} // Demo uses hospital pos as center if no coords
-                radius={150000} // 150km 
+                center={disasterCenter}
+                radius={(activeEvent.affected_radius_km || 150) * 1000}
                 pathOptions={{ color: 'red', fillColor: 'red', fillOpacity: 0.2 }}
               >
                 <Popup>
                   <strong>{activeEvent.disaster_type.toUpperCase()} Zone</strong><br/>
-                  Severity: {activeEvent.severity}/5
+                  Severity: {activeEvent.severity}/5<br />
+                  {activeEvent.location_name}
                 </Popup>
               </Circle>
             )}
+
+            {routes.map((route) => (
+              route.supplier_lat && route.supplier_lng ? (
+                <Marker key={route.route_id} position={[route.supplier_lat, route.supplier_lng]}>
+                  <Popup>
+                    <strong>{route.supplier_name || 'Supplier'}</strong><br />
+                    {route.supplier_city || 'Unknown city'}<br />
+                    Risk: {route.disruption_risk || 'unknown'}
+                  </Popup>
+                </Marker>
+              ) : null
+            ))}
+
+            {routes.map((route) => (
+              route.alternate_route_geojson ? (
+                <GeoJSON
+                  key={`${route.route_id}-geo`}
+                  data={route.alternate_route_geojson}
+                  style={() => ({
+                    color: '#2563eb',
+                    weight: 4,
+                    opacity: 0.85,
+                  })}
+                />
+              ) : null
+            ))}
           </MapContainer>
         </div>
 
@@ -144,6 +209,7 @@ export default function Disaster() {
                 <div className="bg-white bg-opacity-60 p-4 rounded-lg">
                   <span className="text-red-800 font-bold block mb-1 text-lg">{activeEvent.raw_text}</span>
                   <p className="text-sm text-gray-700">Source: <span className="font-semibold capitalize">{activeEvent.source}</span></p>
+                  <p className="text-sm text-gray-700">Location: <span className="font-semibold">{activeEvent.location_name}</span></p>
                   <p className="text-sm text-gray-700">Detected: {format(new Date(activeEvent.detected_at), 'MMM dd HH:mm')}</p>
                 </div>
                 
@@ -161,6 +227,30 @@ export default function Disaster() {
             )}
           </div>
 
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h2 className="text-md font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <Route size={18} className="text-blue-600" />
+              Live Route Impact
+            </h2>
+
+            {routes.length > 0 ? (
+              <div className="space-y-3">
+                {routes.slice(0, 3).map((route) => (
+                  <div key={route.route_id} className="rounded-lg border border-blue-100 bg-blue-50 p-4">
+                    <p className="font-semibold text-gray-800">{route.supplier_name || 'Supplier route rerouted'}</p>
+                    <p className="text-sm text-gray-600">{route.supplier_city || 'Unknown city'} to {route.hospital_city || hospital.city}</p>
+                    <div className="mt-2 flex justify-between text-xs font-medium">
+                      <span className="text-red-700 uppercase">{route.disruption_risk || 'high'} risk</span>
+                      <span className="text-blue-700">ETA +{Math.round((route.alternate_eta_hours || 0) / 24)}d</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-gray-600">No supplier routes are currently marked as impacted.</p>
+            )}
+          </div>
+
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 max-h-[220px] overflow-y-auto">
             <h2 className="text-md font-bold text-gray-800 mb-3 sticky top-0 bg-white pb-2 border-b">Recent Events</h2>
             <div className="space-y-3">
@@ -174,6 +264,15 @@ export default function Disaster() {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="bg-slate-900 text-white rounded-xl shadow-sm p-6">
+            <h2 className="text-md font-bold mb-3 flex items-center gap-2">
+              <MapPinned size={18} className="text-amber-300" />
+              Hospital Control Tower
+            </h2>
+            <p className="text-sm text-slate-200">Primary hub: {hospital.city}</p>
+            <p className="text-sm text-slate-300 mt-1">Routes shown in blue are rerouted or fallback paths feeding the main hospital.</p>
           </div>
         </div>
       </div>

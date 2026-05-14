@@ -1,4 +1,8 @@
 #!/bin/bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 echo "Starting Hospital Supply Chain System..."
 
 # Start Ollama (assuming it's installed and qwen2.5:7b is pulled)
@@ -8,17 +12,24 @@ echo "Ensuring Ollama is running..."
 
 # Start backend
 echo "Starting FastAPI Backend..."
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000 &
+cd "$ROOT_DIR"
+# Use Python 3.12 as 3.14 is currently too experimental for numpy/pandas
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r backend/requirements.txt
+
+if [ ! -f "$ROOT_DIR/hospital_supply.db" ]; then
+  echo "Seeding demo database..."
+  python backend/data/seed_db.py
+fi
+
+python -m uvicorn backend.main:app --reload --port 8000 &
 BACKEND_PID=$!
-cd ..
 
 # Start frontend
 echo "Starting React Frontend..."
-cd frontend
+cd "$ROOT_DIR/frontend"
 npm install
 npm run dev &
 FRONTEND_PID=$!

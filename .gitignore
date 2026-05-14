@@ -1,19 +1,40 @@
 # GSD/Graphify
 graphify-out/
+.claude/
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
+.venv/
 venv/
+.pytest_cache/
+*.egg-info/
+
+# Environment
 .env
+.env.*
+!.env.example
 
 # Node
 node_modules/
 dist/
+dist-ssr/
+*.local
 
 # Database
-hospital_supply.db
+*.db
+*.sqlite3
+
+# Data/Output
+data_output/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # OS
 .DS_Store
+Thumbs.db

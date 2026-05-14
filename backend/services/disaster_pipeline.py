@@ -2,7 +2,7 @@ import logging
 from datetime import datetime, timedelta
 import asyncio
 import uuid
-from math import radians, sin, cos, sqrt, atan2
+from math import radians, sin, cos, sqrt, atan2, pi
 
 from sqlalchemy.orm import Session
 from backend.models.disaster_event import DisasterEvent
@@ -15,12 +15,9 @@ from backend.models.supplier import Supplier
 
 from backend.services.external_apis import fetch_gdacs_alerts, fetch_reliefweb_alerts, fetch_news_disaster_alerts, geocode_city, get_alternate_route
 from backend.services.ai_service import analyze_disaster_severity, predict_demand_surge, rank_emergency_suppliers
+from backend.settings import HOSPITAL_CITY, HOSPITAL_LAT, HOSPITAL_LNG
 
 logger = logging.getLogger(__name__)
-
-# Hospital Coordinates (Demo Location: Nagpur, center of India)
-HOSPITAL_LAT = 21.1458
-HOSPITAL_LNG = 79.0882
 
 def haversine_km(lat1, lng1, lat2, lng2) -> float:
     R = 6371
@@ -31,6 +28,51 @@ def haversine_km(lat1, lng1, lat2, lng2) -> float:
 
 def is_in_disaster_zone(supplier_lat, supplier_lng, event_lat, event_lng, radius_km) -> bool:
     return haversine_km(supplier_lat, supplier_lng, event_lat, event_lng) <= radius_km
+
+
+def build_avoid_polygon(event_lat: float, event_lng: float, radius_km: float, points: int = 24) -> dict:
+    """Approximate a circular disaster zone as a polygon for route avoidance."""
+    coords = []
+    lat_scale = radius_km / 111.0
+    lng_scale = radius_km / max(1e-6, 111.0 * cos(radians(event_lat)))
+
+    for idx in range(points):
+        theta = 2 * pi * idx / points
+        lat = event_lat + lat_scale * sin(theta)
+        lng = event_lng + lng_scale * cos(theta)
+        coords.append([lng, lat])
+
+    coords.append(coords[0])
+    return {"type": "Polygon", "coordinates": [coords]}
+
+
+def build_fallback_route_geojson(
+    origin_lat: float,
+    origin_lng: float,
+    dest_lat: float,
+    dest_lng: float,
+    event_lat: float,
+    event_lng: float,
+    radius_km: float,
+) -> dict:
+    """Return a rerouted polyline that visibly skirts around the disaster zone."""
+    clearance_lat = (radius_km / 111.0) * 1.35
+    clearance_lng = (radius_km / max(1e-6, 111.0 * cos(radians(event_lat)))) * 1.35
+    waypoint_lat = event_lat + clearance_lat if origin_lat <= dest_lat else event_lat - clearance_lat
+    waypoint_lng = event_lng + clearance_lng
+
+    return {
+        "type": "Feature",
+        "properties": {"fallback": True},
+        "geometry": {
+            "type": "LineString",
+            "coordinates": [
+                [origin_lng, origin_lat],
+                [waypoint_lng, waypoint_lat],
+                [dest_lng, dest_lat],
+            ],
+        },
+    }
 
 async def run_disaster_pipeline(db: Session):
     """Full pipeline: poll, geocode, analyze severity, predict surges, reroute."""
@@ -58,12 +100,11 @@ async def run_disaster_pipeline(db: Session):
         
         if existing:
             continue
+
+        db.query(DisasterEvent).filter(DisasterEvent.is_active == True).update({"is_active": False})
             
-        # Parse basic location heuristic (mock geocoding if complex)
-        # In a real system, we'd use NLP to extract city names
-        # For demo, we just assume the disaster is near our hospital or use a random city
-        # Let's just use the hospital coordinates to guarantee a hit in the demo simulation
-        event_lat, event_lng = HOSPITAL_LAT, HOSPITAL_LNG + 1.0 # Offset slightly
+        # Keep the demo centered around the configured hospital instead of hardcoded coordinates.
+        event_lat, event_lng = HOSPITAL_LAT, HOSPITAL_LNG + 1.0
         
         # 1. AI Severity Analysis
         ai_res = analyze_disaster_severity(db, {"raw_text": title + " " + desc, "source": evt.get("source")})
@@ -75,7 +116,10 @@ async def run_disaster_pipeline(db: Session):
             source=evt.get("source", "unknown"),
             disaster_type=ai_res.get("disaster_type", "other"),
             severity=ai_res.get("severity", 1),
-            location_name="Parsed Location", 
+            location_name=f"Near {HOSPITAL_CITY}",
+            lat=event_lat,
+            lng=event_lng,
+            affected_radius_km=radius_km,
             detected_at=datetime.now(),
             is_active=True,
             raw_text=title,
@@ -95,43 +139,59 @@ async def run_disaster_pipeline(db: Session):
                 "severity": new_evt.severity,
                 "item_name": item.name,
                 "current_stock": inv.current_stock,
-                "daily_consumption": inv.daily_consumption_rate
+                "daily_consumption": inv.daily_consumption_disaster
             }
             surge_res = predict_demand_surge(db, surge_context)
             
             # Optionally store to disaster_predictions
             pred = DisasterPrediction(
-                prediction_id=str(uuid.uuid4()),
                 event_id=new_evt.event_id,
                 item_id=item.item_id,
                 surge_multiplier=surge_res.get("surge_multiplier", 1.0),
-                predicted_stockout_hours=surge_res.get("predicted_stockout_in_hours", 48.0),
-                recommended_action=surge_res.get("reasoning", "Monitor closely"),
+                urgency_window_hours=surge_res.get("urgency_window_hours", 24),
+                predicted_stockout_in_hours=surge_res.get("predicted_stockout_in_hours", 48.0),
+                ai_reasoning=surge_res.get("reasoning", "Monitor closely"),
                 created_at=datetime.now()
             )
             db.add(pred)
             
         # 3. Affected Routes & Re-Routing
         pending_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).all()
+        avoid_polygon = build_avoid_polygon(event_lat, event_lng, radius_km)
         for order in pending_orders:
             supplier = db.query(Supplier).filter(Supplier.supplier_id == order.supplier_id).first()
+            if not supplier:
+                continue
             
-            # Assume dummy lat/lng for supplier if missing (demo fallback)
-            sup_lat = HOSPITAL_LAT - 1.0
-            sup_lng = HOSPITAL_LNG - 1.0
+            sup_lat = supplier.lat
+            sup_lng = supplier.lng
             
             if is_in_disaster_zone(sup_lat, sup_lng, event_lat, event_lng, radius_km):
                 # Supplier affected!
                 order.status = "delayed"
+                route_geojson = await get_alternate_route(sup_lat, sup_lng, HOSPITAL_LAT, HOSPITAL_LNG, avoid_polygon)
+                if not route_geojson:
+                    route_geojson = build_fallback_route_geojson(
+                        sup_lat,
+                        sup_lng,
+                        HOSPITAL_LAT,
+                        HOSPITAL_LNG,
+                        event_lat,
+                        event_lng,
+                        radius_km,
+                    )
                 
                 route = AffectedRoute(
                     route_id=str(uuid.uuid4()),
                     event_id=new_evt.event_id,
+                    supplier_id=order.supplier_id,
                     order_id=order.order_id,
-                    original_eta=order.expected_delivery_date,
-                    revised_eta=order.expected_delivery_date + timedelta(days=5), # naive fallback
-                    alternate_route_geojson=None,
-                    risk_level="high",
+                    original_route_name="Primary supplier route",
+                    is_blocked=True,
+                    alternate_route_geojson=route_geojson,
+                    alternate_mode="road",
+                    alternate_eta_hours=float(timedelta(days=5).total_seconds() / 3600),
+                    disruption_risk="high",
                     created_at=datetime.now()
                 )
                 db.add(route)

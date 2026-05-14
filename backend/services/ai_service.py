@@ -1,5 +1,4 @@
 """AI Service using local Ollama instance for predictive analysis."""
-import os
 import json
 import re
 import logging
@@ -9,11 +8,9 @@ import uuid
 
 from sqlalchemy.orm import Session
 from backend.models.ai_predictions_log import AIPredictionsLog
+from backend.settings import OLLAMA_BASE_URL, OLLAMA_MODEL
 
 logger = logging.getLogger(__name__)
-
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 
 def parse_ollama_json(raw: str) -> dict:
     """Robust JSON parsing to handle markdown blocks and trailing text."""

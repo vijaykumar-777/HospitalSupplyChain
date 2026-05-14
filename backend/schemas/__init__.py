@@ -161,6 +161,10 @@ class AffectedRouteResponse(BaseModel):
     route_id: str
     event_id: str
     supplier_id: str
+    supplier_name: Optional[str] = None
+    supplier_city: Optional[str] = None
+    supplier_lat: Optional[float] = None
+    supplier_lng: Optional[float] = None
     order_id: Optional[str] = None
     original_route_name: Optional[str] = None
     is_blocked: bool
@@ -168,6 +172,9 @@ class AffectedRouteResponse(BaseModel):
     alternate_route_geojson: Optional[dict] = None
     alternate_mode: Optional[str] = None
     alternate_eta_hours: Optional[float] = None
+    hospital_lat: Optional[float] = None
+    hospital_lng: Optional[float] = None
+    hospital_city: Optional[str] = None
     model_config = {"from_attributes": True}
 
 class AIPredictionLogResponse(BaseModel):

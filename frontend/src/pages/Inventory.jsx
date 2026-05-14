@@ -42,7 +42,8 @@ export default function Inventory() {
             <tbody className="divide-y divide-gray-100">
               {inventory.slice(0, 100).map((inv) => {
                 const isCritical = inv.current_stock <= inv.reorder_level;
-                const daysRemaining = Math.round(inv.current_stock / inv.daily_consumption_rate);
+                const dailyUse = inv.daily_consumption_normal || 0;
+                const daysRemaining = dailyUse > 0 ? Math.round(inv.current_stock / dailyUse) : 0;
                 
                 return (
                   <tr key={inv.item_id} className={`hover:bg-gray-50 transition-colors ${isCritical ? 'bg-red-50' : ''}`}>
