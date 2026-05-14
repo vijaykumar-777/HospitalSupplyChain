@@ -1,96 +1,374 @@
-import { useEffect, useState } from 'react';
-import { fetchActiveDisaster, fetchAffectedRoutes, fetchDisasterContext, fetchDisasterEvents, triggerDisasterCheck, simulateDisaster } from '../api';
-import { MapContainer, TileLayer, Marker, Popup, Circle, GeoJSON } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import { AlertTriangle, RefreshCw, Radio, PlayCircle, MapPinned, Route } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { DeckGL } from '@deck.gl/react';
+import { GeoJsonLayer, PathLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
+import { circle as turfCircle } from '@turf/turf';
+import maplibregl from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import { AlertTriangle, CheckCircle2, MapPinned, PlayCircle, Radio, RefreshCw, Route } from 'lucide-react';
 import { format } from 'date-fns';
-import L from 'leaflet';
+import { fetchDisasterEvents, fetchDisasterMapData, simulateDisaster, triggerDisasterCheck } from '../api';
 
-// Fix leaflet icon issue in react
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41]
-});
-L.Marker.prototype.options.icon = DefaultIcon;
+const MAP_STYLE = {
+  version: 8,
+  sources: {
+    cartoDark: {
+      type: 'raster',
+      tiles: ['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'],
+      tileSize: 256,
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    },
+  },
+  layers: [
+    {
+      id: 'carto-dark',
+      type: 'raster',
+      source: 'cartoDark',
+      minzoom: 0,
+      maxzoom: 20,
+      paint: {
+        'raster-opacity': 0.92,
+        'raster-saturation': -0.35,
+        'raster-contrast': 0.1,
+      },
+    },
+  ],
+};
+
+const INITIAL_VIEW_STATE = {
+  longitude: 77.5946,
+  latitude: 12.9716,
+  zoom: 6.2,
+  pitch: 42,
+  bearing: -8,
+};
+
+function extractPaths(geojson) {
+  if (!geojson) return [];
+
+  const geometries = geojson.type === 'FeatureCollection'
+    ? geojson.features.map((feature) => feature.geometry)
+    : [geojson.type === 'Feature' ? geojson.geometry : geojson];
+
+  return geometries.flatMap((geometry) => {
+    if (!geometry) return [];
+    if (geometry.type === 'LineString') return [geometry.coordinates];
+    if (geometry.type === 'MultiLineString') return geometry.coordinates;
+    return [];
+  });
+}
+
+function buildDashedSegments(path) {
+  const segments = [];
+  const steps = 16;
+
+  for (let index = 0; index < path.length - 1; index += 1) {
+    const start = path[index];
+    const end = path[index + 1];
+
+    for (let step = 0; step < steps; step += 2) {
+      const from = step / steps;
+      const to = Math.min((step + 1) / steps, 1);
+      segments.push([
+        [
+          start[0] + (end[0] - start[0]) * from,
+          start[1] + (end[1] - start[1]) * from,
+        ],
+        [
+          start[0] + (end[0] - start[0]) * to,
+          start[1] + (end[1] - start[1]) * to,
+        ],
+      ]);
+    }
+  }
+
+  return segments;
+}
+
+function formatEta(hours) {
+  if (!hours && hours !== 0) return 'Calculating';
+  if (hours >= 24) return `${Math.round(hours / 24)}d`;
+  return `${Number(hours).toFixed(1)}h`;
+}
+
+function supplierColor(supplier) {
+  if (supplier.inside_disaster_zone || supplier.risk_level === 'blocked') return [248, 81, 73, 235];
+  if (supplier.is_govt_reserve) return [250, 204, 21, 235];
+  if (supplier.emergency_certified) return [168, 85, 247, 235];
+  if (supplier.risk_level === 'medium') return [251, 191, 36, 225];
+  return [34, 197, 94, 225];
+}
+
+function StatPill({ label, value, tone = 'slate' }) {
+  const tones = {
+    cyan: 'border-cyan-400/30 bg-cyan-400/10 text-cyan-100',
+    red: 'border-red-400/30 bg-red-500/10 text-red-100',
+    green: 'border-emerald-400/30 bg-emerald-500/10 text-emerald-100',
+    slate: 'border-white/10 bg-white/5 text-slate-100',
+  };
+
+  return (
+    <div className={`rounded-xl border px-4 py-3 ${tones[tone]}`}>
+      <p className="text-[11px] uppercase tracking-[0.22em] opacity-70">{label}</p>
+      <p className="mt-1 text-lg font-bold">{value}</p>
+    </div>
+  );
+}
 
 export default function Disaster() {
+  const mapContainerRef = useRef(null);
+  const mapRef = useRef(null);
   const [activeEvent, setActiveEvent] = useState(null);
   const [history, setHistory] = useState([]);
   const [hospital, setHospital] = useState({
     lat: 12.9716,
     lng: 77.5946,
     city: 'Bengaluru',
+    name: 'Bengaluru Central Hospital',
   });
+  const [suppliers, setSuppliers] = useState([]);
   const [routes, setRoutes] = useState([]);
+  const [demandSurge, setDemandSurge] = useState([]);
+  const [emergencySuppliers, setEmergencySuppliers] = useState([]);
+  const [selectedRouteId, setSelectedRouteId] = useState(null);
+  const [activeTab, setActiveTab] = useState('orders');
   const [loading, setLoading] = useState(true);
   const [checking, setChecking] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    const loadData = async () => {
-      setLoading(true);
-      try {
-        const [contextRes, activeRes, histRes, routesRes] = await Promise.all([
-          fetchDisasterContext(),
-          fetchActiveDisaster(),
-          fetchDisasterEvents(),
-          fetchAffectedRoutes(),
-        ]);
-        if (cancelled) return;
-
-        setHospital(contextRes.data.hospital);
-        setActiveEvent(activeRes.data.active ? activeRes.data.event : null);
-        setHistory(histRes.data);
-        setRoutes(routesRes.data);
-      } catch (err) {
-        if (!cancelled) {
-          console.error("Failed to load disaster info", err);
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void loadData();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
   const loadData = async () => {
-    setLoading(true);
     try {
-      const [contextRes, activeRes, histRes, routesRes] = await Promise.all([
-        fetchDisasterContext(),
-        fetchActiveDisaster(),
+      const [mapRes, histRes] = await Promise.all([
+        fetchDisasterMapData(),
         fetchDisasterEvents(),
-        fetchAffectedRoutes(),
       ]);
-      setHospital(contextRes.data.hospital);
-      setActiveEvent(activeRes.data.active ? activeRes.data.event : null);
+
+      const data = mapRes.data;
+      setHospital(data.hospital);
+      setActiveEvent(data.event);
+      setSuppliers(data.suppliers || []);
+      setRoutes(data.routes || []);
+      setDemandSurge(data.demand_surge || []);
+      setEmergencySuppliers(data.emergency_suppliers || []);
       setHistory(histRes.data);
-      setRoutes(routesRes.data);
+      setSelectedRouteId((current) => (
+        data.routes?.some((route) => route.route_id === current)
+          ? current
+          : data.routes?.[0]?.route_id || null
+      ));
+
+      const center = data.event || data.hospital;
+      setViewState((current) => ({
+        ...current,
+        longitude: center.lng,
+        latitude: center.lat,
+        zoom: data.event ? 6.4 : 6.1,
+      }));
     } catch (err) {
-      console.error("Failed to load disaster info", err);
+      console.error('Failed to load disaster info', err);
     } finally {
       setLoading(false);
     }
   };
 
+  useEffect(() => {
+    const loadInitialData = async () => {
+      await loadData();
+    };
+
+    void loadInitialData();
+  }, []);
+
+  useEffect(() => {
+    if (!mapContainerRef.current || mapRef.current) return;
+
+    mapRef.current = new maplibregl.Map({
+      container: mapContainerRef.current,
+      style: MAP_STYLE,
+      center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
+      zoom: INITIAL_VIEW_STATE.zoom,
+      pitch: INITIAL_VIEW_STATE.pitch,
+      bearing: INITIAL_VIEW_STATE.bearing,
+      interactive: false,
+      attributionControl: false,
+    });
+
+    mapRef.current.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+
+    return () => {
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    mapRef.current.jumpTo({
+      center: [viewState.longitude, viewState.latitude],
+      zoom: viewState.zoom,
+      pitch: viewState.pitch,
+      bearing: viewState.bearing,
+    });
+  }, [viewState]);
+
+  const selectedRoute = routes.find((route) => route.route_id === selectedRouteId) || routes[0];
+  const disasterZone = useMemo(() => {
+    if (!activeEvent?.lat || !activeEvent?.lng) return null;
+    return activeEvent.zone_geojson || turfCircle(
+      [activeEvent.lng, activeEvent.lat],
+      activeEvent.affected_radius_km || 150,
+      { steps: 64, units: 'kilometers' },
+    );
+  }, [activeEvent]);
+
+  const warningZone = useMemo(() => {
+    if (!activeEvent?.lat || !activeEvent?.lng) return null;
+    return turfCircle(
+      [activeEvent.lng, activeEvent.lat],
+      (activeEvent.affected_radius_km || 150) * 1.18,
+      { steps: 64, units: 'kilometers' },
+    );
+  }, [activeEvent]);
+
+  const routeLayerData = useMemo(() => {
+    const original = routes.flatMap((route) => (
+      extractPaths(route.original_route_geojson).flatMap((path) => (
+        buildDashedSegments(path).map((segment) => ({ ...route, path: segment }))
+      ))
+    ));
+    const alternate = routes.flatMap((route) => (
+      extractPaths(route.alternate_route_geojson).map((path) => ({ ...route, path }))
+    ));
+
+    return { original, alternate };
+  }, [routes]);
+
+  const movementDots = useMemo(() => (
+    routeLayerData.alternate.flatMap((route) => route.path
+      .filter((_, index) => index > 0 && index % Math.max(1, Math.floor(route.path.length / 5)) === 0)
+      .map((position) => ({ ...route, position })))
+  ), [routeLayerData.alternate]);
+
+  const layers = [
+    warningZone && new GeoJsonLayer({
+      id: 'warning-zone',
+      data: warningZone,
+      stroked: true,
+      filled: false,
+      getLineColor: [251, 146, 60, 210],
+      getLineWidth: 4200,
+      lineWidthMinPixels: 2,
+    }),
+    disasterZone && new GeoJsonLayer({
+      id: 'disaster-zone',
+      data: disasterZone,
+      stroked: true,
+      filled: true,
+      getFillColor: activeEvent?.severity >= 4 ? [239, 68, 68, 80] : [251, 146, 60, 70],
+      getLineColor: [248, 113, 113, 240],
+      getLineWidth: 5000,
+      lineWidthMinPixels: 3,
+    }),
+    new PathLayer({
+      id: 'original-routes',
+      data: routeLayerData.original,
+      getPath: (route) => route.path,
+      getColor: [248, 81, 73, 235],
+      getWidth: 2600,
+      widthMinPixels: 3,
+      pickable: true,
+    }),
+    new PathLayer({
+      id: 'alternate-routes-glow',
+      data: routeLayerData.alternate,
+      getPath: (route) => route.path,
+      getColor: [34, 211, 238, 65],
+      getWidth: 9800,
+      widthMinPixels: 8,
+    }),
+    new PathLayer({
+      id: 'alternate-routes',
+      data: routeLayerData.alternate,
+      getPath: (route) => route.path,
+      getColor: (route) => route.route_id === selectedRoute?.route_id ? [52, 211, 153, 245] : [34, 211, 238, 220],
+      getWidth: (route) => route.route_id === selectedRoute?.route_id ? 5200 : 3800,
+      widthMinPixels: 5,
+      pickable: true,
+    }),
+    new ScatterplotLayer({
+      id: 'route-motion-dots',
+      data: movementDots,
+      getPosition: (dot) => dot.position,
+      getRadius: 9000,
+      radiusMinPixels: 4,
+      radiusMaxPixels: 9,
+      getFillColor: [190, 242, 100, 220],
+    }),
+    new ScatterplotLayer({
+      id: 'hospital-marker',
+      data: [{ ...hospital, type: 'hospital' }],
+      getPosition: (point) => [point.lng, point.lat],
+      getRadius: 18000,
+      radiusMinPixels: 13,
+      radiusMaxPixels: 24,
+      getFillColor: [59, 130, 246, 245],
+      getLineColor: [219, 234, 254, 255],
+      lineWidthMinPixels: 3,
+      stroked: true,
+      pickable: true,
+    }),
+    new ScatterplotLayer({
+      id: 'supplier-markers',
+      data: suppliers,
+      getPosition: (supplier) => [supplier.lng, supplier.lat],
+      getRadius: (supplier) => supplier.supplier_id === selectedRoute?.supplier_id ? 15000 : 11000,
+      radiusMinPixels: (supplier) => supplier.supplier_id === selectedRoute?.supplier_id ? 11 : 7,
+      radiusMaxPixels: 18,
+      getFillColor: supplierColor,
+      getLineColor: [255, 255, 255, 230],
+      lineWidthMinPixels: 2,
+      stroked: true,
+      pickable: true,
+    }),
+    new TextLayer({
+      id: 'map-labels',
+      data: [
+        activeEvent && {
+          label: `${activeEvent.disaster_type?.toUpperCase()} ZONE`,
+          lng: activeEvent.lng,
+          lat: activeEvent.lat,
+          color: [254, 202, 202, 255],
+        },
+        {
+          label: hospital.city,
+          lng: hospital.lng,
+          lat: hospital.lat,
+          color: [191, 219, 254, 255],
+        },
+        ...routes.slice(0, 4).map((route) => ({
+          label: route.supplier_name || 'Supplier',
+          lng: route.supplier_lng,
+          lat: route.supplier_lat,
+          color: [220, 252, 231, 255],
+        })),
+      ].filter(Boolean),
+      getPosition: (label) => [label.lng, label.lat],
+      getText: (label) => label.label,
+      getColor: (label) => label.color,
+      getSize: 13,
+      getPixelOffset: [0, -22],
+      fontWeight: 700,
+    }),
+  ].filter(Boolean);
+
   const handleManualTrigger = async () => {
     setChecking(true);
     try {
       await triggerDisasterCheck();
+      window.dispatchEvent(new Event('disaster:changed'));
       await loadData();
     } catch (err) {
-      console.error("Manual trigger failed", err);
+      console.error('Manual trigger failed', err);
     } finally {
       setChecking(false);
     }
@@ -100,9 +378,10 @@ export default function Disaster() {
     setChecking(true);
     try {
       await simulateDisaster();
+      window.dispatchEvent(new Event('disaster:changed'));
       await loadData();
     } catch (err) {
-      console.error("Simulate failed", err);
+      console.error('Simulate failed', err);
     } finally {
       setChecking(false);
     }
@@ -110,26 +389,34 @@ export default function Disaster() {
 
   if (loading) return <div>Loading disaster intelligence...</div>;
 
-  const hospitalPos = [hospital.lat, hospital.lng];
-  const disasterCenter = activeEvent?.lat && activeEvent?.lng ? [activeEvent.lat, activeEvent.lng] : hospitalPos;
-
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800">Disaster Intelligence</h1>
-        <div className="flex gap-3">
-          <button 
+    <div className="-m-8 min-h-screen bg-[#07111f] bg-[radial-gradient(circle_at_20%_10%,rgba(14,165,233,0.18),transparent_28%),linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[length:auto,36px_36px,36px_36px] p-6 text-slate-100">
+      <div className="mb-5 flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.34em] text-cyan-200">Emergency logistics command center</p>
+          <h1 className="mt-2 text-3xl font-black tracking-tight">
+            {activeEvent ? 'Disaster Mode Active' : 'Disaster Intelligence'}
+          </h1>
+          <p className="mt-1 max-w-4xl text-sm text-slate-300">
+            {activeEvent
+              ? `${activeEvent.raw_text} Radius ${activeEvent.affected_radius_km || 150} km near ${activeEvent.location_name}.`
+              : 'No active incident is declared. The control tower is ready to model affected supplier routes.'}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <button
             onClick={handleSimulate}
             disabled={checking}
-            className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition disabled:opacity-50"
+            className="flex items-center gap-2 rounded-xl bg-red-500 px-4 py-2 font-bold text-white shadow-lg shadow-red-950/40 transition hover:bg-red-400 disabled:opacity-50"
           >
             <PlayCircle size={18} />
             Simulate Disaster
           </button>
-          <button 
+          <button
             onClick={handleManualTrigger}
             disabled={checking}
-            className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition disabled:opacity-50"
+            className="flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 font-bold text-cyan-100 transition hover:bg-cyan-400/20 disabled:opacity-50"
           >
             <RefreshCw size={18} className={checking ? 'animate-spin' : ''} />
             {checking ? 'Scanning APIs...' : 'Force Live Scan'}
@@ -137,145 +424,245 @@ export default function Disaster() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Map View */}
-        <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden h-[500px] relative z-0">
-          <MapContainer center={hospitalPos} zoom={7} scrollWheelZoom={false} className="h-full w-full">
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-            />
-            {/* Hospital Marker */}
-            <Marker position={hospitalPos}>
-              <Popup>
-                <strong>{hospital.city} Central Hospital</strong><br />
-                Main supply hub.
-              </Popup>
-            </Marker>
+      <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-4">
+        <StatPill label="Incident Status" value={activeEvent ? `Severity ${activeEvent.severity}/5` : 'All Clear'} tone={activeEvent ? 'red' : 'green'} />
+        <StatPill label="Affected Orders" value={routes.length} tone="cyan" />
+        <StatPill label="Emergency Suppliers" value={emergencySuppliers.length} tone="green" />
+        <StatPill label="Demand Surge Items" value={demandSurge.length} />
+      </div>
 
-            {/* Active Disaster Highlight */}
-            {activeEvent && (
-              <Circle 
-                center={disasterCenter}
-                radius={(activeEvent.affected_radius_km || 150) * 1000}
-                pathOptions={{ color: 'red', fillColor: 'red', fillOpacity: 0.2 }}
-              >
-                <Popup>
-                  <strong>{activeEvent.disaster_type.toUpperCase()} Zone</strong><br/>
-                  Severity: {activeEvent.severity}/5<br />
-                  {activeEvent.location_name}
-                </Popup>
-              </Circle>
+      <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
+        <section className="relative h-[620px] overflow-hidden rounded-3xl border border-white/10 bg-slate-950 shadow-2xl">
+          <div ref={mapContainerRef} className="absolute inset-0" />
+          <DeckGL
+            viewState={viewState}
+            controller
+            layers={layers}
+            onViewStateChange={({ viewState: nextViewState }) => setViewState(nextViewState)}
+            getTooltip={({ object }) => {
+              if (!object) return null;
+              if (object.type === 'hospital') return `${hospital.name}\nReceiving hub`;
+              if (object.supplier_id) return `${object.name || object.supplier_name}\nRisk: ${object.risk_level || object.disruption_risk || 'route'}\nETA: ${formatEta(object.alternate_eta_hours)}`;
+              return null;
+            }}
+          />
+
+          <div className="absolute bottom-5 left-5 rounded-2xl border border-white/10 bg-slate-950/80 p-4 text-xs shadow-xl backdrop-blur">
+            <p className="mb-3 font-bold uppercase tracking-[0.2em] text-slate-300">Map Legend</p>
+            {[
+              ['bg-blue-500', 'Hospital'],
+              ['bg-emerald-400', 'Safe supplier'],
+              ['bg-amber-400', 'At-risk / reserve'],
+              ['bg-red-500', 'Blocked supplier'],
+              ['bg-purple-500', 'Emergency certified'],
+              ['border-t-2 border-dashed border-red-400', 'Original blocked route'],
+              ['border-t-4 border-cyan-300', 'Recommended alternate route'],
+            ].map(([style, label]) => (
+              <div key={label} className="mb-2 flex items-center gap-2 text-slate-200 last:mb-0">
+                <span className={`inline-block h-3 w-7 rounded-full ${style}`} />
+                {label}
+              </div>
+            ))}
+          </div>
+
+          {activeEvent && (
+            <div className="absolute right-5 top-5 max-w-sm rounded-2xl border border-red-300/20 bg-red-950/70 p-4 shadow-xl backdrop-blur">
+              <p className="flex items-center gap-2 text-sm font-bold text-red-100">
+                <AlertTriangle size={17} />
+                {activeEvent.disaster_type?.toUpperCase()} ZONE
+              </p>
+              <p className="mt-2 text-xs leading-5 text-red-100/80">
+                Red polygon marks the affected area. Cyan/green corridors are alternate routes requested with disaster avoidance geometry.
+              </p>
+            </div>
+          )}
+        </section>
+
+        <aside className="space-y-5">
+          <section className="rounded-3xl border border-white/10 bg-white/7 p-5 shadow-2xl backdrop-blur">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="flex items-center gap-2 text-lg font-black">
+                <Route className="text-cyan-300" />
+                Route Decision
+              </h2>
+              {selectedRoute && <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-200">Recommended</span>}
+            </div>
+
+            {selectedRoute ? (
+              <div className="space-y-4">
+                <select
+                  value={selectedRoute.route_id}
+                  onChange={(event) => setSelectedRouteId(event.target.value)}
+                  className="w-full rounded-xl border border-white/10 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none"
+                >
+                  {routes.map((route) => (
+                    <option key={route.route_id} value={route.route_id}>
+                      {route.order_id || 'Route'} - {route.supplier_name || 'Supplier'}
+                    </option>
+                  ))}
+                </select>
+
+                <div className="rounded-2xl border border-cyan-300/20 bg-cyan-400/10 p-4">
+                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">Recommended Route</p>
+                  <p className="mt-1 text-xl font-black">{selectedRoute.supplier_name} to {hospital.city}</p>
+                  <p className="mt-2 text-sm text-slate-300">{selectedRoute.item_name || 'Emergency medical supplies'} {selectedRoute.quantity ? `x ${selectedRoute.quantity}` : ''}</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <StatPill label="Original" value={selectedRoute.original_status?.toUpperCase() || 'BLOCKED'} tone="red" />
+                  <StatPill label="Alternate ETA" value={formatEta(selectedRoute.alternate_eta_hours)} tone="green" />
+                  <StatPill label="Distance" value={selectedRoute.alternate_distance_km ? `${selectedRoute.alternate_distance_km} km` : 'Road path'} />
+                  <StatPill label="Risk Reduced" value={`${selectedRoute.risk_reduction_percent || 82}%`} tone="cyan" />
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Why this route?</p>
+                  <p className="text-sm leading-6 text-slate-200">{selectedRoute.reason}</p>
+                  <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                    <span className="rounded-full bg-white/10 px-3 py-1">Supplier reliability {Math.round((selectedRoute.supplier_reliability_score || 0) * 100)}%</span>
+                    <span className="rounded-full bg-white/10 px-3 py-1">{selectedRoute.supplier_emergency_certified ? 'Emergency certified' : 'Standard supplier'}</span>
+                    <span className="rounded-full bg-white/10 px-3 py-1">Mode {selectedRoute.alternate_mode || 'road'}</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <p className="text-sm text-slate-300">No affected routes are currently marked. Trigger a simulation to generate a response plan.</p>
             )}
+          </section>
 
-            {routes.map((route) => (
-              route.supplier_lat && route.supplier_lng ? (
-                <Marker key={route.route_id} position={[route.supplier_lat, route.supplier_lng]}>
-                  <Popup>
-                    <strong>{route.supplier_name || 'Supplier'}</strong><br />
-                    {route.supplier_city || 'Unknown city'}<br />
-                    Risk: {route.disruption_risk || 'unknown'}
-                  </Popup>
-                </Marker>
-              ) : null
-            ))}
-
-            {routes.map((route) => (
-              route.alternate_route_geojson ? (
-                <GeoJSON
-                  key={`${route.route_id}-geo`}
-                  data={route.alternate_route_geojson}
-                  style={() => ({
-                    color: '#2563eb',
-                    weight: 4,
-                    opacity: 0.85,
-                  })}
-                />
-              ) : null
-            ))}
-          </MapContainer>
-        </div>
-
-        {/* Active Alert Sidebar */}
-        <div className="space-y-6">
-          <div className={`rounded-xl shadow-sm border p-6 ${activeEvent ? 'bg-red-50 border-red-200' : 'bg-green-50 border-green-200'}`}>
-            <h2 className="text-lg font-bold flex items-center gap-2 mb-4">
-              {activeEvent ? <AlertTriangle className="text-red-600" /> : <Radio className="text-green-600" />}
+          <section className={`rounded-3xl border p-5 shadow-2xl backdrop-blur ${activeEvent ? 'border-red-300/20 bg-red-950/35' : 'border-emerald-300/20 bg-emerald-950/25'}`}>
+            <h2 className="mb-3 flex items-center gap-2 text-lg font-black">
+              {activeEvent ? <AlertTriangle className="text-red-300" /> : <Radio className="text-emerald-300" />}
               {activeEvent ? 'Active Incident' : 'All Clear'}
             </h2>
-            
             {activeEvent ? (
-              <div className="space-y-4">
-                <div className="bg-white bg-opacity-60 p-4 rounded-lg">
-                  <span className="text-red-800 font-bold block mb-1 text-lg">{activeEvent.raw_text}</span>
-                  <p className="text-sm text-gray-700">Source: <span className="font-semibold capitalize">{activeEvent.source}</span></p>
-                  <p className="text-sm text-gray-700">Location: <span className="font-semibold">{activeEvent.location_name}</span></p>
-                  <p className="text-sm text-gray-700">Detected: {format(new Date(activeEvent.detected_at), 'MMM dd HH:mm')}</p>
-                </div>
-                
-                <div className="bg-white bg-opacity-60 p-4 rounded-lg border-l-4 border-red-500">
-                  <span className="text-gray-800 font-medium block mb-1 text-sm uppercase tracking-wider">AI Analysis</span>
-                  <p className="text-gray-800 text-sm">{activeEvent.ai_summary || 'Analyzing...'}</p>
-                  <div className="mt-3 flex justify-between">
-                    <span className="text-xs font-bold text-red-600">Severity: {activeEvent.severity}/5</span>
-                    <span className="text-xs font-bold text-red-600">Type: {activeEvent.disaster_type}</span>
-                  </div>
-                </div>
+              <div className="space-y-3 text-sm text-slate-200">
+                <p className="font-bold text-red-100">{activeEvent.location_name}</p>
+                <p>{activeEvent.summary || 'Analyzing live risk signal...'}</p>
+                <p className="text-xs text-slate-300">Detected {format(new Date(activeEvent.detected_at), 'MMM dd HH:mm')} from {activeEvent.source}</p>
               </div>
             ) : (
-              <p className="text-gray-600">No active disasters detected near supply routes.</p>
+              <p className="text-sm text-slate-300">No active disasters detected near supply routes.</p>
             )}
-          </div>
+          </section>
 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-md font-bold text-gray-800 mb-4 flex items-center gap-2">
-              <Route size={18} className="text-blue-600" />
-              Live Route Impact
+          <section className="rounded-3xl border border-white/10 bg-white/7 p-5 shadow-2xl backdrop-blur">
+            <h2 className="mb-3 flex items-center gap-2 text-lg font-black">
+              <MapPinned className="text-amber-300" />
+              Recent Events
             </h2>
-
-            {routes.length > 0 ? (
-              <div className="space-y-3">
-                {routes.slice(0, 3).map((route) => (
-                  <div key={route.route_id} className="rounded-lg border border-blue-100 bg-blue-50 p-4">
-                    <p className="font-semibold text-gray-800">{route.supplier_name || 'Supplier route rerouted'}</p>
-                    <p className="text-sm text-gray-600">{route.supplier_city || 'Unknown city'} to {route.hospital_city || hospital.city}</p>
-                    <div className="mt-2 flex justify-between text-xs font-medium">
-                      <span className="text-red-700 uppercase">{route.disruption_risk || 'high'} risk</span>
-                      <span className="text-blue-700">ETA +{Math.round((route.alternate_eta_hours || 0) / 24)}d</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-gray-600">No supplier routes are currently marked as impacted.</p>
-            )}
-          </div>
-
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 max-h-[220px] overflow-y-auto">
-            <h2 className="text-md font-bold text-gray-800 mb-3 sticky top-0 bg-white pb-2 border-b">Recent Events</h2>
-            <div className="space-y-3">
-              {history.filter(h => !h.is_active).slice(0, 5).map(event => (
-                <div key={event.event_id} className="text-sm border-b border-gray-50 pb-2">
-                  <p className="font-medium text-gray-800 truncate" title={event.raw_text}>{event.raw_text}</p>
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="max-h-[180px] space-y-3 overflow-y-auto pr-1">
+              {history.filter((event) => !event.is_active).slice(0, 5).map((event) => (
+                <div key={event.event_id} className="rounded-xl bg-white/5 p-3 text-sm">
+                  <p className="truncate font-semibold text-slate-100" title={event.raw_text}>{event.raw_text}</p>
+                  <div className="mt-1 flex justify-between text-xs text-slate-400">
                     <span className="capitalize">{event.source}</span>
                     <span>{format(new Date(event.detected_at), 'MMM dd')}</span>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="bg-slate-900 text-white rounded-xl shadow-sm p-6">
-            <h2 className="text-md font-bold mb-3 flex items-center gap-2">
-              <MapPinned size={18} className="text-amber-300" />
-              Hospital Control Tower
-            </h2>
-            <p className="text-sm text-slate-200">Primary hub: {hospital.city}</p>
-            <p className="text-sm text-slate-300 mt-1">Routes shown in blue are rerouted or fallback paths feeding the main hospital.</p>
-          </div>
-        </div>
+          </section>
+        </aside>
       </div>
+
+      <section className="mt-5 rounded-3xl border border-white/10 bg-white/7 p-5 shadow-2xl backdrop-blur">
+        <div className="mb-4 flex flex-wrap gap-3">
+          {[
+            ['orders', 'Affected Orders'],
+            ['suppliers', 'Emergency Suppliers'],
+            ['surge', 'Demand Surge'],
+          ].map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`rounded-xl px-4 py-2 text-sm font-bold transition ${activeTab === key ? 'bg-cyan-300 text-slate-950' : 'bg-white/5 text-slate-300 hover:bg-white/10'}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {activeTab === 'orders' && (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[760px] text-left text-sm">
+              <thead className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                <tr>
+                  <th className="px-3 py-2">Order ID</th>
+                  <th className="px-3 py-2">Item</th>
+                  <th className="px-3 py-2">Supplier</th>
+                  <th className="px-3 py-2">Route Risk</th>
+                  <th className="px-3 py-2">Original ETA</th>
+                  <th className="px-3 py-2">Alternate ETA</th>
+                  <th className="px-3 py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {routes.map((route) => (
+                  <tr key={route.route_id} className="border-t border-white/10">
+                    <td className="px-3 py-3 font-mono text-xs">{route.order_id}</td>
+                    <td className="px-3 py-3">{route.item_name || 'Medical supplies'}</td>
+                    <td className="px-3 py-3">{route.supplier_name}</td>
+                    <td className="px-3 py-3 text-red-200">{route.disruption_risk || 'high'}</td>
+                    <td className="px-3 py-3">{formatEta(route.original_eta_hours)}</td>
+                    <td className="px-3 py-3 text-emerald-200">{formatEta(route.alternate_eta_hours)}</td>
+                    <td className="px-3 py-3"><span className="rounded-full bg-cyan-300/15 px-3 py-1 text-xs font-bold text-cyan-200">Rerouted</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {!routes.length && <p className="py-6 text-sm text-slate-300">No affected orders yet.</p>}
+          </div>
+        )}
+
+        {activeTab === 'suppliers' && (
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {emergencySuppliers.map((supplier, index) => (
+              <div key={supplier.supplier_id} className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
+                <div className="flex items-center justify-between">
+                  <p className="font-bold">{index + 1}. {supplier.name}</p>
+                  {supplier.emergency_certified && <CheckCircle2 className="text-emerald-300" size={18} />}
+                </div>
+                <p className="mt-1 text-sm text-slate-300">{supplier.city}, {supplier.state}</p>
+                <div className="mt-3 flex gap-2 text-xs">
+                  <span className="rounded-full bg-white/10 px-3 py-1">{Math.round(supplier.reliability_score * 100)}% reliable</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1">{supplier.avg_lead_days}d lead</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === 'surge' && (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[700px] text-left text-sm">
+              <thead className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                <tr>
+                  <th className="px-3 py-2">Item</th>
+                  <th className="px-3 py-2">Current Stock</th>
+                  <th className="px-3 py-2">Surge Multiplier</th>
+                  <th className="px-3 py-2">Stockout Hours</th>
+                  <th className="px-3 py-2">Recommended Qty</th>
+                  <th className="px-3 py-2">Urgency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {demandSurge.map((surge) => (
+                  <tr key={surge.item_id} className="border-t border-white/10">
+                    <td className="px-3 py-3">{surge.item_name}</td>
+                    <td className="px-3 py-3">{surge.current_stock ?? 'N/A'}</td>
+                    <td className="px-3 py-3">{surge.surge_multiplier}x</td>
+                    <td className="px-3 py-3">{surge.stockout_hours ? `${Math.round(surge.stockout_hours)}h` : 'N/A'}</td>
+                    <td className="px-3 py-3">{surge.recommended_order_qty}</td>
+                    <td className="px-3 py-3 text-amber-200">{surge.urgency}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {!demandSurge.length && <p className="py-6 text-sm text-slate-300">No surge predictions for the active incident yet.</p>}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

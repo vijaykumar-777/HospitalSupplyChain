@@ -26,13 +26,13 @@ To ensure hospitals never run out of life-critical supplies during normal operat
 
 ### Active
 
-- [ ] [REQ-GEN-01] Generate realistic synthetic data for 11 schema tables
-- [ ] [REQ-API-01] Build FastAPI backend for orders, POs, GRNs, suppliers, inventory
-- [ ] [REQ-AI-01] Implement Ollama integration for predictive delay
-- [ ] [REQ-AI-02] Implement Ollama integration for disaster analysis
-- [ ] [REQ-EXT-01] Integrate external disaster & routing APIs
-- [ ] [REQ-UI-01] Build React frontend with dual-mode dashboard
-- [ ] [REQ-SIM-01] Implement live simulation layer for demos
+- [x] [REQ-GEN-01] Generate realistic synthetic data for 11 schema tables
+- [x] [REQ-API-01] Build FastAPI backend for orders, POs, GRNs, suppliers, inventory
+- [x] [REQ-AI-01] Implement Ollama integration for predictive delay
+- [x] [REQ-AI-02] Implement Ollama integration for disaster analysis
+- [x] [REQ-EXT-01] Integrate external disaster & routing APIs
+- [x] [REQ-UI-01] Build React frontend with dual-mode dashboard
+- [x] [REQ-SIM-01] Implement live simulation layer for demos
 
 ### Out of Scope
 

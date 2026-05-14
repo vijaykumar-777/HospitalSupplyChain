@@ -26,6 +26,7 @@ export const fetchDisasterEvents = () => api.get('/disaster/events');
 export const fetchActiveDisaster = () => api.get('/disaster/active');
 export const fetchDisasterContext = () => api.get('/disaster/context');
 export const fetchAffectedRoutes = () => api.get('/disaster/routes');
+export const fetchDisasterMapData = () => api.get('/disaster/map-data');
 export const triggerDisasterCheck = () => api.post('/disaster/trigger-check');
 export const simulateDisaster = () => api.post('/disaster/simulate');
 

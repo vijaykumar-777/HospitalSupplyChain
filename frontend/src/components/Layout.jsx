@@ -8,10 +8,12 @@ export default function Layout() {
   const [activeDisaster, setActiveDisaster] = useState(null);
 
   useEffect(() => {
-    // Poll for active disaster every 30s
+    let cancelled = false;
+
     const checkDisaster = async () => {
       try {
         const res = await fetchActiveDisaster();
+        if (cancelled) return;
         if (res.data.active) {
           setActiveDisaster(res.data.event);
         } else {
@@ -21,10 +23,19 @@ export default function Layout() {
         console.error("Failed to fetch active disaster", err);
       }
     };
+
     checkDisaster();
     const interval = setInterval(checkDisaster, 30000);
-    return () => clearInterval(interval);
-  }, []);
+    window.addEventListener('focus', checkDisaster);
+    window.addEventListener('disaster:changed', checkDisaster);
+
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+      window.removeEventListener('focus', checkDisaster);
+      window.removeEventListener('disaster:changed', checkDisaster);
+    };
+  }, [location.pathname]);
 
   const navItems = [
     { name: 'Dashboard', path: '/', icon: <LayoutDashboard size={20} /> },
@@ -103,7 +114,7 @@ export default function Layout() {
                 <p className="text-sm text-red-100">{activeDisaster.title || activeDisaster.raw_text} (Severity: {activeDisaster.severity})</p>
               </div>
             </div>
-            <Link to="/disaster" className="bg-white text-red-600 px-4 py-2 rounded-md font-medium text-sm hover:bg-red-50 transition-colors shadow-sm">
+            <Link to="/disaster?focus=response-plan" className="bg-white text-red-600 px-4 py-2 rounded-md font-medium text-sm hover:bg-red-50 transition-colors shadow-sm">
               View Response Plan
             </Link>
           </div>

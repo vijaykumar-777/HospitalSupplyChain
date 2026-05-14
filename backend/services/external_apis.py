@@ -84,6 +84,11 @@ async def get_alternate_route(
     headers = {"Authorization": ORS_API_KEY, "Content-Type": "application/json"}
     body = {
         "coordinates": [[origin_lng, origin_lat], [dest_lng, dest_lat]],
+        "geometry": True,
+        "geometry_simplify": False,
+        "instructions": False,
+        "preference": "recommended",
+        "units": "km",
         "options": {"avoid_polygons": avoid_polygon_geojson}
     }
     try:

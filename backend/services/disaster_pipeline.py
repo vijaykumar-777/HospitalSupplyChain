@@ -30,7 +30,7 @@ def is_in_disaster_zone(supplier_lat, supplier_lng, event_lat, event_lng, radius
     return haversine_km(supplier_lat, supplier_lng, event_lat, event_lng) <= radius_km
 
 
-def build_avoid_polygon(event_lat: float, event_lng: float, radius_km: float, points: int = 24) -> dict:
+def build_avoid_polygon(event_lat: float, event_lng: float, radius_km: float, points: int = 64) -> dict:
     """Approximate a circular disaster zone as a polygon for route avoidance."""
     coords = []
     lat_scale = radius_km / 111.0
@@ -44,6 +44,28 @@ def build_avoid_polygon(event_lat: float, event_lng: float, radius_km: float, po
 
     coords.append(coords[0])
     return {"type": "Polygon", "coordinates": [coords]}
+
+
+def infer_disaster_location(raw_text: str) -> tuple[float, float, str]:
+    """Use known demo-friendly Indian locations before falling back near the hospital."""
+    text = (raw_text or "").lower()
+    known_locations = [
+        (("coastal karnataka", "mangaluru", "mangalore", "nh-66", "nh-75"), 12.9141, 74.8560, "Coastal Karnataka"),
+        (("kerala", "kochi", "ernakulam"), 9.9312, 76.2673, "Kerala"),
+        (("chennai", "tamil nadu"), 13.0827, 80.2707, "Chennai, Tamil Nadu"),
+        (("andhra", "visakhapatnam", "cyclone"), 17.6868, 83.2185, "Andhra Coast"),
+        (("bengaluru", "bangalore"), 12.9716, 77.5946, HOSPITAL_CITY),
+    ]
+
+    for keywords, lat, lng, label in known_locations:
+        if any(keyword in text for keyword in keywords):
+            return lat, lng, label
+
+    # Deterministic fallback keeps demos repeatable while avoiding a hardcoded single point.
+    offset_index = sum(ord(char) for char in text[:80]) % 4
+    offsets = [(0.75, -1.1), (-0.55, 1.05), (1.0, 0.8), (-0.85, -0.75)]
+    lat_offset, lng_offset = offsets[offset_index]
+    return HOSPITAL_LAT + lat_offset, HOSPITAL_LNG + lng_offset, f"Near {HOSPITAL_CITY}"
 
 
 def build_fallback_route_geojson(
@@ -103,8 +125,7 @@ async def run_disaster_pipeline(db: Session):
 
         db.query(DisasterEvent).filter(DisasterEvent.is_active == True).update({"is_active": False})
             
-        # Keep the demo centered around the configured hospital instead of hardcoded coordinates.
-        event_lat, event_lng = HOSPITAL_LAT, HOSPITAL_LNG + 1.0
+        event_lat, event_lng, location_name = infer_disaster_location(f"{title} {desc}")
         
         # 1. AI Severity Analysis
         ai_res = analyze_disaster_severity(db, {"raw_text": title + " " + desc, "source": evt.get("source")})
@@ -116,7 +137,7 @@ async def run_disaster_pipeline(db: Session):
             source=evt.get("source", "unknown"),
             disaster_type=ai_res.get("disaster_type", "other"),
             severity=ai_res.get("severity", 1),
-            location_name=f"Near {HOSPITAL_CITY}",
+            location_name=location_name,
             lat=event_lat,
             lng=event_lng,
             affected_radius_km=radius_km,
@@ -156,7 +177,7 @@ async def run_disaster_pipeline(db: Session):
             db.add(pred)
             
         # 3. Affected Routes & Re-Routing
-        pending_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).all()
+        pending_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).limit(8).all()
         avoid_polygon = build_avoid_polygon(event_lat, event_lng, radius_km)
         for order in pending_orders:
             supplier = db.query(Supplier).filter(Supplier.supplier_id == order.supplier_id).first()
@@ -180,6 +201,8 @@ async def run_disaster_pipeline(db: Session):
                         event_lng,
                         radius_km,
                     )
+
+                estimated_distance_km = haversine_km(sup_lat, sup_lng, HOSPITAL_LAT, HOSPITAL_LNG) * 1.25
                 
                 route = AffectedRoute(
                     route_id=str(uuid.uuid4()),
@@ -190,7 +213,7 @@ async def run_disaster_pipeline(db: Session):
                     is_blocked=True,
                     alternate_route_geojson=route_geojson,
                     alternate_mode="road",
-                    alternate_eta_hours=float(timedelta(days=5).total_seconds() / 3600),
+                    alternate_eta_hours=round(max(1.0, estimated_distance_km / 45), 1),
                     disruption_risk="high",
                     created_at=datetime.now()
                 )

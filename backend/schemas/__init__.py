@@ -165,13 +165,24 @@ class AffectedRouteResponse(BaseModel):
     supplier_city: Optional[str] = None
     supplier_lat: Optional[float] = None
     supplier_lng: Optional[float] = None
+    supplier_reliability_score: Optional[float] = None
+    supplier_emergency_certified: Optional[bool] = None
     order_id: Optional[str] = None
+    item_name: Optional[str] = None
+    quantity: Optional[int] = None
+    criticality: Optional[str] = None
     original_route_name: Optional[str] = None
+    original_route_geojson: Optional[dict] = None
+    original_status: Optional[str] = None
     is_blocked: bool
     disruption_risk: Optional[str] = None
+    original_eta_hours: Optional[float] = None
     alternate_route_geojson: Optional[dict] = None
     alternate_mode: Optional[str] = None
     alternate_eta_hours: Optional[float] = None
+    alternate_distance_km: Optional[float] = None
+    risk_reduction_percent: Optional[int] = None
+    reason: Optional[str] = None
     hospital_lat: Optional[float] = None
     hospital_lng: Optional[float] = None
     hospital_city: Optional[str] = None
