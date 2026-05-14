@@ -1,8 +1,8 @@
 # Project State
 
 ## Current Status
-- **Active Phase**: Phase 5 — Frontend Dashboards
-- **Completed Phases**: 4/7
+- **Active Phase**: Phase 6 — Live Simulation
+- **Completed Phases**: 5/7
 - **Current Blocker**: None
 
 ## Phase Progress
@@ -10,7 +10,7 @@
 - [x] Phase 2: Backend APIs ✅ (FastAPI routers, schemas, scheduler, and CRUD logic integrated)
 - [x] Phase 3: Core AI Module ✅ (Ollama integrated, robust JSON parsing, prompt chains A, B, C, D complete and integrated with API)
 - [x] Phase 4: External APIs ✅ (GDACS, ReliefWeb, NewsAPI, ORS, Nominatim integrated with APScheduler polling)
-- [ ] Phase 5: Frontend Dashboards
+- [x] Phase 5: Frontend Dashboards ✅ (React + Vite + Tailwind 4, Dashboard, Orders, Inventory, Suppliers, and Disaster Map)
 - [ ] Phase 6: Live Simulation
 - [ ] Phase 7: Integration
 
