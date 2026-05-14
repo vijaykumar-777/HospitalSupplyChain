@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchActiveDisaster, fetchDisasterEvents, triggerDisasterCheck } from '../api';
+import { fetchActiveDisaster, fetchDisasterEvents, triggerDisasterCheck, simulateDisaster } from '../api';
 import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { AlertTriangle, RefreshCw, Radio } from 'lucide-react';
+import { AlertTriangle, RefreshCw, Radio, PlayCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import L from 'leaflet';
 
@@ -24,7 +24,7 @@ export default function Disaster() {
   const [checking, setChecking] = useState(false);
 
   // Default hospital location (approximate center for demo)
-  const hospitalPos = [20.5937, 78.9629]; 
+  const hospitalPos = [21.1458, 79.0882]; // Updated to Nagpur
 
   const loadData = async () => {
     setLoading(true);
@@ -61,20 +61,42 @@ export default function Disaster() {
     }
   };
 
+  const handleSimulate = async () => {
+    setChecking(true);
+    try {
+      await simulateDisaster();
+      await loadData();
+    } catch (err) {
+      console.error("Simulate failed", err);
+    } finally {
+      setChecking(false);
+    }
+  };
+
   if (loading) return <div>Loading disaster intelligence...</div>;
 
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">Disaster Intelligence</h1>
-        <button 
-          onClick={handleManualTrigger}
-          disabled={checking}
-          className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition disabled:opacity-50"
-        >
-          <RefreshCw size={18} className={checking ? 'animate-spin' : ''} />
-          {checking ? 'Scanning APIs...' : 'Force GDACS/ReliefWeb Scan'}
-        </button>
+        <div className="flex gap-3">
+          <button 
+            onClick={handleSimulate}
+            disabled={checking}
+            className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition disabled:opacity-50"
+          >
+            <PlayCircle size={18} />
+            Simulate Disaster
+          </button>
+          <button 
+            onClick={handleManualTrigger}
+            disabled={checking}
+            className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition disabled:opacity-50"
+          >
+            <RefreshCw size={18} className={checking ? 'animate-spin' : ''} />
+            {checking ? 'Scanning APIs...' : 'Force Live Scan'}
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

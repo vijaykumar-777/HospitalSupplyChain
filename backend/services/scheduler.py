@@ -5,7 +5,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import asyncio
 from backend.database import SessionLocal
 from backend.routers.predictions import _recheck_orders_task
-from backend.routers.disaster import _poll_and_process_disasters
+from backend.services.disaster_pipeline import run_disaster_pipeline
 
 logger = logging.getLogger(__name__)
 scheduler = BackgroundScheduler()
@@ -17,7 +17,7 @@ def poll_disaster_apis():
     db = SessionLocal()
     try:
         # Run the async function synchronously inside the scheduler thread
-        added = asyncio.run(_poll_and_process_disasters(db))
+        added = asyncio.run(run_disaster_pipeline(db))
         logger.info(f"Disaster polling complete. {added} new events added.")
     except Exception as e:
         logger.error(f"Error polling disaster APIs: {e}")

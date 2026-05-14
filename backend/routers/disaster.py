@@ -4,54 +4,75 @@ from backend.database import get_db
 from backend.models.disaster_event import DisasterEvent
 from backend.models.disaster_prediction import DisasterPrediction
 from backend.models.affected_route import AffectedRoute
+from backend.models.inventory import Inventory
+from backend.models.item import Item
+from backend.models.order import Order
 from backend.schemas import DisasterEventResponse, DisasterPredictionResponse, AffectedRouteResponse
-from backend.services.external_apis import fetch_gdacs_alerts, fetch_reliefweb_alerts, fetch_news_disaster_alerts
-from backend.services.ai_service import analyze_disaster_severity
+from backend.services.disaster_pipeline import run_disaster_pipeline
+from backend.services.ai_service import predict_demand_surge
 from datetime import datetime, timedelta
-import asyncio
 import uuid
 
 router = APIRouter(prefix="/api/disaster", tags=["Disaster"])
 
-async def _poll_and_process_disasters(db: Session):
-    gdacs_task = asyncio.create_task(fetch_gdacs_alerts())
-    relief_task = asyncio.create_task(fetch_reliefweb_alerts())
-    news_task = asyncio.create_task(fetch_news_disaster_alerts())
+@router.post("/simulate")
+async def simulate_disaster(db: Session = Depends(get_db)):
+    """Inject a fake disaster into the pipeline for demo purposes."""
+    evt = DisasterEvent(
+        event_id=str(uuid.uuid4()),
+        source="demo-simulation",
+        disaster_type="flood",
+        severity=4,
+        location_name="Coastal Karnataka",
+        detected_at=datetime.now(),
+        is_active=True,
+        raw_text="SEVERE FLOOD WARNING: Coastal Karnataka rivers have breached danger marks. NH-66 and NH-75 severely affected.",
+        ai_summary="Severe flooding in coastal Karnataka affecting major highways. Expect significant delays for supply routes."
+    )
+    db.add(evt)
     
-    gdacs, relief, news = await asyncio.gather(gdacs_task, relief_task, news_task)
-    all_events = gdacs + relief + news
-    
-    added = 0
-    for evt in all_events:
-        # Deduplication check
-        title = evt.get("title", "")
-        # Very simple deduplication heuristic for demo
-        recent_cutoff = datetime.now() - timedelta(hours=48)
-        existing = db.query(DisasterEvent).filter(
-            DisasterEvent.detected_at >= recent_cutoff,
-            DisasterEvent.raw_text.ilike(f"%{title[:20]}%")
-        ).first()
-        
-        if not existing and title:
-            # Analyze severity using AI
-            ai_res = analyze_disaster_severity(db, {"raw_text": title + " " + evt.get("description", ""), "source": evt.get("source")})
-            
-            new_evt = DisasterEvent(
-                event_id=str(uuid.uuid4()),
-                source=evt.get("source", "unknown"),
-                disaster_type=ai_res.get("disaster_type", "other"),
-                severity=ai_res.get("severity", 1),
-                location_name="Parsed Location", # Could use AI or geocoding to refine
-                detected_at=datetime.now(),
-                is_active=True,
-                raw_text=title,
-                ai_summary=ai_res.get("summary")
-            )
-            db.add(new_evt)
-            added += 1
-            
+    # 2. Demand Surge Predictions (Demo: Top 2 items)
+    critical_inventory = db.query(Inventory).join(Item).filter(Item.criticality == "life_critical").limit(2).all()
+    for inv in critical_inventory:
+        item = db.query(Item).filter(Item.item_id == inv.item_id).first()
+        surge_context = {
+            "event_id": evt.event_id,
+            "disaster_type": evt.disaster_type,
+            "severity": evt.severity,
+            "item_name": item.name,
+            "current_stock": inv.current_stock,
+            "daily_consumption": inv.daily_consumption_rate
+        }
+        surge_res = predict_demand_surge(db, surge_context)
+        pred = DisasterPrediction(
+            prediction_id=str(uuid.uuid4()),
+            event_id=evt.event_id,
+            item_id=item.item_id,
+            surge_multiplier=surge_res.get("surge_multiplier", 1.0),
+            predicted_stockout_hours=surge_res.get("predicted_stockout_in_hours", 48.0),
+            recommended_action=surge_res.get("reasoning", "Monitor closely"),
+            created_at=datetime.now()
+        )
+        db.add(pred)
+
+    # 3. Affected Routes (Demo: Delay first 2 pending orders)
+    pending_orders = db.query(Order).filter(Order.status == "pending").limit(2).all()
+    for order in pending_orders:
+        order.status = "delayed"
+        route = AffectedRoute(
+            route_id=str(uuid.uuid4()),
+            event_id=evt.event_id,
+            order_id=order.order_id,
+            original_eta=order.expected_delivery_date,
+            revised_eta=order.expected_delivery_date + timedelta(days=5),
+            alternate_route_geojson=None,
+            risk_level="high",
+            created_at=datetime.now()
+        )
+        db.add(route)
+
     db.commit()
-    return added
+    return {"status": "ok", "message": "Disaster simulation injected and effects calculated"}
 
 @router.get("/events", response_model=list[DisasterEventResponse])
 def list_events(db: Session = Depends(get_db)):
@@ -82,12 +103,9 @@ def get_active_event(db: Session = Depends(get_db)):
 
 @router.post("/trigger-check")
 async def trigger_disaster_check(background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
-    """Manually trigger disaster API poll (Phase 4)."""
-    # For a true background task in FastAPI we would pass a sync wrapper that runs asyncio.run, 
-    # but since this is an async endpoint we can just await it directly for feedback, or use background_tasks.
-    # We'll await it so the user sees how many were added in the response.
-    added = await _poll_and_process_disasters(db)
-    return {"status": "ok", "message": f"Disaster check completed. {added} new events added."}
+    """Manually trigger disaster API poll (Phase 4/6)."""
+    added = await run_disaster_pipeline(db)
+    return {"status": "ok", "message": f"Disaster check completed. {added} new events added and processed."}
 
 
 @router.get("/surge-predictions", response_model=list[DisasterPredictionResponse])

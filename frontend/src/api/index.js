@@ -23,6 +23,7 @@ export const fetchItemStock = (id) => api.get(`/inventory/${id}`);
 export const fetchDisasterEvents = () => api.get('/disaster/events');
 export const fetchActiveDisaster = () => api.get('/disaster/active');
 export const triggerDisasterCheck = () => api.post('/disaster/trigger-check');
+export const simulateDisaster = () => api.post('/disaster/simulate');
 
 // Predictions
 export const recheckPredictions = () => api.post('/predictions/recheck-all');
