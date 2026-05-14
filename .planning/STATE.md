@@ -1,8 +1,8 @@
 # Project State
 
 ## Current Status
-- **Active Phase**: Phase 6 — Live Simulation
-- **Completed Phases**: 5/7
+- **Active Phase**: Phase 7 — Integration & Final Review
+- **Completed Phases**: 6/7
 - **Current Blocker**: None
 
 ## Phase Progress
@@ -11,8 +11,8 @@
 - [x] Phase 3: Core AI Module ✅ (Ollama integrated, robust JSON parsing, prompt chains A, B, C, D complete and integrated with API)
 - [x] Phase 4: External APIs ✅ (GDACS, ReliefWeb, NewsAPI, ORS, Nominatim integrated with APScheduler polling)
 - [x] Phase 5: Frontend Dashboards ✅ (React + Vite + Tailwind 4, Dashboard, Orders, Inventory, Suppliers, and Disaster Map)
-- [ ] Phase 6: Live Simulation
-- [ ] Phase 7: Integration
+- [x] Phase 6: Live Simulation ✅ (Simulate endpoints + `disaster_pipeline.py` auto-predicts surge & reroutes orders based on geocoding)
+- [ ] Phase 7: Integration & Final Review
 
 ## Open Questions / Risks
 - Ensure the Qwen2.5 model is correctly parsed regardless of markdown codeblocks.
