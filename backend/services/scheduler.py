@@ -2,6 +2,10 @@
 import logging
 from apscheduler.schedulers.background import BackgroundScheduler
 
+from backend.database import SessionLocal
+from backend.routers.predictions import _recheck_orders_task
+# We'll import disaster logic once it is fully implemented in phase 4.
+
 logger = logging.getLogger(__name__)
 scheduler = BackgroundScheduler()
 
@@ -13,8 +17,14 @@ def poll_disaster_apis():
 
 def recheck_all_pending_orders():
     """Re-run AI delay prediction on all pending/in_transit orders (Phase 3)."""
-    logger.info("Rechecking pending orders... (stub — AI module pending Phase 3)")
-
+    logger.info("Rechecking pending orders via AI module...")
+    db = SessionLocal()
+    try:
+        _recheck_orders_task(db)
+    except Exception as e:
+        logger.error(f"Error rechecking pending orders: {e}")
+    finally:
+        db.close()
 
 def refresh_disaster_predictions():
     """Refresh predictions for active disaster (Phase 3)."""
