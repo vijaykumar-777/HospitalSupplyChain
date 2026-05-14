@@ -1,0 +1,81 @@
+item_id,name,category,criticality,unit,disaster_surge_category,typical_monthly_demand,created_at
+b381ccea-475b-4f40-915b-c5d1e1550a2b,Paracetamol 500mg,medicine,medium,tablets,trauma,61,2026-05-14T19:49:36.357307
+297dd953-c79a-4865-a876-60fdf7fa7807,Amoxicillin 250mg,medicine,high,tablets,respiratory,77,2026-05-14T19:49:36.357321
+27c115d5-5fa7-4dd0-8704-99db64c1d1a7,IV Normal Saline 500ml,medicine,high,tablets,general,37,2026-05-14T19:49:36.357328
+0bed27e9-ca09-4cc6-8026-88fa97ba4496,Insulin Glargine 100IU,medicine,medium,tablets,trauma,34,2026-05-14T19:49:36.357332
+bc78a363-54cf-4bb5-bdff-9f7ed3efb3a1,Morphine Sulfate 10mg,medicine,life_critical,tablets,trauma,172,2026-05-14T19:49:36.357337
+9055b84b-3a03-4f29-9045-3fd59cc9f5d0,Metformin 500mg,medicine,high,tablets,trauma,266,2026-05-14T19:49:36.357341
+f346b852-2858-43d4-825a-03b89a4875c8,Amlodipine 5mg,medicine,low,tablets,trauma,84,2026-05-14T19:49:36.357345
+5dc87cbd-7075-4c32-9d95-3654d75d6836,Omeprazole 20mg,medicine,medium,tablets,general,200,2026-05-14T19:49:36.357348
+32b01f52-ab61-4788-979d-9b4f6d29a345,Ciprofloxacin 500mg,medicine,high,tablets,general,120,2026-05-14T19:49:36.357352
+b89f4757-7b13-4010-8fa0-a950d6ef0520,Azithromycin 500mg,medicine,medium,tablets,respiratory,53,2026-05-14T19:49:36.357356
+0694a9d4-8be8-40b3-8d84-4c92a13ec43f,Diclofenac 50mg,medicine,medium,tablets,trauma,120,2026-05-14T19:49:36.357360
+8e9ba15c-46ca-4703-94d1-5a9a8d599f80,Ceftriaxone 1g IV,medicine,life_critical,tablets,trauma,308,2026-05-14T19:49:36.357364
+e178916b-c032-42ea-b53a-83c0a730430c,Metronidazole 400mg,medicine,high,tablets,general,87,2026-05-14T19:49:36.357367
+34901ecc-424b-49e2-8442-330c59876f67,Dexamethasone 4mg,medicine,high,tablets,respiratory,314,2026-05-14T19:49:36.357371
+bc3dd140-7195-4618-9a27-4e4bbe66a3ad,Atropine 0.6mg,medicine,medium,tablets,general,11,2026-05-14T19:49:36.357375
+e3cf76ed-9280-497d-931f-6046cfa89558,Adrenaline 1mg,medicine,medium,tablets,general,173,2026-05-14T19:49:36.357378
+2fd30533-52ca-48b6-ac2d-02278cc46176,Lidocaine 2%,medicine,low,tablets,respiratory,96,2026-05-14T19:49:36.357382
+eab5aaea-d425-419a-9679-b6d0e685b32d,Heparin 5000IU,medicine,medium,tablets,trauma,70,2026-05-14T19:49:36.357386
+c2c71b8a-a448-45f4-8dd3-6881aea204a0,Enoxaparin 40mg,medicine,medium,tablets,trauma,96,2026-05-14T19:49:36.357390
+7effb498-d4cf-4562-a3dc-3fff7d9d4004,Tramadol 50mg,medicine,low,tablets,general,18,2026-05-14T19:49:36.357393
+a51519e9-be41-433b-b8c9-5a86d4275d1e,Ondansetron 4mg,medicine,high,tablets,general,75,2026-05-14T19:49:36.357397
+80529d5d-907b-4629-84f9-8b956af1bd8c,Furosemide 40mg,medicine,medium,tablets,general,119,2026-05-14T19:49:36.357401
+d58ff740-5495-4cfa-91d5-2af1b2116a6b,Salbutamol Nebulizer 2.5mg,medicine,medium,tablets,respiratory,293,2026-05-14T19:49:36.357404
+154cd4ae-e9af-4b05-956b-baa83fdfbfc0,Ranitidine 150mg,medicine,medium,tablets,respiratory,59,2026-05-14T19:49:36.357408
+9e33fd57-802c-46cf-8de6-225f2a6fef06,Pantoprazole 40mg IV,medicine,medium,tablets,general,47,2026-05-14T19:49:36.357412
+0fc06af5-8b70-4a58-b529-87f012309718,Scalpel Handle No.3,instrument,low,pcs,trauma,60,2026-05-14T19:49:36.357416
+5b857683-1c51-474e-86c7-4b3af451024e,Scalpel Handle No.4,instrument,low,pcs,trauma,187,2026-05-14T19:49:36.357420
+d2ee47c4-6669-4186-a433-ba73ca69def3,Mayo Scissors Curved,instrument,medium,pcs,trauma,117,2026-05-14T19:49:36.357424
+c8f0649a-61df-463e-bd9c-0970c729a775,Metzenbaum Scissors,instrument,life_critical,pcs,general,58,2026-05-14T19:49:36.357428
+b9d977b4-833e-49c9-b626-8488695adbd7,Artery Forceps Curved,instrument,low,pcs,trauma,135,2026-05-14T19:49:36.357432
+482d81a5-76e9-499f-a8b8-6f37eb8cb757,Artery Forceps Straight,instrument,medium,pcs,general,97,2026-05-14T19:49:36.357435
+613f1902-2368-4b07-9b0b-0ed941f8ca3f,Needle Holder 6in,instrument,low,pcs,trauma,195,2026-05-14T19:49:36.357439
+8349385d-0163-4e73-9b36-5229d034473b,Tissue Forceps,instrument,medium,pcs,trauma,51,2026-05-14T19:49:36.357442
+7ef64dfe-808f-4c10-b898-4d57cb025650,Retractor Langenbeck,instrument,medium,pcs,general,69,2026-05-14T19:49:36.357446
+e89dcc1e-b3c5-45bc-9d3f-f0232c7fbf3d,Retractor Army-Navy,instrument,high,pcs,general,65,2026-05-14T19:49:36.357449
+3fbe10a2-9d8f-4ea9-a2d6-16499f003cf9,Suction Cannula Yankauer,instrument,high,pcs,trauma,27,2026-05-14T19:49:36.357453
+ce29f402-2f4c-44e7-bfc4-cbf36d01930a,Bone Rongeur,instrument,high,pcs,general,114,2026-05-14T19:49:36.357456
+ab2ee2cb-59df-46f1-b90c-04c95b951802,Wire Cutter Ortho,instrument,high,pcs,general,110,2026-05-14T19:49:36.357460
+78e90da9-56fd-4222-b113-62f6b30846bf,Periosteal Elevator,instrument,medium,pcs,trauma,90,2026-05-14T19:49:36.357464
+e1058a27-65a5-4a68-b2d2-a145cff39651,Towel Clip,instrument,medium,pcs,general,74,2026-05-14T19:49:36.357467
+d97a427d-8f95-4867-a724-5dc31f715e96,Sponge Holder,instrument,low,pcs,trauma,29,2026-05-14T19:49:36.357471
+5f810d20-b641-4084-9fe1-28765a08f313,Babcock Forceps,instrument,medium,pcs,trauma,64,2026-05-14T19:49:36.357475
+43321739-8331-45ca-a26c-99eaf5248ed9,Allis Forceps,instrument,medium,pcs,general,68,2026-05-14T19:49:36.357478
+b24ac878-b31f-4a6e-955a-34153068a0b1,Kocher Forceps,instrument,high,pcs,trauma,47,2026-05-14T19:49:36.357482
+70a64c46-c46c-42ac-b6a4-d928e1c43cd3,Debakey Forceps,instrument,low,pcs,trauma,79,2026-05-14T19:49:36.357485
+b647a3f2-5c0e-4416-9129-31718085fc6f,Nitrile Gloves M,consumable,high,units,burn,124,2026-05-14T19:49:36.357489
+d785fad3-f7e3-4d41-b77f-59204d378cfc,Nitrile Gloves L,consumable,low,units,respiratory,407,2026-05-14T19:49:36.357492
+2d6f9776-25b3-4677-9eb5-7e4e0223a504,Syringes 5ml,consumable,high,units,respiratory,103,2026-05-14T19:49:36.357496
+7e58c27e-2271-4e20-9b9d-faf5ffd7c337,Syringes 10ml,consumable,high,units,burn,110,2026-05-14T19:49:36.357499
+6764e923-92a6-40ef-a7c9-351c40a71697,IV Cannula 18G,consumable,high,units,respiratory,84,2026-05-14T19:49:36.357503
+a3a78246-6e84-46ae-ba9c-45b0c57412c0,IV Cannula 20G,consumable,medium,units,burn,19,2026-05-14T19:49:36.357506
+5db89c33-b533-4b1c-bcd5-ac4abab9817a,IV Cannula 22G,consumable,life_critical,units,respiratory,88,2026-05-14T19:49:36.357510
+50cc9640-dd9a-4519-af61-d5085f148369,Gauze Rolls 4in,consumable,life_critical,units,general,94,2026-05-14T19:49:36.357513
+bfd701a9-5ee1-408c-864a-c61afff88353,Cotton Rolls 500g,consumable,medium,units,respiratory,645,2026-05-14T19:49:36.357517
+7696c106-17ab-4826-a71c-49eff737c053,Surgical Tape 1in,consumable,medium,units,trauma,77,2026-05-14T19:49:36.357521
+f6f392b4-c0bd-4731-9681-5649f2f0435f,Foley Catheter 16Fr,consumable,medium,units,trauma,114,2026-05-14T19:49:36.357524
+6cee1fab-054a-4d0d-9781-3982daa1a9cd,Foley Catheter 18Fr,consumable,life_critical,units,general,87,2026-05-14T19:49:36.357528
+ad0943ad-c637-438f-9661-fe6b21b625f6,Suture Silk 2-0,consumable,life_critical,units,respiratory,35,2026-05-14T19:49:36.357532
+fe94d45c-847d-44e7-a34d-6887fd98847a,Suture Vicryl 3-0,consumable,low,units,trauma,224,2026-05-14T19:49:36.357535
+b3ff0bb8-5672-4610-a289-2ad9598170bb,Suture Ethilon 4-0,consumable,low,units,trauma,164,2026-05-14T19:49:36.357539
+26719db9-9b13-4e95-8e10-7eb75055974f,Face Mask 3-ply,consumable,medium,units,respiratory,169,2026-05-14T19:49:36.357543
+0915b33c-453b-4991-8bc0-f69300e81ba0,N95 Respirator,consumable,low,units,burn,43,2026-05-14T19:49:36.357546
+a52d8730-de9d-40b4-80e2-4eacf73529e0,Surgical Gown Disposable,consumable,high,units,respiratory,276,2026-05-14T19:49:36.357550
+6e410fed-5f9b-471e-9c2c-882a23e70ef9,Crepe Bandage 4in,consumable,high,units,burn,29,2026-05-14T19:49:36.357553
+30342710-f176-489c-a5b9-3a994eab9ac0,Elastic Bandage 6in,consumable,low,units,general,143,2026-05-14T19:49:36.357557
+4868a320-8a6d-4b5f-b122-0a9a6621fb37,ABD Pad 5x9,consumable,medium,units,general,519,2026-05-14T19:49:36.357561
+af196ed4-4e70-48dd-b379-9975e91f4be8,Sterile Drape Sheet,consumable,medium,units,trauma,40,2026-05-14T19:49:36.357564
+3a8ee060-990f-40a4-ba24-23ce747784cf,Blood Collection Tube EDTA,consumable,high,units,trauma,57,2026-05-14T19:49:36.357568
+37921e4b-cae6-4cb7-aecd-16c556a54e68,Urine Collection Bag,consumable,medium,units,trauma,97,2026-05-14T19:49:36.357572
+4ea639df-c0be-44e1-86b8-7fb4cd6ea4e9,Oxygen Mask Adult,consumable,high,units,burn,60,2026-05-14T19:49:36.357575
+036f8bee-072d-408b-a937-af802eb2c4a6,Pulse Oximeter Fingertip,equipment,medium,units,general,26,2026-05-14T19:49:36.357579
+7f642993-84f6-44cb-95b2-2028eb22f5ba,Infusion Pump IV,equipment,low,units,trauma,95,2026-05-14T19:49:36.357582
+0619fb37-226b-40c6-866b-17d13dd8f98e,BP Monitor Digital,equipment,low,units,respiratory,38,2026-05-14T19:49:36.357586
+10dad2ad-1647-43b3-809a-b20dd7d488b4,Nebulizer Portable,equipment,high,units,general,131,2026-05-14T19:49:36.357589
+2a8ef62b-0c89-4ac8-91d8-f743e7d9d731,Glucometer Kit,equipment,high,units,general,43,2026-05-14T19:49:36.357593
+e879bb2c-a142-42d2-b35b-eef240c98751,ECG Machine 12-lead,equipment,high,units,trauma,311,2026-05-14T19:49:36.357596
+ccf12a69-4b18-4456-ae6d-32b2d937a78c,Defibrillator AED,equipment,medium,units,respiratory,48,2026-05-14T19:49:36.357600
+00e2e411-489d-47ae-ad54-5c530bb7af07,Suction Machine Portable,equipment,medium,units,trauma,69,2026-05-14T19:49:36.357604
+4fdd39c8-d338-4210-a947-7d7a18ffd5de,Laryngoscope Set,equipment,life_critical,units,trauma,172,2026-05-14T19:49:36.357608
+b70d6d6e-5e1f-4a16-93e7-72811201e889,Ambu Bag Adult,equipment,high,units,respiratory,33,2026-05-14T19:49:36.357611

@@ -1,0 +1,31 @@
+supplier_id,name,city,state,lat,lng,reliability_score,avg_lead_days,supply_categories,is_emergency_certified,is_govt_reserve,contact_email,contact_phone,created_at
+bb84cadb-6f5a-43f3-9292-e443a44cfb1d,Pradhan-Chokshi,Kolkata,West Bengal,22.5005,88.2844,0.89,6,"[""instrument"", ""medicine""]",False,False,varmaubika@example.org,09448864899,2026-05-14T19:49:36.306310
+4c75f99b-a7cc-4be7-84c7-c283e4665674,Tiwari Group,Kolkata,West Bengal,22.479,88.2826,0.63,6,"[""equipment""]",False,False,deotimothy@example.net,+917907395470,2026-05-14T19:49:36.306377
+f6389092-6f95-4c40-8535-08b0c21124a0,Natt Group,Chennai,Tamil Nadu,13.1259,80.311,0.86,1,"[""instrument""]",False,False,wprabhu@example.com,5695146251,2026-05-14T19:49:36.306423
+0e9a0cc7-1b53-407b-9caf-2d2d4b1ff0a9,Karnik Ltd,Hyderabad,Telangana,17.4246,78.4548,0.95,3,"[""medicine"", ""equipment""]",False,False,harita21@example.net,06771442802,2026-05-14T19:49:36.306460
+6f176354-1523-437d-917c-9fcf909ed0bc,Shukla and Sons,Chennai,Tamil Nadu,13.0587,80.2425,0.85,2,"[""medicine"", ""equipment""]",False,False,prout@example.net,02620238496,2026-05-14T19:49:36.306496
+937267a5-13c4-43fa-9841-18aa7b3116f9,Kalla-Pingle,Delhi,Delhi,28.7987,77.0782,0.85,6,"[""equipment"", ""consumable"", ""medicine""]",False,False,tacharya@example.org,04776363885,2026-05-14T19:49:36.306528
+6fe57ad1-2193-4ea6-8291-42ddfb3c9a49,Kala Group,Pune,Maharashtra,18.4589,73.7706,0.88,2,"[""consumable"", ""equipment""]",False,False,edwinhenry@example.net,+911328382385,2026-05-14T19:49:36.306558
+2f0bb9da-db00-4fe4-aca7-9e6f167bac3a,Jha-Bhattacharyya,Kolkata,West Bengal,22.6437,88.4372,0.78,5,"[""medicine""]",False,False,waliisaac@example.net,02055440933,2026-05-14T19:49:36.306586
+920beb94-392d-4d45-99e8-14ec69798aa6,Sinha-Din,Hyderabad,Telangana,17.359,78.4286,0.82,2,"[""consumable"", ""medicine""]",False,False,sudikshasanghvi@example.org,+912156836843,2026-05-14T19:49:36.306615
+2c1061e7-77a8-4647-a7c3-1f89f660c7ea,"Bhatti, Ravi and Deep",Delhi,Delhi,28.7311,77.1093,0.51,6,"[""medicine"", ""consumable""]",False,False,henry92@example.net,6325520260,2026-05-14T19:49:36.306645
+f843db1e-eb10-4099-ba26-42c3c384c6e7,Bhatti Inc,Chennai,Tamil Nadu,13.0476,80.3244,0.94,1,"[""instrument"", ""consumable""]",False,False,dbaral@example.com,+918434432221,2026-05-14T19:49:36.306676
+29c67ea0-fd8c-4e42-bcab-625e1260e889,"Arora, Lad and Mahal",Mumbai,Maharashtra,19.0562,72.7909,0.87,3,"[""consumable""]",False,False,ekanta98@example.org,06343879708,2026-05-14T19:49:36.306707
+ad47af14-149b-4b9c-b2f5-cb3f3e91b52f,Gole Group,Pune,Maharashtra,18.5973,73.8853,0.54,3,"[""equipment"", ""instrument""]",False,False,pushti66@example.org,08535509759,2026-05-14T19:49:36.306735
+589325e8-ed43-4f59-bec5-160a1c7739e6,Shan-Mannan,Chennai,Tamil Nadu,13.1321,80.2564,0.81,2,"[""consumable""]",False,False,ssant@example.com,01525816360,2026-05-14T19:49:36.306763
+31715682-9f21-4349-8ca6-e44a4044d312,"Vala, Gulati and Divan",Pune,Maharashtra,18.5223,73.7749,0.84,3,"[""instrument""]",False,False,amairamurthy@example.net,1519421874,2026-05-14T19:49:36.306792
+17b991fb-513c-4207-ad77-ec0be46f0305,Jain Group,Mumbai,Maharashtra,19.1344,72.8621,0.53,4,"[""instrument""]",False,False,hsundaram@example.com,05645317743,2026-05-14T19:49:36.306820
+b1208dde-8863-4c1f-a1cc-6c65878f8316,Rajagopal-Bhandari,Mumbai,Maharashtra,19.0263,72.8883,0.87,3,"[""equipment"", ""consumable""]",False,False,oedwin@example.net,+918808185120,2026-05-14T19:49:36.306847
+4aca3b60-5012-43c4-abc2-cd144f319367,Choudhury PLC,Mumbai,Maharashtra,19.1297,72.8457,0.91,3,"[""consumable""]",False,False,ekta36@example.com,6840307190,2026-05-14T19:49:36.306873
+b7772cfb-9427-4bf8-94a6-f478bd24d2d1,"Pal, Sachar and Chana",Delhi,Delhi,28.7565,77.104,0.88,5,"[""consumable"", ""equipment""]",False,False,nayakvansha@example.com,3234511575,2026-05-14T19:49:36.306902
+eea54b34-d4ca-4d98-9111-bd08d2c701a7,Savant-Chakraborty,Mumbai,Maharashtra,19.0066,72.9302,0.47,3,"[""instrument""]",False,False,craval@example.net,05746727642,2026-05-14T19:49:36.306931
+417f137f-a65d-40bf-8361-9a2bbab8b9a2,Shenoy-Kohli,Pune,Maharashtra,18.5181,73.7791,0.64,3,"[""medicine"", ""consumable"", ""instrument""]",False,False,ghoshnetra@example.net,+918496854446,2026-05-14T19:49:36.306960
+f5d30e3b-0fd7-4692-acd8-8f8213a9984a,"Hans, Apte and Misra",Delhi,Delhi,28.6523,77.116,0.57,6,"[""consumable"", ""medicine"", ""equipment""]",False,False,varghesezayan@example.com,+910100118153,2026-05-14T19:49:36.306989
+45e53695-1506-4f45-b5b7-cb31c4797e0e,Bhat Group,Mumbai,Maharashtra,19.1292,72.8034,0.8,3,"[""medicine"", ""consumable""]",False,False,saxenacharvi@example.net,09316772488,2026-05-14T19:49:36.307017
+6a85f38b-d328-4fa9-9f17-1b268d63f0e9,"Sem, Narasimhan and Hayer",Hyderabad,Telangana,17.4779,78.5725,0.54,3,"[""equipment""]",False,False,zashilnaik@example.com,07615876967,2026-05-14T19:49:36.307045
+0ab49c1e-2b76-4773-9b0f-7bb455f376d9,Chopra Ltd,Ahmedabad,Gujarat,23.0023,72.6057,0.61,4,"[""consumable""]",False,False,yohannanvedika@example.net,+918835047871,2026-05-14T19:49:36.307072
+00683dfc-65fe-4a94-b334-4ff169848269,Memon-Savant,Delhi,Delhi,28.649,77.0701,0.89,6,"[""medicine"", ""equipment""]",True,False,tara63@example.net,09569744510,2026-05-14T19:49:36.307098
+6a58e677-274d-4820-8348-1bb1cae5add1,"Bhavsar, Gupta and Iyer",Pune,Maharashtra,18.562,73.7685,0.84,3,"[""medicine"", ""equipment""]",True,False,nidhi15@example.com,01094937088,2026-05-14T19:49:36.307127
+bb566f94-e52c-4412-a82b-d8421628fdce,Hayre and Sons,Mumbai,Maharashtra,19.0317,72.8748,0.66,4,"[""medicine"", ""consumable"", ""equipment""]",True,False,chaudhryidika@example.net,2326202357,2026-05-14T19:49:36.307155
+9fb02bc6-4c92-42ba-b82d-09964e7150e0,"Upadhyay, Vala and Nagi",Pune,Maharashtra,18.5819,73.7948,0.83,3,"[""equipment"", ""medicine"", ""instrument""]",True,False,watika42@example.com,01411311473,2026-05-14T19:49:36.307183
+ad61084c-5628-45bc-9dbd-f6084b0a5ed2,CMSS Central Medical Services Society,Mumbai,Maharashtra,19.1488,72.7885,0.89,4,"[""equipment"", ""instrument""]",True,True,sainijalsa@example.com,+913522861215,2026-05-14T19:49:36.307207
