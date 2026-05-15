@@ -9,7 +9,7 @@ from backend.models.item import Item
 from backend.models.order import Order
 from backend.models.supplier import Supplier
 from backend.schemas import DisasterEventResponse, DisasterPredictionResponse, AffectedRouteResponse
-from backend.services.disaster_pipeline import build_avoid_polygon, build_fallback_route_geojson, haversine_km, is_in_disaster_zone, run_disaster_pipeline
+from backend.services.disaster_pipeline import build_avoid_polygon, build_bypass_waypoints, build_fallback_route_geojson, build_hosted_ors_avoid_polygon, haversine_km, is_in_disaster_zone, run_disaster_pipeline
 from backend.services.ai_service import predict_demand_surge
 from backend.services.external_apis import get_alternate_route
 from backend.settings import HOSPITAL_CITY, HOSPITAL_LAT, HOSPITAL_LNG
@@ -166,7 +166,6 @@ async def simulate_disaster(db: Session = Depends(get_db)):
 
     # 3. Affected Routes (Demo: Delay a realistic set of pending/in-transit orders)
     pending_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).limit(8).all()
-    avoid_polygon = build_avoid_polygon(evt.lat, evt.lng, evt.affected_radius_km or 150)
     for order in pending_orders:
         order.status = "delayed"
         supplier = db.query(Supplier).filter(Supplier.supplier_id == order.supplier_id).first()
@@ -178,7 +177,24 @@ async def simulate_disaster(db: Session = Depends(get_db)):
             supplier.lng,
             HOSPITAL_LAT,
             HOSPITAL_LNG,
-            avoid_polygon,
+            build_hosted_ors_avoid_polygon(
+                supplier.lat,
+                supplier.lng,
+                HOSPITAL_LAT,
+                HOSPITAL_LNG,
+                evt.lat,
+                evt.lng,
+                evt.affected_radius_km or 150,
+            ),
+            build_bypass_waypoints(
+                supplier.lat,
+                supplier.lng,
+                HOSPITAL_LAT,
+                HOSPITAL_LNG,
+                evt.lat,
+                evt.lng,
+                evt.affected_radius_km or 150,
+            ),
         )
         if not route_geojson:
             route_geojson = build_fallback_route_geojson(

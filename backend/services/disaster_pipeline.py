@@ -19,6 +19,9 @@ from backend.settings import HOSPITAL_CITY, HOSPITAL_LAT, HOSPITAL_LNG
 
 logger = logging.getLogger(__name__)
 
+ORS_HOSTED_MAX_AVOID_ROUTE_KM = 145.0
+ORS_HOSTED_MAX_AVOID_RADIUS_KM = 7.5
+
 def haversine_km(lat1, lng1, lat2, lng2) -> float:
     R = 6371
     dlat = radians(lat2 - lat1)
@@ -44,6 +47,59 @@ def build_avoid_polygon(event_lat: float, event_lng: float, radius_km: float, po
 
     coords.append(coords[0])
     return {"type": "Polygon", "coordinates": [coords]}
+
+
+def build_hosted_ors_avoid_polygon(
+    origin_lat: float,
+    origin_lng: float,
+    dest_lat: float,
+    dest_lng: float,
+    event_lat: float,
+    event_lng: float,
+    radius_km: float,
+) -> dict | None:
+    """Build an ORS-compatible avoid polygon for short routes on the hosted API."""
+    if haversine_km(origin_lat, origin_lng, dest_lat, dest_lng) > ORS_HOSTED_MAX_AVOID_ROUTE_KM:
+        return None
+    return build_avoid_polygon(event_lat, event_lng, min(radius_km, ORS_HOSTED_MAX_AVOID_RADIUS_KM))
+
+
+def build_bypass_waypoints(
+    origin_lat: float,
+    origin_lng: float,
+    dest_lat: float,
+    dest_lng: float,
+    event_lat: float,
+    event_lng: float,
+    radius_km: float,
+) -> list[tuple[float, float]]:
+    """Generate road-routing waypoints that steer long routes around a disaster center."""
+    lat_to_km = 111.0
+    lng_to_km = max(1e-6, 111.0 * cos(radians(event_lat)))
+    origin_x, origin_y = origin_lng * lng_to_km, origin_lat * lat_to_km
+    dest_x, dest_y = dest_lng * lng_to_km, dest_lat * lat_to_km
+    event_x, event_y = event_lng * lng_to_km, event_lat * lat_to_km
+
+    route_x = dest_x - origin_x
+    route_y = dest_y - origin_y
+    route_len = max(1e-6, sqrt(route_x**2 + route_y**2))
+    perp_x = -route_y / route_len
+    perp_y = route_x / route_len
+    clearance_km = max(20.0, min(radius_km * 1.25, 180.0))
+
+    candidates = []
+    for side in (1, -1):
+        waypoint_x = event_x + side * perp_x * clearance_km
+        waypoint_y = event_y + side * perp_y * clearance_km
+        waypoint_lat = waypoint_y / lat_to_km
+        waypoint_lng = waypoint_x / lng_to_km
+        straight_distance = (
+            haversine_km(origin_lat, origin_lng, waypoint_lat, waypoint_lng)
+            + haversine_km(waypoint_lat, waypoint_lng, dest_lat, dest_lng)
+        )
+        candidates.append((straight_distance, waypoint_lng, waypoint_lat))
+
+    return [(lng, lat) for _, lng, lat in sorted(candidates)]
 
 
 def infer_disaster_location(raw_text: str) -> tuple[float, float, str]:
@@ -178,7 +234,6 @@ async def run_disaster_pipeline(db: Session):
             
         # 3. Affected Routes & Re-Routing
         pending_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).limit(8).all()
-        avoid_polygon = build_avoid_polygon(event_lat, event_lng, radius_km)
         for order in pending_orders:
             supplier = db.query(Supplier).filter(Supplier.supplier_id == order.supplier_id).first()
             if not supplier:
@@ -190,7 +245,30 @@ async def run_disaster_pipeline(db: Session):
             if is_in_disaster_zone(sup_lat, sup_lng, event_lat, event_lng, radius_km):
                 # Supplier affected!
                 order.status = "delayed"
-                route_geojson = await get_alternate_route(sup_lat, sup_lng, HOSPITAL_LAT, HOSPITAL_LNG, avoid_polygon)
+                route_geojson = await get_alternate_route(
+                    sup_lat,
+                    sup_lng,
+                    HOSPITAL_LAT,
+                    HOSPITAL_LNG,
+                    build_hosted_ors_avoid_polygon(
+                        sup_lat,
+                        sup_lng,
+                        HOSPITAL_LAT,
+                        HOSPITAL_LNG,
+                        event_lat,
+                        event_lng,
+                        radius_km,
+                    ),
+                    build_bypass_waypoints(
+                        sup_lat,
+                        sup_lng,
+                        HOSPITAL_LAT,
+                        HOSPITAL_LNG,
+                        event_lat,
+                        event_lng,
+                        radius_km,
+                    ),
+                )
                 if not route_geojson:
                     route_geojson = build_fallback_route_geojson(
                         sup_lat,

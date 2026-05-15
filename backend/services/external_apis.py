@@ -74,28 +74,71 @@ async def fetch_news_disaster_alerts() -> list[dict]:
 async def get_alternate_route(
     origin_lat: float, origin_lng: float,
     dest_lat: float, dest_lng: float,
-    avoid_polygon_geojson: dict
+    avoid_polygon_geojson: dict,
+    bypass_waypoints: list[tuple[float, float]] | None = None,
 ) -> dict:
     """Fetch alternate route avoiding a specific disaster polygon using OpenRouteService."""
     if not ORS_API_KEY:
         logger.warning("ORS_API_KEY not set. Skipping OpenRouteService.")
         return {}
+
     url = "https://api.openrouteservice.org/v2/directions/driving-car/geojson"
     headers = {"Authorization": ORS_API_KEY, "Content-Type": "application/json"}
-    body = {
+
+    async def request_route(body: dict) -> dict:
+        body = {
+            **body,
+            "radiuses": body.get("radiuses") or [25000] * len(body["coordinates"]),
+        }
+        async with httpx.AsyncClient(timeout=25.0) as client:
+            resp = await client.post(url, json=body, headers=headers)
+        if resp.status_code >= 400:
+            logger.warning("OpenRouteService route request failed: %s %s", resp.status_code, resp.text[:300])
+            return {}
+        return resp.json()
+
+    base_body = {
         "coordinates": [[origin_lng, origin_lat], [dest_lng, dest_lat]],
         "geometry": True,
         "geometry_simplify": False,
         "instructions": False,
         "preference": "recommended",
         "units": "km",
-        "options": {"avoid_polygons": avoid_polygon_geojson}
     }
+
     try:
-        async with httpx.AsyncClient(timeout=15.0) as client:
-            resp = await client.post(url, json=body, headers=headers)
-            resp.raise_for_status()
-        return resp.json()
+        if avoid_polygon_geojson:
+            polygon_route = await request_route({
+                **base_body,
+                "options": {"avoid_polygons": avoid_polygon_geojson},
+            })
+            if polygon_route:
+                return polygon_route
+
+        bypass_features = []
+        for waypoint_lng, waypoint_lat in bypass_waypoints or []:
+            bypass_route = await request_route({
+                **base_body,
+                "coordinates": [
+                    [origin_lng, origin_lat],
+                    [waypoint_lng, waypoint_lat],
+                    [dest_lng, dest_lat],
+                ],
+            })
+            features = bypass_route.get("features", []) if bypass_route else []
+            if features:
+                feature = features[0]
+                feature.setdefault("properties", {})["routing_strategy"] = "disaster_bypass_waypoint"
+                bypass_features.append(feature)
+
+        if bypass_features:
+            return {
+                "type": "FeatureCollection",
+                "features": bypass_features,
+                "metadata": {"routing_strategy": "disaster_bypass_waypoints"},
+            }
+
+        return await request_route(base_body)
     except Exception as e:
         logger.error(f"OpenRouteService fetch error: {e}")
         return {}
