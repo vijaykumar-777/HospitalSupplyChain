@@ -1,0 +1,501 @@
+item_id,name,category,criticality,daily_consumption_normal,daily_consumption_disaster,disaster_surge_category
+99dbf997-7aec-41a4-86be-6053676cffc6,Adrenaline (Epinephrine) 1mg/mL Injection,medicine,life_critical,12.5,68.8,trauma
+9bc93260-3a5e-40ec-a446-04dd10509f2d,Atropine Sulphate Injection,medicine,life_critical,3.8,16.7,trauma
+b4ac9073-ea89-4a16-8fae-e8000522a8d2,Dopamine HCl Injection,medicine,life_critical,9.7,38.8,trauma
+31aaebb1-9d5d-4554-bf0c-c6cc521034bb,Norepinephrine Injection,medicine,life_critical,3.7,14.4,trauma
+6c0a8b40-d9d9-4a43-b6af-6e0eca9f618f,Vasopressin Injection,medicine,life_critical,2.2,9.0,trauma
+67d97f78-3fd6-4705-990b-8d6aea1eb9df,Sodium Bicarbonate Injection,medicine,life_critical,7.5,40.5,trauma
+4c55cc89-3c7c-4846-b15d-0d9438df1ef2,Calcium Gluconate Injection,medicine,life_critical,5.7,29.6,trauma
+5231d7cb-b258-44ac-8949-cca7a6eaeafa,Potassium Chloride Injection,medicine,life_critical,13.8,59.3,trauma
+3d088981-e695-4114-915d-ed78411dc6a1,Magnesium Sulphate Injection,medicine,life_critical,10.5,38.9,trauma
+ea5ac7ce-e678-437f-a1b5-2bf39202ae2e,Amiodarone Injection,medicine,life_critical,4.0,20.8,trauma
+9e62b79b-65bc-44f8-ac11-6ec76890e669,Lignocaine Injection,medicine,life_critical,12.3,61.5,trauma
+9d2a05a8-2ae0-40d7-a8ab-b3e676f41dd6,Normal Saline 500mL Bag,medicine,life_critical,14.9,70.0,trauma
+481994a8-03bc-4fc2-a075-1e4bc77e1086,Ringer Lactate 500mL Bag,medicine,life_critical,12.2,42.7,trauma
+6b8fb80b-1afb-42f4-900b-a6aa98bc625f,Dextrose 5% 500mL Bag,medicine,life_critical,10.5,56.7,trauma
+5d71361d-0603-4bcb-8b84-82031fb2768a,Albumin 20% Injection,medicine,life_critical,2.5,13.5,trauma
+d331e633-72c5-42ab-a599-8b66ff5f38cc,Whole Blood (O-Neg),medicine,life_critical,5.2,16.6,trauma
+519b192f-8016-472c-a39f-7d329885f4c0,Packed Red Blood Cells,medicine,life_critical,6.1,18.9,trauma
+3c131c01-be53-4c30-b5d6-aaaf226a353c,Fresh Frozen Plasma,medicine,life_critical,2.8,13.2,trauma
+f20bddbd-b268-49ca-8b39-92bc79a03cc5,Platelet Concentrate,medicine,life_critical,7.1,28.4,trauma
+bdba11f1-ca53-4021-9ba6-18d29b6bb722,Cryoprecipitate,medicine,life_critical,13.2,39.6,trauma
+678b8198-44c8-4d1b-aa28-6006fba44649,Heparin Sodium Injection,medicine,life_critical,6.3,25.8,trauma
+e1e20a37-ecee-4a91-ae40-e59b06fca561,Alteplase Injection (tPA),medicine,life_critical,5.4,20.5,trauma
+98170439-4d85-40d7-95c6-a8c674c2a80c,Protamine Sulphate,medicine,life_critical,10.9,39.2,trauma
+af2c69f2-11fc-4387-935b-312e391e83bd,Vancomycin Injection,medicine,life_critical,2.6,10.9,trauma
+91ca95dc-3f2a-4b95-be7b-32badf9a3f13,Meropenem Injection,medicine,life_critical,2.6,8.6,trauma
+80425b91-4243-4a10-9558-1146589bbf46,Piperacillin-Tazobactam Injection,medicine,life_critical,4.4,13.6,trauma
+bb8076ea-cb24-47c4-b7e5-174723aeb265,Ceftriaxone Injection,medicine,life_critical,5.1,22.4,trauma
+a8f49437-3cd3-4df9-9346-58419a91f1f6,Metronidazole Injection,medicine,life_critical,2.1,10.7,trauma
+df8800e0-ba81-45e6-a413-400b0e08de45,Fluconazole Injection,medicine,life_critical,12.0,61.2,trauma
+9842b364-85cb-4366-a0a0-6cb85cefb856,Morphine Sulphate Injection,medicine,life_critical,7.9,35.6,trauma
+c523cf41-57b7-4576-bd9b-23c6ae33eb6e,Fentanyl Injection,medicine,life_critical,12.6,47.9,trauma
+72454a93-766d-4842-a620-4bea5d92b341,Midazolam Injection,medicine,life_critical,4.8,19.2,trauma
+fccf4298-8984-4f0a-932c-90f005268a97,Propofol Injection,medicine,life_critical,2.4,9.4,trauma
+9e4157e9-cc1a-419a-b0c3-2a65ab819fc1,Ketamine Injection,medicine,life_critical,11.4,54.7,trauma
+a9b567eb-2146-41d2-9998-2d1f3487fdb3,Rocuronium Injection,medicine,life_critical,13.6,61.2,trauma
+192ff058-391b-4ff3-9feb-d6eb3803a978,Succinylcholine Injection,medicine,life_critical,11.0,37.4,trauma
+2ccbb523-fdc1-4ea4-ae27-62fcde0398a1,Thiopentone Sodium,medicine,life_critical,2.1,6.3,trauma
+33336f49-7f10-4cfa-9ab0-af6a0593da91,Dexamethasone Injection,medicine,life_critical,3.6,18.7,trauma
+ae33be1c-d83d-46dd-8571-e610b8cb4387,Hydrocortisone Injection,medicine,life_critical,10.1,37.4,trauma
+21860bec-ea46-43fd-a9c5-b37a52aac612,Methylprednisolone Injection,medicine,life_critical,5.8,27.3,trauma
+2644416e-06dd-4997-bab7-e93d1b93bf6d,Mannitol 20% Injection,medicine,life_critical,9.7,34.9,trauma
+8c935ecc-a094-4022-90e5-f8508c4d5925,Furosemide Injection,medicine,life_critical,9.9,43.6,trauma
+5b4f07c4-beab-4ee5-9762-3e34608abe2c,Insulin (Regular) Injection,medicine,life_critical,11.4,50.2,general
+dbfa9e42-7a41-4048-b9f2-6a22843a8894,Glucagon Injection,medicine,life_critical,7.5,32.2,general
+28f2e0cb-8b8e-4753-81c3-d0889499a256,Naloxone Injection,medicine,life_critical,8.8,35.2,trauma
+b44fa08f-cd51-4a45-958e-6c092c8829aa,Flumazenil Injection,medicine,life_critical,7.1,33.4,trauma
+cf1e5e98-49f3-4d4b-95d3-fe4920820116,Adenosine Injection,medicine,life_critical,4.3,15.0,trauma
+686e5912-a2c1-43e9-8b98-cba40e6d804c,Labetalol Injection,medicine,life_critical,4.8,20.2,trauma
+db7c6439-d2da-4365-8b2f-62d75c5c5d02,Nitroglycerine Injection,medicine,life_critical,6.9,29.7,trauma
+a1234057-5af1-45af-822d-d6ecef5f3342,Sodium Nitroprusside,medicine,life_critical,12.2,53.7,trauma
+30f061b0-e217-4a04-beea-3ae97dca5a8e,Mechanical Ventilator Circuit (Adult),equipment,life_critical,13.3,66.5,respiratory
+dfdd23c2-0deb-4955-ad21-29e7acdd089a,Endotracheal Tube Size 7.5,surgical,life_critical,11.7,36.3,respiratory
+9a95ac11-dab6-4286-8fa0-3cd294fae107,Endotracheal Tube Size 8.0,surgical,life_critical,11.4,59.3,respiratory
+74d514c3-8f77-4dd6-8b52-32764349af19,Laryngoscope Blade McIntosh 3,surgical,life_critical,9.9,44.6,respiratory
+1f1412ce-9c4e-4ee2-8f70-3ed45a0b48f8,Video Laryngoscope Blade,surgical,life_critical,14.2,59.6,respiratory
+84cf8b74-9765-42d6-85ad-d8b0824e6856,Tracheostomy Tube Size 8,surgical,life_critical,7.1,23.4,respiratory
+8580177b-ab8e-462d-a8bc-f9865c091870,Chest Drain Tube 28Fr,surgical,life_critical,6.4,34.6,trauma
+b9524a70-9371-4d67-9bb0-16b0cad67a71,Central Venous Catheter Kit,surgical,life_critical,11.8,61.4,trauma
+cc0032f9-e48b-4f53-a71f-5769bb3dea54,Arterial Line Kit,surgical,life_critical,4.4,18.9,trauma
+6a5b617d-3c79-40ed-9a9e-df8b3d9fe93a,Intraosseous Needle Kit,surgical,life_critical,2.6,10.9,trauma
+41c6eaaa-ab33-4779-99ff-fa7050dccc66,Defibrillator Pads (Adult),equipment,life_critical,8.4,27.7,trauma
+849f3056-b315-4f47-8f10-2ef46e17cb64,Pacemaker Electrode Catheter,surgical,life_critical,11.9,61.9,trauma
+92457644-c370-4ce1-81e8-90ede37b27dc,Intra-Aortic Balloon Pump Catheter,surgical,life_critical,14.8,79.9,trauma
+b8fd7488-e74a-4ea8-a514-35d57200f323,ECMO Tubing Kit,surgical,life_critical,6.0,26.4,trauma
+4c2fcc7f-2a46-4d74-89d2-cc16e467ca5b,Dialysis Catheter Kit,surgical,life_critical,10.0,44.0,trauma
+e0c7f1b2-c972-4113-9962-8935a8599bbe,Rapid Infuser Set,surgical,life_critical,4.1,20.9,trauma
+2b30889b-33d6-4d78-afd3-1bdcc45a53e3,Blood Warmer Set,equipment,life_critical,5.8,22.6,trauma
+6c6d26ad-de6a-42d0-a2ef-2c78b6f40176,Pulse Oximeter Probe,equipment,life_critical,12.0,42.0,respiratory
+94077f5f-2e40-4a95-82fc-1f019e7c10c0,Capnography Module,equipment,life_critical,13.6,44.9,respiratory
+dd77fd8e-88b6-465f-a515-f180ca4d0b9b,Syringe Pump 50mL,equipment,life_critical,4.3,17.2,general
+7c841ffd-7178-415f-a8ba-2a932758eb67,Infusion Pump Set,equipment,life_critical,11.2,57.1,general
+5739723e-d0e9-4fc1-ad56-d64ae6e4831e,Paracetamol Injection 1g,medicine,high,23.6,59.0,general
+b164b3fa-fbc5-4799-b43d-2dd077b75456,Ibuprofen Injection,medicine,high,37.9,144.0,general
+a4da9652-84c8-42c2-8516-8555bbfb47da,Diclofenac Injection,medicine,high,22.2,68.8,general
+f236b0f8-70eb-4b7f-ac09-1ff14e572901,Tramadol Injection,medicine,high,9.6,22.1,general
+69a4ab50-a043-4b31-92fa-ad1111f8f53c,Ondansetron Injection,medicine,high,38.4,88.3,general
+2ccb1f8a-9cea-41cb-bd16-18c7956d465c,Metoclopramide Injection,medicine,high,13.9,29.2,general
+2e44ce9b-39b8-4541-a55a-95b9b0baee5f,Pantoprazole Injection,medicine,high,16.3,52.2,general
+d4cdfe46-7c9b-4f7a-a45f-e7882dad9f4f,Ranitidine Injection,medicine,high,23.6,56.6,general
+8bb420b4-d04a-4662-a6c2-7e5db97db0b7,Phenytoin Injection,medicine,high,31.0,89.9,general
+2e39db1d-3996-4bf0-9b36-c70fec9fdef0,Valproate Injection,medicine,high,16.9,35.5,general
+766a78f8-2f35-4443-a09d-c168b42ed4ef,Levetiracetam Injection,medicine,high,26.8,93.8,general
+7eb0ea7f-f593-4736-a550-e189976ffdb7,Phenobarbitone Injection,medicine,high,37.3,108.2,general
+93738d07-ab2c-4a84-83de-29aa8ada27be,Clonazepam Injection,medicine,high,39.8,103.5,general
+76ad375a-5611-4e05-ab88-1c2cc4b7dd05,Acetylcysteine Injection,medicine,high,9.5,21.8,general
+1c17fe89-68fe-4d1f-868e-123c56dd0eb5,Amoxicillin-Clavulanate Injection,medicine,high,37.3,97.0,general
+408e79c9-de81-4529-a668-485c684e8e1b,Azithromycin Injection,medicine,high,28.1,89.9,respiratory
+3699e29f-ce12-49a7-896c-5c86965a0e27,Ciprofloxacin Injection,medicine,high,17.0,40.8,general
+88c0f2b5-f3c6-415b-b765-d05db3f0f2b8,Gentamicin Injection,medicine,high,6.4,18.6,general
+3ee4a357-6704-4e9b-9cec-73739d818df5,Amikacin Injection,medicine,high,39.7,123.1,general
+50deafc0-3206-4a1d-b2b7-5b0e8373a43a,Colistin Injection,medicine,high,38.2,103.1,general
+d1b7fe92-93db-4dc7-93fd-0e937757b4c8,Linezolid Injection,medicine,high,24.7,84.0,general
+d6b4748b-27a2-47e9-8d63-df7915964c5f,Tigecycline Injection,medicine,high,19.7,65.0,general
+f23c80e1-d2ce-4951-9ed2-b6494b5ee5ff,Ertapenem Injection,medicine,high,20.4,46.9,general
+c846ed35-dc32-49c4-b353-1793bdaa1b53,Imipenem Injection,medicine,high,27.9,92.1,general
+44d3f007-3d25-473c-a76a-c58cc9e1eab7,Levofloxacin Injection,medicine,high,11.9,42.8,respiratory
+c30ffd42-bd94-433d-8ea2-888d3f9e5b59,Acyclovir Injection,medicine,high,28.4,65.3,general
+f570d766-3ba3-471b-8b4f-deeee44b4be1,Oseltamivir Capsules,medicine,high,14.9,49.2,respiratory
+4b776db6-c652-4bef-814b-deede1134ce7,Remdesivir Injection,medicine,high,24.0,81.6,respiratory
+6810d289-f5dc-42a9-ae27-000fdb9a00e8,Dexamethasone 4mg Tablet,medicine,high,13.9,45.9,respiratory
+9ac43762-0d4b-4668-ba3b-ee17c0803022,Methylprednisolone 500mg Injection,medicine,high,19.0,64.6,general
+dc9ecaf9-f9fe-499f-ba75-13a0518c3144,Budesonide Nebulisation,medicine,high,35.6,113.9,respiratory
+bacf2be9-71d4-4713-b960-84cc6356b632,Salbutamol Nebulisation,medicine,high,34.9,90.7,respiratory
+1d5f0048-ed0c-441d-9654-7d98f573fa0e,Ipratropium Bromide Nebulisation,medicine,high,27.1,73.2,respiratory
+cb7c4bc2-d795-40f5-a554-6dad2e054780,Enoxaparin Injection,medicine,high,37.3,138.0,general
+c9ed2b24-571d-4af9-b474-5fe3016c2238,Warfarin Tablet,medicine,high,31.8,111.3,general
+04f1fb00-6868-4e9d-be74-ce313a02cd6e,Aspirin Tablet,medicine,high,13.4,44.2,general
+c6d7cdcd-ba6b-4817-8a7b-98cf8f1f563a,Clopidogrel Tablet,medicine,high,25.5,71.4,general
+51dc4d89-9351-4616-941e-75528daf15e1,Atorvastatin Tablet,medicine,high,35.1,80.7,general
+bc0353c0-fc7f-4b5e-bede-1ae80fbace65,Amlodipine Tablet,medicine,high,32.9,121.7,general
+c196b761-f0aa-4ec1-a773-61c63cc82ecd,Metoprolol Injection,medicine,high,9.0,25.2,general
+fc2a5232-8370-4a5b-8764-134cd0885117,Digoxin Injection,medicine,high,10.4,29.1,general
+9d7df6df-339a-49e0-9c29-73ead9b69c19,Diltiazem Injection,medicine,high,39.3,82.5,general
+526c1e2c-6309-4d0f-ba54-df2cf7237297,Verapamil Injection,medicine,high,14.5,55.1,general
+b571a15f-c3ce-48b8-a9a3-f39b865125bc,Nicardipine Injection,medicine,high,34.1,81.8,general
+a431cdfd-5adb-4dbc-b76e-d4a479cbeb3e,Hydralazine Injection,medicine,high,22.5,76.5,general
+4cceb54f-ccdc-4c1d-ba60-03f549d9eba6,Enalapril Injection,medicine,high,40.0,120.0,general
+39660721-41ef-4879-aee2-30fbf4a44c12,Spironolactone Tablet,medicine,high,39.2,101.9,general
+14034264-2408-4102-9812-de6b62cc0948,Torsemide Tablet,medicine,high,6.8,22.4,general
+c27f6af1-0cfe-466d-a03f-11d92ee149c6,Darbepoetin alfa Injection,medicine,high,34.1,122.8,general
+15c6ad18-ce18-4396-bdca-14d56085c9e0,Iron Sucrose Injection,medicine,high,31.2,112.3,general
+c8e5fcf2-4fda-4d7b-b727-a38040bc3d5d,N95 Respirator Mask,consumable,high,10.0,38.0,respiratory
+7b445a65-8d8f-4427-a695-b969142fca78,Surgical Face Mask 3-Ply,consumable,high,23.7,49.8,general
+f9b1e623-b7f1-41da-8e1c-a98f604fa1bd,Sterile Gloves Size 7.0,consumable,high,20.3,71.0,surgical
+85d718d2-c747-42c8-abc1-48657998517c,Sterile Gloves Size 7.5,consumable,high,33.8,77.7,surgical
+79c941a8-27ed-465e-91cb-c173a8f386bc,Sterile Gloves Size 8.0,consumable,high,33.8,104.8,surgical
+a652a7a8-1617-4ef8-a9aa-c79304ba2a56,Examination Gloves (Latex-Free),consumable,high,18.8,65.8,general
+6d1fde35-71e1-4787-a5db-dc29cf943260,Surgical Gown (Sterile),consumable,high,22.6,79.1,surgical
+9037f262-6e18-4268-838d-7b7fe49b413a,PPE Full Body Suit,consumable,high,12.7,30.5,general
+be8c56d2-1ee6-4041-8700-ed007e7885e7,Face Shield,consumable,high,8.0,19.2,general
+40ead6f6-f807-402f-af22-a06b9b677ebf,Eye Goggles,consumable,high,18.9,75.6,general
+79f57bbc-01e3-43a6-b08a-03b114538fad,Suture Vicryl 2-0 (Box),surgical,high,20.7,58.0,surgical
+e4143db2-38fa-472d-bf93-2c0b64c50fd2,Suture Prolene 3-0 (Box),surgical,high,35.6,85.4,surgical
+4e7bf030-450b-453b-8adc-0140ffd78f22,Suture Chromic Catgut 1 (Box),surgical,high,15.1,52.9,surgical
+bf52b89f-d6a2-4b1a-94b9-f77a8bcb35ee,Suture Nylon 4-0 (Box),surgical,high,34.0,115.6,surgical
+ebcc2b6a-1031-4c4c-836d-0c4b68ae11b9,Surgical Stapler Linear 60mm,surgical,high,26.1,78.3,surgical
+dabeae98-006e-4fcf-a1ad-20200fd49b11,Surgical Stapler Circular 29mm,surgical,high,31.5,116.6,surgical
+5aec2ee8-2bf4-4cfe-a5e6-154b1d6d6a3c,Laparoscopic Trocar 5mm,surgical,high,14.5,43.5,surgical
+3cdfa84b-4fc2-468d-83f1-3732b7879c74,Laparoscopic Trocar 10mm,surgical,high,28.7,60.3,surgical
+5df7e3b2-d9e3-476b-9233-c0257a4c0e04,Nasogastric Tube Size 14,surgical,high,36.3,119.8,general
+20a1f656-9686-4ff1-a044-92bb4f846f89,Foley Catheter 16Fr,surgical,high,21.4,64.2,general
+9d799ea7-2a83-4d9c-808b-c178163f91e4,Urinary Drainage Bag 2L,consumable,high,12.5,40.0,general
+1b38029f-8f0e-4562-98ac-c2c18cbd75a1,IV Cannula 20G (Box 100),consumable,high,12.5,27.5,general
+245ad1f0-f251-4591-a564-2698fda11a9c,IV Cannula 18G (Box 100),consumable,high,11.2,25.8,general
+2b68e4f7-24f2-4aa0-a338-bbc4db75541d,Scalp Vein Set (Butterfly) 23G,consumable,high,17.6,37.0,general
+9dabdc93-e4fa-4353-a3af-96ba53c1009a,Blood Collection Tube EDTA,consumable,high,26.4,63.4,general
+99320592-5ff9-4688-bfc7-58301f3af6a2,Blood Collection Tube SST,consumable,high,8.5,18.7,general
+269f599d-52ce-4aa4-8610-cbb8992cc152,Syringe 10mL (Box 100),consumable,high,9.3,34.4,general
+8a1d7072-1601-4056-93e9-66df316da9e9,Syringe 5mL (Box 100),consumable,high,23.4,93.6,general
+e427356e-0be9-4e12-bb20-48fa1d9decfd,Syringe 2mL (Box 100),consumable,high,16.3,63.6,general
+a71aa642-4a0b-4dd3-8a93-0dd68c3cd595,Dressing Gauze Sterile 4x4,consumable,high,11.0,44.0,general
+8d0b50ae-f09e-4902-a9af-7d65a1509996,Adhesive Bandage Roll,consumable,high,39.0,109.2,general
+37c7b2b6-30bd-428e-b3a4-3600736586e5,Crepe Bandage 10cm,consumable,high,9.5,24.7,general
+eeca7847-1a12-4ee4-a9d6-0e198e77fbc1,Transparent IV Dressing,consumable,high,35.3,113.0,general
+9390c13f-74cb-409d-b5ff-ced18482328a,Surgical Drape Sterile,consumable,high,20.1,66.3,surgical
+d2462284-06df-4eef-972d-2a588ca1947c,Paracetamol 500mg Tablet (Strip),medicine,medium,37.4,74.8,general
+ddfeee6a-98fa-4f1b-88e6-2c66e163c814,Amoxicillin 500mg Capsule,medicine,medium,42.3,105.8,general
+db3dccf3-5248-4d59-ac64-6fb4b86db075,Azithromycin 500mg Tablet,medicine,medium,34.2,71.8,respiratory
+42e7fec4-9d37-40bc-b2b8-3ede68106292,Cetirizine 10mg Tablet,medicine,medium,60.6,127.3,general
+c0778488-4f1b-4203-8734-fd827e00e279,Omeprazole 20mg Capsule,medicine,medium,62.9,119.5,general
+b219cce7-f077-4918-8a13-a99d544c47d1,Metformin 500mg Tablet,medicine,medium,51.8,129.5,general
+20e1edb5-c080-4d31-886f-853cc05ea9f7,Glimepiride 2mg Tablet,medicine,medium,37.5,108.8,general
+c82f42a1-f032-4af2-8c74-bb289c0c1c13,Losartan 50mg Tablet,medicine,medium,12.7,31.8,general
+ea125e4f-e1c8-445c-8579-1342affb5770,Amlodipine 5mg Tablet,medicine,medium,62.0,173.6,general
+84a0ecef-3bb4-4a96-9a13-15083929d5d2,Metoprolol 50mg Tablet,medicine,medium,10.4,28.1,general
+bc518fc3-d129-43db-beff-d6472b992b9b,Atorvastatin 20mg Tablet,medicine,medium,36.1,83.0,general
+b7cf00d3-dd5f-48c4-90ed-5278c25156aa,Aspirin 75mg Tablet,medicine,medium,64.2,141.2,general
+50573ec3-970d-44c6-ae77-2e9344f4eec0,Clopidogrel 75mg Tablet,medicine,medium,77.5,217.0,general
+47f84fd3-c9bb-41e2-a9af-aa883544e911,Pantoprazole 40mg Tablet,medicine,medium,71.5,150.2,general
+879338db-57fb-476b-842a-8d8686b15fed,Domperidone 10mg Tablet,medicine,medium,43.7,100.5,general
+b04463ac-2ae0-4f52-b0c8-e745480f0841,Ondansetron 4mg Tablet,medicine,medium,39.7,83.4,general
+612c8d24-e0fc-426d-829b-d5d72c1fc4bb,Montelukast 10mg Tablet,medicine,medium,65.6,183.7,respiratory
+864b91c9-26e0-434b-8ab7-1db40ed6648e,Levothyroxine 50mcg Tablet,medicine,medium,71.2,106.8,general
+3b416198-8162-471a-a936-8b720fbd3260,Vitamin D3 60000IU Capsule,medicine,medium,58.3,99.1,general
+d1e4e280-e3d5-4392-b872-0618f374081b,Folic Acid 5mg Tablet,medicine,medium,53.3,85.3,general
+ee8e3ec0-374c-4b2b-84cd-75ba3c6697a8,Iron & Folic Acid Tablet,medicine,medium,25.0,42.5,general
+433a1ebb-1ded-43c1-824b-f684f3652ab0,Calcium Carbonate 500mg Tablet,medicine,medium,16.8,48.7,general
+bebfdbb8-d6fa-437d-8da6-ac99fb1cfa8a,Multivitamin Tablet,medicine,medium,78.2,125.1,general
+ed68c08a-48f8-4d6d-bc52-3dbba3e81e6c,Doxycycline 100mg Capsule,medicine,medium,54.4,114.2,general
+b8786786-93e9-4655-b168-e93cc335a359,Fluconazole 150mg Tablet,medicine,medium,47.4,142.2,general
+1e9254c0-c969-47fc-9792-25055f96c62d,Metronidazole 400mg Tablet,medicine,medium,59.4,118.8,general
+800586ac-f810-4be3-80ff-29548570d682,Cotrimoxazole Tablet,medicine,medium,75.5,211.4,general
+659cb187-f5bb-4f20-bb17-31b7ab5bf3e8,Prednisolone 5mg Tablet,medicine,medium,68.4,116.3,general
+1e93e8a3-17ad-4837-9ae4-33e7293b6de1,Loratadine 10mg Tablet,medicine,medium,49.7,104.4,general
+f32e459c-95a1-4342-b70d-620665e1f6e3,Ranitidine 150mg Tablet,medicine,medium,77.8,155.6,general
+c0c804d7-0cb8-43a9-bdf1-c9051f2c2797,Diclofenac 50mg Tablet,medicine,medium,77.5,124.0,general
+57c2a092-b78b-4da6-91e0-4281a25710fb,Tramadol 50mg Capsule,medicine,medium,68.1,204.3,general
+a6de29dc-2ec2-4515-ba1f-5742968b3ae6,Gabapentin 300mg Capsule,medicine,medium,18.9,51.0,general
+0914b7fd-4159-4c93-bfd8-a9f0459118fc,Amitriptyline 25mg Tablet,medicine,medium,72.9,218.7,general
+2ca5f750-8301-4d10-b906-ad51c53c3d89,Sertraline 50mg Tablet,medicine,medium,41.9,88.0,general
+a3608a03-c2b6-45bf-ab00-d78865d737f6,Alprazolam 0.5mg Tablet,medicine,medium,16.3,26.1,general
+62d5787c-958f-4abb-9daf-f5d48d805741,Diazepam 5mg Tablet,medicine,medium,75.1,180.2,general
+dc269848-7690-4427-b105-9e8ab2c6f6a0,Clonazepam 0.5mg Tablet,medicine,medium,24.4,73.2,general
+65067651-3d48-44bf-93a2-9f05429b2298,Haloperidol 5mg Tablet,medicine,medium,75.5,226.5,general
+0452d162-fad8-43a9-aa32-8cde85cc71c7,Risperidone 2mg Tablet,medicine,medium,20.8,33.3,general
+0e9e33e0-160d-405f-b921-425dce609986,Salbutamol Inhaler 100mcg,medicine,medium,73.9,170.0,respiratory
+0b109ff6-878e-44d0-8093-40f1b9216e1a,Beclomethasone Inhaler 100mcg,medicine,medium,66.0,158.4,respiratory
+37e996e2-4c15-4a1e-a65d-5436b0eb5241,Tiotropium Inhaler 18mcg,medicine,medium,34.4,55.0,respiratory
+d85d301c-084f-4b98-937f-e5ff70c47d62,Formoterol Inhaler 12mcg,medicine,medium,76.2,160.0,respiratory
+fdc529c0-2319-474d-b211-52d4a97e53cf,Nasal Saline Spray,medicine,medium,22.8,45.6,respiratory
+315995bb-1c2c-4628-9549-ebb2ad25d49b,ORS Sachet,medicine,medium,40.4,72.7,general
+8316e095-4c65-4631-8292-39facb2b3a67,Zinc Sulphate 20mg Tablet,medicine,medium,75.6,136.1,general
+dcb44113-51e3-43a6-a29b-e3f6e307812f,Albendazole 400mg Tablet,medicine,medium,46.4,106.7,general
+a951fc0d-8e71-465e-9445-0db318eaa207,Chloroquine 250mg Tablet,medicine,medium,44.0,96.8,general
+f23814e7-0aa6-4224-a8f0-e48739fb66f9,Artemether-Lumefantrine Tablet,medicine,medium,51.5,92.7,general
+d60602cb-1aaa-4e49-b8a8-54b23cafa14e,Urine Dipstick Test Strip (Box 100),consumable,medium,78.7,173.1,general
+ffe621da-d30d-4d17-8fae-2e6f9e562282,Glucometer Strip (Box 50),consumable,medium,14.2,38.3,general
+9d53c513-2741-4386-ba08-08c2f0e12836,Pregnancy Test Kit,consumable,medium,40.0,100.0,general
+ba5ea882-bfac-433c-8677-a9ab9473f335,Blood Glucose Monitoring Kit,equipment,medium,34.3,85.8,general
+537bfd44-925f-485f-9077-75aecd71f0a3,Thermometer Digital,equipment,medium,36.0,75.6,general
+ca116dcc-47ef-4724-a1da-91c4285f4b03,BP Cuff Adult (Aneroid),equipment,medium,61.6,135.5,general
+f2aa24ef-ea92-4537-bb0a-ce2352b3260e,Stethoscope (Duplex),equipment,medium,19.2,34.6,general
+4dd2b22c-ac19-4baa-9531-1f58b4ed04de,Peak Flow Meter,equipment,medium,72.6,137.9,respiratory
+648afa06-fc18-4ee8-98f8-3a5f59e7a800,Nebuliser Machine,equipment,medium,20.8,37.4,respiratory
+8fcca989-83b4-4667-9be0-66fca279d365,Pulse Oximeter (Handheld),equipment,medium,71.8,186.7,respiratory
+4b3faf9a-e06e-49ec-b73f-e02b5a4c7eb5,Otoscope,equipment,medium,35.0,77.0,general
+484512e4-1057-4fd9-8187-6fbf276935fd,Ophthalmoscope,equipment,medium,31.6,53.7,general
+afb1aa0a-48d0-4c01-9878-ba1d3e34c6cb,Surgical Scissors (Box 12),surgical,medium,14.9,32.8,surgical
+5b73b036-6166-4b8b-9116-66f3b4bf1fc8,Artery Forceps (Box 12),surgical,medium,67.1,147.6,surgical
+a768d1d8-c1dc-43c6-b39b-379569c95eff,Tissue Forceps (Box 12),surgical,medium,35.3,63.5,surgical
+d4557c5f-0420-4fe0-8146-5de62774b00a,Needle Holder (Box 12),surgical,medium,26.9,69.9,surgical
+6776fe3b-c1d8-4a87-b655-34187f354951,Scalpel Blade No.11 (Box 100),surgical,medium,19.2,42.2,surgical
+7c3805cb-910d-4266-800f-761f9401483a,Scalpel Blade No.22 (Box 100),surgical,medium,26.5,68.9,surgical
+ba31ce8e-d2ba-4e76-a2b3-537abf181a66,Drainage Bag Closed 600mL,consumable,medium,55.0,154.0,general
+146acdac-12ea-4b19-949d-cbf2804c2004,Patient ID Wristband,consumable,medium,72.3,209.7,general
+7fca45ef-4f2d-4e12-a3b6-a833487528e4,Specimen Container 60mL,consumable,medium,15.7,23.5,general
+22f6d177-aae5-4571-b1a9-9b1c1bc8d6e1,Transport Media Swab,consumable,medium,38.5,92.4,general
+dfcf63ca-674c-4223-ad07-b27af1470f6d,Micropore Tape Roll,consumable,medium,17.6,31.7,general
+fc7362f0-6adf-4461-8fb1-9de2332f46ff,Alcohol Swab (Box 100),consumable,medium,79.6,222.9,general
+11033d0b-e013-4db5-94ed-5122bc7e610a,Cotton Wool Roll 500g,consumable,medium,38.1,72.4,general
+52ddf885-4baa-48ce-afc9-08ba6d9552a1,Hydrogen Peroxide 3%,consumable,medium,34.1,78.4,general
+019b8111-218d-4d64-92d2-9aa9bb3e8d98,Betadine Solution 500mL,consumable,medium,23.7,37.9,general
+47fb01fd-69bb-42e6-9cb7-4606ac34c951,Chlorhexidine Gluconate Solution,consumable,medium,68.4,171.0,general
+890bc48c-0c12-4e6b-a68f-18e3723206d8,Autoclave Tape Roll,consumable,medium,66.8,126.9,general
+2d4aade0-aa1b-420a-9d95-d217395ded18,Sterile Drape 60x90cm,consumable,medium,57.4,155.0,surgical
+bd77a683-87eb-4520-8de7-fab693f8fa3d,Sterile Field Sheet,consumable,medium,77.5,147.2,surgical
+737b440c-d8c4-4f33-ab96-546339cb2dfb,Waste Collection Bag Red,consumable,medium,27.7,74.8,general
+1bfc1b8e-166c-473c-b16b-ff625fad6057,Waste Collection Bag Yellow,consumable,medium,68.5,123.3,general
+19ada4bf-017a-47eb-a8fa-9ea01f7ec834,Sharp Disposal Container 5L,consumable,medium,79.6,127.4,general
+b354a3f2-ed3e-4033-ad29-6b873cb49bae,Hand Sanitizer 500mL,consumable,low,41.4,53.8,general
+f2cc4f4f-e617-4302-83ce-69ae5eedf155,Hand Soap Liquid 1L,consumable,low,21.7,30.4,general
+9369855b-b657-4a23-ab58-72c72e249811,Disinfectant Spray 500mL,consumable,low,26.6,50.5,general
+4c322dcf-d33b-457c-9755-7f2a160b0ed6,Floor Disinfectant 5L,consumable,low,49.2,73.8,general
+0a777057-b83d-4568-bd27-c0f35cb7f8fa,Disposable Apron,consumable,low,16.1,29.0,general
+f671241e-ab8d-4cf1-8ec0-dee521bfd0b0,Shoe Cover (Pair),consumable,low,26.1,36.5,general
+c4b529b2-8d71-441f-960e-79eb7146f39d,Head Cap/Bouffant Cap,consumable,low,18.0,32.4,general
+077c2f02-77b2-4b74-9539-8d40b8ebbeeb,Face Mask Surgical (Regular),consumable,low,17.0,23.8,general
+2449328c-086f-4772-b5f0-90128cbdc458,Cotton Gauze Roll,consumable,low,47.5,71.2,general
+ac586153-c1c7-463f-b8f2-f79eb25c0b9c,Plaster of Paris Bandage,consumable,low,23.0,27.6,general
+b2f88233-9f00-4343-b33c-aad488ffd0d8,Elastic Crepe Bandage 15cm,consumable,low,40.2,56.3,general
+bc7f0255-5c11-454f-beb3-5463544b43c6,Adhesive Plaster Strip,consumable,low,43.2,60.5,general
+be1fec6f-f769-4083-9428-ee081261cac7,Tongue Depressor (Box 100),consumable,low,18.8,32.0,general
+4b0a0051-64f4-4005-adba-33819d29af2e,Disposable Bedpan,consumable,low,40.1,80.2,general
+7f491d8e-6b83-470d-8535-1569de49c599,Urinal (Male),consumable,low,44.5,71.2,general
+1519a9c8-5dfd-4421-a298-b47b9814e77b,Bed Sheet Disposable,consumable,low,38.7,54.2,general
+fd101274-4d40-4a01-90d9-cc253e75be19,Pillow Cover Disposable,consumable,low,27.6,44.2,general
+c3271ed1-46df-4c66-a1cc-79ec4baff803,Patient Towel,consumable,low,40.4,76.8,general
+05f451d7-3324-48cd-8499-3db9b87e7bdd,Hospital Gown (Patient),consumable,low,35.5,56.8,general
+b14944ac-2357-4b09-84b5-481b38d55a60,Visitor Gown,consumable,low,48.2,86.8,general
+4ead7740-dabf-4108-ad33-2e4b7b3a418f,Paper Roll for ECG Machine,consumable,low,20.8,35.4,general
+260a87d8-6e6e-4cba-97d3-2356bda7f967,Electrode Gel 250mL,consumable,low,9.2,13.8,general
+d512ffe1-62b9-4d44-84b7-adeb7fba0c77,ECG Electrode (Box 100),consumable,low,40.5,60.8,general
+50f5b040-10e7-4431-ab86-0c7dc0952be9,Autoclave Bag Large,consumable,low,18.6,33.5,general
+7210a20b-9629-4f96-a4a5-2fed7a9a3565,Autoclave Bag Small,consumable,low,34.6,65.7,general
+93280fce-31de-4b92-9fe1-f7db1a81863a,Sterile Pack Indicator Strip,consumable,low,37.0,62.9,general
+0d0c8240-be5e-41a6-83df-a2c566412640,Ultrasound Gel 5L,consumable,low,20.7,39.3,general
+219ef704-1e09-4368-b373-f2e5cff9ac57,X-Ray Film 14x17,consumable,low,47.5,57.0,general
+1cde3ae1-608b-4087-b8c6-07b179cabfbb,IV Stand (Drip Stand),equipment,low,44.0,79.2,general
+fbd2cd69-0b8b-45d3-9cec-057a4bd4d4a1,Bed Pan Stainless,equipment,low,28.9,52.0,general
+f7a51b22-61bd-4987-a20f-9ca5a541fc93,Walking Stick,equipment,low,6.2,12.4,general
+4a632382-95f6-483e-b161-2e1301477045,Crutches (Pair),equipment,low,38.5,61.6,general
+52c983e6-556c-488a-866f-b706aa3fd506,Wheelchair,equipment,low,33.8,47.3,general
+e9b88c96-708c-4af9-9c1e-8df1df5d795a,Stretcher Sheet Disposable,consumable,low,20.7,35.2,general
+dfc73004-a829-426e-aee6-27cc6796a147,Oxygen Mask Simple (Box 10),consumable,low,45.6,86.6,respiratory
+83e36cee-8169-4ce9-8481-25aaa15fe879,Oxygen Mask Non-Rebreather (Box 10),consumable,low,14.5,18.9,respiratory
+36cd742b-0ed9-492a-8b50-de74c28df827,Nasal Cannula (Box 10),consumable,low,49.5,64.4,respiratory
+1b668475-3251-4395-96a0-8180ebbd882d,Oxygen Cylinder Trolley,equipment,low,31.1,56.0,respiratory
+e1dc94d5-bd1c-4e62-85bb-2ab93c8109e6,Portable Suction Machine,equipment,low,33.7,53.9,general
+09780430-259c-4190-9702-c9248bf95a04,Suction Catheter 14Fr (Box 10),consumable,low,20.6,33.0,general
+21ac6440-ef7e-4433-870c-8afce1eff3ba,Stool Softener (Lactulose),medicine,low,16.7,21.7,general
+63e28f31-b9f9-413e-afa2-7fe6bcfc4668,Antacid Suspension 200mL,medicine,low,19.9,33.8,general
+bbc2e186-698d-4713-a984-b5981cf308b2,Cough Syrup 100mL,medicine,low,39.4,55.2,respiratory
+50367763-88c4-40d2-82c2-2ad20b6d77d3,Oral Rehydration Salt Sachets,medicine,low,45.9,64.3,general
+f928c39e-8110-494e-9eee-e201e3ef4bc1,Vitamin C 500mg Tablet,medicine,low,29.9,50.8,general
+18883328-975d-4c4b-887c-28b4ff429af3,Zinc Tablet 10mg,medicine,low,11.1,20.0,general
+aaaebb40-cb3e-4ab1-b3cd-3a9fafec1e42,Antiseptic Cream 30g,medicine,low,8.3,13.3,general
+1be4c8a5-5af7-4b62-92c6-67801ff1015b,Calamine Lotion 100mL,medicine,low,15.0,24.0,general
+a250e219-3c77-4287-af2d-89cd520cc814,Itch Relief Cream 30g,medicine,low,42.3,67.7,general
+207f0c70-59f1-4da3-ae67-e7c802e353ec,Toothpaste (For ward patients),consumable,low,27.5,46.8,general
+ca598ff4-71ce-4cbd-a201-a61ee93dccfb,Toothbrush (For ward patients),consumable,low,28.8,49.0,general
+0f625268-88c1-41e3-9ebb-ff49b46b4793,Soap Bar (For ward),consumable,low,28.2,45.1,general
+51e4800f-7ae2-4794-867f-0b595b3814e8,Shampoo 200mL,consumable,low,26.1,52.2,general
+3c58e105-8489-4acd-a61b-740e70dea9db,Tissue Paper Box,consumable,low,14.8,19.2,general
+e6a1d939-c890-40d7-81ff-748458ac63f7,Cotton Buds Box,consumable,low,39.6,71.3,general
+d4fdc4e6-2e73-41d5-8d6c-3326ac7aa09d,Safety Pin (Box),consumable,low,11.9,23.8,general
+adc974eb-c3e6-4e83-8683-89d12849a407,Rubber Band (Pack),consumable,low,19.7,33.5,general
+ed149e41-033e-4576-b189-4dd321f370dd,Label Stickers (Roll),consumable,low,15.4,29.3,general
+ff5edc4c-fd1b-464b-9b98-59c4b6566542,Ballpoint Pen Box,consumable,low,43.2,86.4,general
+fc2d665f-97ed-4709-9197-e7e62eb1a074,Marker Pen Box,consumable,low,16.3,22.8,general
+96cf7dce-98aa-4a15-bf2b-290baf39c8ee,Printer Paper A4 (Ream),consumable,low,49.6,79.4,general
+252348d3-8f76-4163-a716-c3443a38ddac,Consent Form Pads,consumable,low,47.0,65.8,general
+02bc4d5a-6b8a-4912-8244-e2b89e5e9edc,Prescription Pad,consumable,low,18.6,29.8,general
+7ef4e4e3-e479-459c-9279-e54434caa00d,Patient File Folder,consumable,low,45.8,82.4,general
+d8bd2940-6b93-433e-9d88-2182ff7648dc,Binder Clip Box,consumable,low,29.6,47.4,general
+6fd40bfa-499e-4b4a-97b8-fcbf87768a90,Paper Clip Box,consumable,low,23.4,42.1,general
+195bd18d-ffd9-467e-9125-4a41440274b3,Stapler,equipment,low,10.7,15.0,general
+5b0acd2c-8e52-4802-8bd1-ba487596ae31,Stapler Pin Box,consumable,low,15.3,27.5,general
+ed2e4a39-4db1-4a3d-8ee0-ba61c7ec5492,Scissors (Office),equipment,low,19.2,25.0,general
+3fa5baea-10ee-4519-9427-bf17d5cd2f62,Tape Dispenser,equipment,low,7.9,9.5,general
+3ae3f996-cb99-4fe5-84f7-b1873bdd77ec,Rubber Stamp,equipment,low,43.2,56.2,general
+2bf2afd7-610b-41fe-8ea0-02ab4e0f07cd,Stamp Pad,consumable,low,24.9,32.4,general
+4421ec8b-8ce9-4684-931b-15637ff55ae0,File Tray (Plastic),equipment,low,5.5,7.2,general
+1a621dcf-afd9-496a-88b6-3e765d8175a8,Notice Board Pin Box,consumable,low,11.8,16.5,general
+6b4a30c7-ea04-4b25-ad5f-a532be96b096,Extension Cord 3-Point 5m,equipment,low,32.0,64.0,general
+4cad9be2-43c1-4408-a115-8dc8a34ee7e3,Power Strip Surge Protected,equipment,low,26.5,39.8,general
+a5233a05-5741-4a87-a099-2e76929e9472,USB Cable Type-C,equipment,low,20.8,37.4,general
+60907a03-1437-4f10-b200-48e16c951753,Mop and Bucket Set,equipment,low,34.0,57.8,general
+487353bb-894e-4f7e-afaf-35add3d46ce6,Broom,equipment,low,37.0,48.1,general
+8a5f3cab-cead-4719-9a3a-17309ba0c735,Dustpan,equipment,low,16.1,19.3,general
+881489dd-c36b-42a7-99a4-50ab6263504f,Waste Bin 20L,equipment,low,23.6,30.7,general
+a25931ad-d590-412b-b074-7bf88a22eb29,Cleaning Brush Set,consumable,low,14.1,26.8,general
+a7a7ba4d-cb51-44cd-a504-8ac4690b7cb6,Laundry Detergent 5Kg,consumable,low,47.8,57.4,general
+c25a4fcd-2eb3-4920-aa09-6b4dd311e149,Bleach Solution 5L,consumable,low,45.8,91.6,general
+c53e9d6c-7935-4919-81eb-708c11c52366,Air Freshener 300mL,consumable,low,43.2,73.4,general
+8c078eb6-c652-460d-a3d5-ba5f34741f7a,Pest Control Spray,consumable,low,30.7,39.9,general
+c243669b-4f40-48d9-b47b-3638d804f302,Mosquito Repellent Liquid,consumable,low,37.8,71.8,general
+d5a2304a-4953-4d88-9e94-5740efb227bf,First Aid Box (Refill),consumable,low,19.0,38.0,general
+a2d5cdc2-0905-43ef-8488-d199f345f493,Emergency Torch/Flashlight,equipment,low,12.9,18.1,general
+9087e13a-fff8-4c61-8529-fb4328d9104e,AA Batteries (Pack 10),consumable,low,38.0,53.2,general
+95fa2980-941b-4227-ac2c-be375077cde3,Floor Disinfectant 5L [Variant-1],consumable,low,56.1,139.3,general
+5ff3c0f3-394c-4481-bb5f-421b2927d241,Blood Glucose Monitoring Kit [Variant-2],equipment,medium,35.9,138.3,general
+5b8f9252-5f49-4d2c-8771-9ef5ac963bfa,Oseltamivir Capsules [Variant-3],medicine,high,16.0,63.6,respiratory
+87fadc9a-eb0d-4f52-8b6b-bea85af09ebf,Nitroglycerine Injection [Variant-4],medicine,life_critical,5.9,12.8,trauma
+507bb077-7a45-47c9-9d1a-d3f98da7e8f2,Sodium Nitroprusside [Variant-5],medicine,life_critical,11.4,24.4,trauma
+a037121a-82c5-4eff-a0b8-2fad4cd83216,Needle Holder (Box 12) [Variant-6],surgical,medium,26.6,93.3,surgical
+7e69da22-4ee2-430c-b663-d12299f7aba0,Cotrimoxazole Tablet [Variant-7],medicine,medium,70.5,260.2,general
+e34f57f8-115e-431e-b399-81bfba3d59b0,Ophthalmoscope [Variant-8],equipment,medium,31.9,117.6,general
+9c4caa14-e051-4ed3-9742-e84f4a00c149,BP Cuff Adult (Aneroid) [Variant-9],equipment,medium,72.8,240.4,general
+2c1d5109-b046-4baa-ad3b-c2053ef23f2e,Hand Sanitizer 500mL [Variant-10],consumable,low,35.0,132.0,general
+ddffba2e-ddcb-48fc-ac2e-cecae7ecf070,Metronidazole Injection [Variant-11],medicine,life_critical,1.8,4.1,trauma
+542bcb4d-f0ba-41b7-9564-07679dea027f,Mechanical Ventilator Circuit (Adult) [Variant-12],equipment,life_critical,14.3,30.0,respiratory
+a20310fd-a441-4a0e-879b-16e2fa65d7d7,Midazolam Injection [Variant-13],medicine,life_critical,4.1,11.8,trauma
+9a2b3acd-86d5-4cce-999d-a160576319c5,Glucometer Strip (Box 50) [Variant-14],consumable,medium,13.7,41.7,general
+b001b850-1f67-4413-8d1e-71ed7c1b20fc,Vitamin D3 60000IU Capsule [Variant-15],medicine,medium,47.4,153.0,general
+d5a86e2f-5b6f-4bec-988d-a1b0f5f3dec6,Tracheostomy Tube Size 8 [Variant-16],surgical,life_critical,6.7,22.1,respiratory
+3affbc3c-8c91-4017-b7f7-624dd98d2cd7,Surgical Gown (Sterile) [Variant-17],consumable,high,18.2,45.4,surgical
+9ae87dc8-80b8-41ea-968a-32ca749a8a21,Remdesivir Injection [Variant-18],medicine,high,23.6,65.8,respiratory
+f07bea6f-d8a4-4ee3-b9f8-eff2ab16fefa,Oseltamivir Capsules [Variant-19],medicine,high,14.2,43.5,respiratory
+361503ad-2b48-47dd-8f75-eabee15fbfc5,Oxygen Mask Non-Rebreather (Box 10) [Variant-20],consumable,low,15.0,30.7,respiratory
+e62a688e-eebd-456e-bebe-2618979f0308,Cotton Wool Roll 500g [Variant-21],consumable,medium,35.7,101.5,general
+944d6bb9-4bf3-4d5f-953e-768652d84f82,Paracetamol Injection 1g [Variant-22],medicine,high,19.8,70.6,general
+d72ecd0f-cb55-4a33-86c8-023a9eb44815,Ophthalmoscope [Variant-23],equipment,medium,25.6,82.0,general
+98814c7a-0181-457e-ab27-87bf6944c36f,Ertapenem Injection [Variant-24],medicine,high,22.6,58.1,general
+6782cddf-b836-464a-855f-977f4c58ef07,IV Cannula 20G (Box 100) [Variant-25],consumable,high,13.2,50.9,general
+4bc99bb8-ddaf-4037-a79e-47f2e0634f50,Waste Collection Bag Red [Variant-26],consumable,medium,33.0,68.8,general
+304afb28-2609-4ba1-8c99-13737e8cd043,Surgical Gown (Sterile) [Variant-27],consumable,high,23.0,52.8,surgical
+13fac97b-b698-470f-8046-81823f3c2940,Hydrocortisone Injection [Variant-28],medicine,life_critical,9.4,37.4,trauma
+2d9e0373-23fa-4b6b-bd32-30698695c5a3,Transport Media Swab [Variant-29],consumable,medium,37.8,139.3,general
+828c37bf-94aa-4411-805d-1f80850c8b68,Cough Syrup 100mL [Variant-30],medicine,low,36.6,108.3,respiratory
+16aefe72-0138-45db-a4f7-a225812c9ddb,Mechanical Ventilator Circuit (Adult) [Variant-31],equipment,life_critical,13.2,29.9,respiratory
+05cab9be-1c33-4486-84f3-d4bcf99f8046,Piperacillin-Tazobactam Injection [Variant-32],medicine,life_critical,3.6,14.0,trauma
+8a029612-eef9-4cba-ac33-98256c8679f0,Oxygen Cylinder Trolley [Variant-33],equipment,low,31.2,68.1,respiratory
+57122823-279f-47cc-b1a4-8c3d79a90648,Potassium Chloride Injection [Variant-34],medicine,life_critical,13.4,51.7,trauma
+923c5bd2-af6c-4519-a62f-23a84c13b1f2,Labetalol Injection [Variant-35],medicine,life_critical,5.7,14.4,trauma
+356bd5cd-2e0c-4250-8589-b92a237f37df,N95 Respirator Mask [Variant-36],consumable,high,10.0,37.2,respiratory
+42fa069a-dad9-4a08-866d-b42fab64e488,Amoxicillin-Clavulanate Injection [Variant-37],medicine,high,34.0,126.2,general
+e1557164-248b-4416-818a-c8bf5899e564,Blood Glucose Monitoring Kit [Variant-38],equipment,medium,32.8,100.4,general
+19a893ca-1966-46db-b970-dccf7bf50036,Plaster of Paris Bandage [Variant-39],consumable,low,20.1,52.3,general
+f6f4a59a-1795-49a8-aaf8-a629b03e80ec,Face Mask Surgical (Regular) [Variant-40],consumable,low,13.8,38.4,general
+84deb487-6eff-4a8d-941a-4d7d77c88e0a,Amlodipine Tablet [Variant-41],medicine,high,35.3,83.4,general
+9b2e2061-c8ad-474a-a9fb-aed6a573d392,Urine Dipstick Test Strip (Box 100) [Variant-42],consumable,medium,84.2,212.8,general
+6097313d-2022-4173-a4c3-056fc7a16067,Fentanyl Injection [Variant-43],medicine,life_critical,11.8,40.5,trauma
+ea69e67e-6056-4635-9008-e2393583a7fa,Acetylcysteine Injection [Variant-44],medicine,high,9.4,25.6,general
+7e42f2fd-c019-4db4-a052-13b0d6491d20,Risperidone 2mg Tablet [Variant-45],medicine,medium,21.4,52.0,general
+6d4ac580-077e-4cd6-b517-baca3abaf73b,Atropine Sulphate Injection [Variant-46],medicine,life_critical,4.4,11.8,trauma
+6da6ca47-c2d9-481f-bfaf-adc290733a5e,Nasal Saline Spray [Variant-47],medicine,medium,22.8,51.3,respiratory
+110eaafa-6d59-4752-90ce-a0e3f9fd932a,Surgical Stapler Linear 60mm [Variant-48],surgical,high,23.4,81.8,surgical
+518844bc-ec32-4eaa-b752-6eede508d325,Chlorhexidine Gluconate Solution [Variant-49],consumable,medium,76.8,297.5,general
+55c0b7f1-144d-413d-9343-50cc5ffd2e81,Blood Collection Tube SST [Variant-50],consumable,high,8.9,30.4,general
+4f9e032c-213b-4dd5-9a3a-e9a265e97511,Ophthalmoscope [Variant-51],equipment,medium,37.8,101.4,general
+12341a62-59f4-4c37-bdee-da9d06563b55,Zinc Tablet 10mg [Variant-52],medicine,low,9.6,29.2,general
+1f764638-e495-40d6-8c55-9374e5bb6bd8,Elastic Crepe Bandage 15cm [Variant-53],consumable,low,35.0,112.9,general
+76a67310-e133-47b0-8c0f-7b73e205d2dd,Phenytoin Injection [Variant-54],medicine,high,25.0,96.4,general
+8cee3077-b5ad-40e6-81e1-ae2c40d4492f,Oseltamivir Capsules [Variant-55],medicine,high,12.2,27.0,respiratory
+fdcdc4f8-ee73-499f-9ba7-60c8893c999a,Adhesive Bandage Roll [Variant-56],consumable,high,34.9,88.9,general
+677ef83a-f83e-4c4d-93de-a8c491d5e754,Digoxin Injection [Variant-57],medicine,high,9.5,22.7,general
+70b69b7c-e52c-45ab-84b8-3f00f978d80a,Morphine Sulphate Injection [Variant-58],medicine,life_critical,7.5,20.8,trauma
+e06fe499-8325-4054-90cb-1cc15a3f76e6,Label Stickers (Roll) [Variant-59],consumable,low,14.3,31.2,general
+45014b7a-d687-4d5d-9db1-b78595cb5606,Portable Suction Machine [Variant-60],equipment,low,27.3,65.6,general
+55acf9ed-c5c8-4468-9421-93b7e326092e,Midazolam Injection [Variant-61],medicine,life_critical,5.7,22.0,trauma
+17d5f8ec-6069-4a28-9d21-138b697340f1,Metformin 500mg Tablet [Variant-62],medicine,medium,51.9,159.0,general
+d11249f0-4668-4624-9f40-4cd40e33a77e,Morphine Sulphate Injection [Variant-63],medicine,life_critical,8.8,31.1,trauma
+522eb30a-298e-4521-8cbc-d290152e193a,Piperacillin-Tazobactam Injection [Variant-64],medicine,life_critical,5.0,19.0,trauma
+fc305ac1-8b76-4f65-a9ed-b2567b31c36d,Printer Paper A4 (Ream) [Variant-65],consumable,low,54.9,198.3,general
+3c08e0a8-9e67-4ffd-a771-95fa1e0b522f,Shoe Cover (Pair) [Variant-66],consumable,low,24.1,93.0,general
+dbc5b79c-abd2-4c5b-8c4d-a398411e37ba,Hospital Gown (Patient) [Variant-67],consumable,low,42.5,150.5,general
+b5b851ac-7632-4df9-9ca0-c16971324a4a,Wheelchair [Variant-68],equipment,low,28.3,93.7,general
+e8633f18-312f-4849-9923-fd0de823f897,Valproate Injection [Variant-69],medicine,high,18.7,67.3,general
+f31b1061-0723-4755-bfd4-c1be1f258227,Morphine Sulphate Injection [Variant-70],medicine,life_critical,8.2,30.5,trauma
+d35b5313-11f1-4774-9114-a15d26476ae3,Electrode Gel 250mL [Variant-71],consumable,low,8.4,23.8,general
+ebe70a1b-29d4-4ef9-9aa9-b575f38963fa,Furosemide Injection [Variant-72],medicine,life_critical,8.1,23.5,trauma
+be91a081-8595-4f84-83be-2d1c3737140a,Levofloxacin Injection [Variant-73],medicine,high,11.4,32.5,respiratory
+2704d590-92a0-43f7-a748-d3306b50ac7d,Succinylcholine Injection [Variant-74],medicine,life_critical,12.7,32.3,trauma
+f80088be-724a-4d8a-b4bb-042187bae10d,Paper Clip Box [Variant-75],consumable,low,22.7,60.3,general
+92a5beb2-04c6-47aa-b953-44a08927bc98,Rocuronium Injection [Variant-76],medicine,life_critical,13.6,38.6,trauma
+9680cba1-bb3a-4e51-9cf9-018474fff983,Iron Sucrose Injection [Variant-77],medicine,high,31.2,71.9,general
+04332630-fc1b-4780-902e-ec20afeaa363,Glucometer Strip (Box 50) [Variant-78],consumable,medium,13.4,42.0,general
+347b8852-9b30-4c55-9068-bdcaab9dcbd7,Pacemaker Electrode Catheter [Variant-79],surgical,life_critical,13.4,33.7,trauma
+09c33049-4112-4c8f-97f7-e6c58b9a4178,Shampoo 200mL [Variant-80],consumable,low,31.0,110.7,general
+d25f8f4a-3d57-439e-874f-9a4ffd7ebf03,Examination Gloves (Latex-Free) [Variant-81],consumable,high,21.3,48.7,general
+2fae3224-470f-436a-93d8-d496607b7e79,Label Stickers (Roll) [Variant-82],consumable,low,15.6,36.5,general
+0c526fb3-1da7-4b85-972f-28ba012aaae2,Paper Clip Box [Variant-83],consumable,low,24.2,61.2,general
+d40c1716-ec0b-406e-81ef-2369b27046c4,Heparin Sodium Injection [Variant-84],medicine,life_critical,7.4,16.5,trauma
+db7e6600-6d52-4bc3-a0d6-9dada3bf6267,Broom [Variant-85],equipment,low,40.3,85.3,general
+1c353bee-111f-476c-b3ca-123c360b0105,Furosemide Injection [Variant-86],medicine,life_critical,10.3,37.4,trauma
+362872fd-dacb-44c5-8cae-b2947b02477a,Pulse Oximeter (Handheld) [Variant-87],equipment,medium,72.2,181.7,respiratory
+83ebd91e-b633-4436-b035-8c57ef8308ad,Marker Pen Box [Variant-88],consumable,low,17.4,38.9,general
+7009ad14-0760-407c-b424-46b092f6dfaa,Toothbrush (For ward patients) [Variant-89],consumable,low,33.3,79.0,general
+07c9b8d6-6498-478b-ad8c-c4a78fdb5c69,IV Stand (Drip Stand) [Variant-90],equipment,low,40.9,129.9,general
+06f6e8aa-8fec-4b30-8f24-476562082a92,Glimepiride 2mg Tablet [Variant-91],medicine,medium,36.6,84.6,general
+622422e9-f692-4686-b5a4-a6c33640413d,Suture Chromic Catgut 1 (Box) [Variant-92],surgical,high,12.7,50.8,surgical
+a24df86b-a8e1-4300-b423-5e4b87051f00,Enoxaparin Injection [Variant-93],medicine,high,42.9,127.2,general
+ad5472e1-e04e-433d-b555-26031c72943e,Metformin 500mg Tablet [Variant-94],medicine,medium,60.6,131.8,general
+8fe17a41-0b2a-4711-b210-359edc1ac70a,Surgical Face Mask 3-Ply [Variant-95],consumable,high,27.8,108.3,general
+22d54e7a-a778-4aa2-93a2-c6a77c5501e1,Surgical Stapler Linear 60mm [Variant-96],surgical,high,24.2,65.6,surgical
+7b225dff-9fa1-425e-b682-e338d80db293,Albendazole 400mg Tablet [Variant-97],medicine,medium,44.8,106.6,general
+8b2b7b89-6369-4a70-b5d7-15040268b246,Pulse Oximeter Probe [Variant-98],equipment,life_critical,13.9,34.8,respiratory
+76080224-7d02-40ef-9e82-018d5e6b2e51,Transparent IV Dressing [Variant-99],consumable,high,29.2,60.7,general
+7ed50b2e-acb1-4727-80d4-c356079b4d4a,Sterile Drape 60x90cm [Variant-100],consumable,medium,60.9,163.1,surgical
+9d71d34a-17f0-4314-812c-0d5cbfeef985,Glimepiride 2mg Tablet [Variant-101],medicine,medium,31.4,122.5,general
+a6a85e0f-0bb4-4086-9fc9-501e97105f48,Dexamethasone Injection [Variant-102],medicine,life_critical,4.0,15.0,trauma
+d3643036-e750-429e-be56-8d95f2e70171,Vasopressin Injection [Variant-103],medicine,life_critical,2.0,5.5,trauma
+66e5ed68-0113-44d7-b2ed-41e493fc1d56,Sterile Drape 60x90cm [Variant-104],consumable,medium,58.3,151.2,surgical
+291b9d8c-470d-4406-92a8-b055c33cfa04,Dustpan [Variant-105],equipment,low,15.3,38.4,general
+11e70779-12f5-45a8-ba99-f2affa82a2d3,Toothpaste (For ward patients) [Variant-106],consumable,low,26.2,62.7,general
+44cbc479-7112-40e8-be54-e4a5d0b58741,Endotracheal Tube Size 7.5 [Variant-107],surgical,life_critical,12.3,34.1,respiratory
+2ba0eefc-59f0-4255-a908-94634a1e90e3,Dexamethasone Injection [Variant-108],medicine,life_critical,3.4,10.4,trauma
+402d4c06-b739-4e5e-a297-f39714576118,Nasal Cannula (Box 10) [Variant-109],consumable,low,47.1,149.5,respiratory
+44a527c8-fb0b-450a-9e6d-cead5e8da63f,Amlodipine Tablet [Variant-110],medicine,high,39.0,118.7,general
+3f69e315-fcef-4cf5-9c17-9e2877d0d9ff,Paper Roll for ECG Machine [Variant-111],consumable,low,23.2,49.1,general
+aaf9b08c-2317-4ec3-8eb8-e033f3b4326b,Surgical Stapler Linear 60mm [Variant-112],surgical,high,25.4,86.3,surgical
+d5d74519-d940-41d0-a5b0-32365a2a3bc7,Pulse Oximeter Probe [Variant-113],equipment,life_critical,11.8,25.8,respiratory
+a33a03bc-1f40-4952-a265-1864310f21dd,Doxycycline 100mg Capsule [Variant-114],medicine,medium,55.7,125.5,general
+047b86df-579c-4d8d-941a-49dd56fa5d83,Succinylcholine Injection [Variant-115],medicine,life_critical,11.0,37.9,trauma
+9e9ae4ea-896b-4580-a9b7-a85a3e78b187,Sterile Gloves Size 8.0 [Variant-116],consumable,high,38.8,126.4,surgical
+cedaa1e7-f455-4abf-9825-59539bbd6385,Sertraline 50mg Tablet [Variant-117],medicine,medium,46.2,170.2,general
+9ff8fbbc-11f4-4f38-a20e-c75f4a0c9ef1,Blood Collection Tube EDTA [Variant-118],consumable,high,30.3,62.8,general
+3dffe3dd-b676-4b68-bb84-3877ae61064d,Valproate Injection [Variant-119],medicine,high,15.0,55.8,general
+7a1e5595-e5a9-43dd-ab8f-65e9e482423a,Patient ID Wristband [Variant-120],consumable,medium,76.6,217.6,general
+435ed16b-c887-4ec7-b956-7691a5bf2ef9,Suction Catheter 14Fr (Box 10) [Variant-121],consumable,low,19.3,65.8,general
+028261c2-3e69-43b4-9c2e-2553de9f952c,Surgical Drape Sterile [Variant-122],consumable,high,17.7,38.7,surgical
+a9705d7e-e104-4f62-842a-981eea98724b,Extension Cord 3-Point 5m [Variant-123],equipment,low,35.4,84.9,general
+ebbddb0f-ec87-4c88-81bf-839060aa58d3,Crutches (Pair) [Variant-124],equipment,low,35.3,139.2,general
+8fea0660-ac0b-45dc-b1c2-e20241f51905,Vasopressin Injection [Variant-125],medicine,life_critical,2.3,6.0,trauma
+ed34abec-a02a-4aa9-b489-27d75c393752,Vitamin C 500mg Tablet [Variant-126],medicine,low,27.5,57.2,general
+a1861869-e7ad-4430-8a1d-7d5072204210,Transparent IV Dressing [Variant-127],consumable,high,28.8,57.9,general
+66fc6928-e031-4bf9-b580-fdac4ecfbde8,Laryngoscope Blade McIntosh 3 [Variant-128],surgical,life_critical,10.8,42.1,respiratory
+e6f2501a-bd42-4186-a7b8-bddd0fc5ea26,Capnography Module [Variant-129],equipment,life_critical,13.4,39.8,respiratory
+59b437cb-f464-4a9c-95fb-48d5510a743b,Surgical Stapler Linear 60mm [Variant-130],surgical,high,25.4,67.3,surgical
+6265357e-2a69-4fa6-9415-c1738d370523,Intraosseous Needle Kit [Variant-131],surgical,life_critical,2.5,8.0,trauma
+2b66d251-32ee-4001-adda-ce287e772705,Video Laryngoscope Blade [Variant-132],surgical,life_critical,16.5,65.8,respiratory
+f5f52c05-e2ed-454a-a8e6-7f9edb13a048,Vitamin C 500mg Tablet [Variant-133],medicine,low,28.5,67.3,general
+ac4d2f6a-4843-4e4f-93b7-14a1ae2621d2,Phenytoin Injection [Variant-134],medicine,high,29.2,75.2,general
+d87059a3-eb49-43f6-8fe3-487114b0700b,Nasogastric Tube Size 14 [Variant-135],surgical,high,40.1,120.0,general
+1b81e4c5-53ac-4483-9d92-5c4e2e7d391c,Scalp Vein Set (Butterfly) 23G [Variant-136],consumable,high,20.6,42.5,general
+88bdeb5e-dcce-444c-9b65-779c187cd926,Rubber Stamp [Variant-137],equipment,low,41.5,89.7,general
+1edc7baf-df85-4433-99a5-8d11d0ad4c24,Clopidogrel Tablet [Variant-138],medicine,high,23.1,91.8,general
+9642828e-2018-4e1a-9040-cb680bf311e4,Iron & Folic Acid Tablet [Variant-139],medicine,medium,22.0,69.2,general
+95daa486-cfb1-43ce-bc5e-663a788f2d97,Enoxaparin Injection [Variant-140],medicine,high,37.3,117.9,general
+f89e9b98-d4ef-406b-8643-43c1a07b8b08,Pest Control Spray [Variant-141],consumable,low,34.7,79.0,general
+a3a6fd5e-5cf1-48c7-87c5-3d4c77532e95,Surgical Stapler Linear 60mm [Variant-142],surgical,high,25.4,85.8,surgical
+0a380a3c-c9c7-4a06-97bc-e64fc5389507,Visitor Gown [Variant-143],consumable,low,45.7,143.3,general
+a31961e1-9685-4716-bbc9-1b484f31c18a,Adhesive Plaster Strip [Variant-144],consumable,low,35.8,83.8,general
+0037e4d0-f537-44b4-86a8-c13e4f075c36,PPE Full Body Suit [Variant-145],consumable,high,13.9,35.8,general
+347e4a1b-61f0-477e-9059-0bc89c8b0f28,Ceftriaxone Injection [Variant-146],medicine,life_critical,5.6,11.9,trauma
+7510a404-3f48-41df-979f-aa845b60f8d6,Labetalol Injection [Variant-147],medicine,life_critical,5.4,11.8,trauma
+b421d7e4-7e5f-433c-9a37-709ba980ca2b,Pest Control Spray [Variant-148],consumable,low,24.9,52.6,general
+3832c165-de5a-4564-b51b-89b5d9646cc3,Ophthalmoscope [Variant-149],equipment,medium,28.2,87.3,general
+4813291d-35cf-4805-aee2-c438422350f3,Urinary Drainage Bag 2L [Variant-150],consumable,high,12.1,43.5,general
+560da144-6871-4c56-9a8a-a9111e6f4b0f,Protamine Sulphate [Variant-151],medicine,life_critical,10.9,43.4,trauma
+c1acb2e6-0969-484c-b3d3-0245e12ce19d,Atropine Sulphate Injection [Variant-152],medicine,life_critical,3.3,12.1,trauma
+042a7c51-aee3-4d91-8c6d-d5b5bcf27c5d,Ondansetron 4mg Tablet [Variant-153],medicine,medium,39.3,148.3,general
+8b957220-7675-4221-8e9d-49045b51dff2,Blood Warmer Set [Variant-154],equipment,life_critical,6.2,20.9,trauma
+f9f72ce8-ee43-4367-b22c-78d9e0f335f6,First Aid Box (Refill) [Variant-155],consumable,low,18.4,50.3,general
+ddfc0e0f-2ea0-4cb4-900f-4598c2a33a5a,Suture Nylon 4-0 (Box) [Variant-156],surgical,high,34.3,100.3,surgical
+9c68e55c-c8fe-4193-83f1-665410865113,Phenobarbitone Injection [Variant-157],medicine,high,34.4,86.1,general
+8bc88b85-8c4f-4878-8e56-f94beac3b3e2,Transport Media Swab [Variant-158],consumable,medium,36.4,83.7,general
+0ce5eb53-e4d2-407c-9874-d43e29815925,Oral Rehydration Salt Sachets [Variant-159],medicine,low,47.8,108.4,general
+bcd7fff8-d59e-4b06-a419-e2e77ead9e51,Artery Forceps (Box 12) [Variant-160],surgical,medium,72.3,267.2,surgical
+ddb0b013-5136-46d6-968d-de0e7e4bc6c4,Itch Relief Cream 30g [Variant-161],medicine,low,36.4,73.4,general
+3710cf42-cfdb-43b2-8f34-2847e8ecce1b,Vasopressin Injection [Variant-162],medicine,life_critical,1.8,6.3,trauma
+3bd23cc4-4123-4ffa-bcca-56a345f44a21,Central Venous Catheter Kit [Variant-163],surgical,life_critical,9.7,33.9,trauma
+44001682-7bac-42c2-8c93-a3fee008788f,Hydrocortisone Injection [Variant-164],medicine,life_critical,8.4,26.7,trauma
+9c0f0f96-76e3-4199-8d67-ee4c8da93f3d,Metoclopramide Injection [Variant-165],medicine,high,13.1,26.5,general
+8653b6de-1c14-420b-a815-17479416fa34,Stool Softener (Lactulose) [Variant-166],medicine,low,17.3,68.9,general
+e141ec0d-81a0-4303-b855-b3d0cb148654,Platelet Concentrate [Variant-167],medicine,life_critical,6.2,13.9,trauma
+a68bf00b-6ff1-4b3e-855e-5857e8d1f9fc,Sertraline 50mg Tablet [Variant-168],medicine,medium,42.8,136.7,general
+6caf9022-5b9b-42d7-9d23-0ee433d9d201,Marker Pen Box [Variant-169],consumable,low,18.0,68.1,general
+f20c11e0-9d60-4488-993c-095ba58e9f02,Oral Rehydration Salt Sachets [Variant-170],medicine,low,51.5,128.5,general
+12ade995-7de6-4dd5-8f4c-404e97c58f2d,Ondansetron Injection [Variant-171],medicine,high,35.3,93.9,general

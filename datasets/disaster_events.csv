@@ -1,0 +1,201 @@
+event_id,disaster_type,severity,city,state,lat,lng,radius_km,event_date,surge_multiplier,predicted_stockout_hours,ai_summary,is_historical
+093e87eb-6896-4294-ab19-7bcbeed77233,flood,4,Belagavi,Karnataka,15.9524,74.4907,48.6,2019-04-01,4.58,59.8,Severe flooding in Belagavi district affecting supply routes,True
+59b8c836-2549-40ba-9c5d-8dd47dbcefe8,flood,3,Davanagere,Karnataka,14.2945,75.7552,27.0,2020-05-16,2.78,5.2,Monsoon floods disrupting Tungabhadra corridor,True
+5f041ac8-47bc-4bdc-9914-50aa963aedb0,flood,4,Shivamogga,Karnataka,13.9914,75.5189,38.9,2021-10-07,3.53,38.5,Flash floods in Shivamogga affecting Bhadra river basin,True
+5bfbe139-826c-4c5a-9811-563f40c7a40f,flood,3,Bengaluru,Karnataka,12.9964,77.6531,51.8,2022-09-10,2.75,55.1,"Urban flooding in Bengaluru (Outer Ring Road, Sarjapur)",True
+273d1c10-bd5b-4361-85a6-2b2aeab1574f,flood,3,Kalaburagi,Karnataka,17.2992,77.0562,49.8,2023-09-22,3.39,65.8,Kalaburagi district flooding affecting NH-150,True
+3671abef-0960-4732-9964-7eedf390b746,earthquake,2,Vijayapura,Karnataka,16.7481,75.7612,45.0,2020-05-07,2.47,21.0,Moderate tremors felt in Bijapur region,True
+07233c71-9e4f-41d8-a803-743588ed1c31,cyclone,2,Mangaluru,Karnataka,12.8454,74.6895,32.2,2021-05-01,2.64,114.1,Cyclonic storm affecting coastal Karnataka,True
+c2b3c087-18ae-434a-afb7-ecd1a0fbd1b3,fire,3,Bengaluru,Karnataka,13.1783,77.5365,59.4,2022-12-09,4.13,27.6,Major warehouse fire near Peenya Industrial Area,True
+fe09c0aa-e50f-46fd-a1f8-e37681ce7dec,fire,2,Hubballi,Karnataka,15.4561,75.0503,49.7,2023-12-16,2.77,40.3,Chemical storage fire in Dharwad district,True
+0fad425e-d80f-420d-b10f-12a7382f3b80,collapse,2,Mysuru,Karnataka,12.3193,76.6522,42.2,2022-09-05,2.11,82.4,Building collapse near Mysuru industrial hub,True
+1daeb6f3-9570-4008-8e89-ff6eef33a18e,industrial_accident,3,Ballari,Karnataka,15.043,76.958,65.1,2023-08-15,3.49,11.2,JSW plant incident causing area lockdown,True
+ae6cb853-0794-4f9d-ba17-5262188a7de3,mass_casualty,3,Bengaluru,Karnataka,12.8719,77.5073,28.6,2022-09-27,3.27,5.0,Multi-vehicle accident on Bengaluru-Mysuru expressway,True
+9b51930c-e88f-466e-aafd-2fd7150b9f00,mass_casualty,2,Hubballi,Karnataka,15.3069,75.125,48.6,2023-07-20,2.3,116.2,Train derailment near Hubballi,True
+99ff47b6-1946-4632-aa5e-934d29c32916,flood,4,Uttara Kannada,Karnataka,12.9395,77.5874,84.2,2024-09-17,3.73,45.8,Severe landslides and flooding in Uttara Kannada,True
+35c5f5f1-29d1-4689-b243-30d318325ee8,flood,3,Dakshina Kannada,Karnataka,12.9616,77.6625,67.7,2024-09-08,3.77,69.5,Coastal flooding during southwest monsoon,True
+fdec6630-cd8f-4fc6-a388-c7a9a22bc6e9,cyclone,3,Mangaluru,Karnataka,12.8652,74.7484,68.2,2024-05-13,2.96,4.8,Pre-monsoon cyclonic storm Bay of Bengal,True
+084dbc6d-97d5-4921-9f52-f51c3c5668eb,collapse,2,Belagavi,Karnataka,15.8385,74.3242,33.1,2020-01-08,2.71,48.1,Structural collapse in Belagavi urban area triggering trauma and surgical supply surge.,False
+242bdcfa-0b9e-4ea7-8946-908c4f94afe7,cyclone,1,Bengaluru,Karnataka,13.0938,77.6248,16.2,2020-03-23,0.97,132.5,Cyclonic storm impacting Bengaluru region with wind speeds exceeding 80 km/h.,False
+7d44879d-430a-4edb-b0bd-46828bebef31,fire,2,Tumakuru,Karnataka,13.3415,77.1819,22.5,2025-01-24,2.07,68.5,Major fire incident in Tumakuru requiring mass casualty response and burn unit supplies.,False
+c7d3beb3-5f58-4af5-bf5e-087a0013f40e,mass_casualty,1,Tumakuru,Karnataka,13.4761,77.3085,20.1,2022-06-23,0.88,183.4,Mass casualty incident in Tumakuru requiring immediate trauma and surgical response.,False
+a9c72592-cc3a-4954-a937-6a8445a1b840,collapse,3,Chikkamagaluru,Karnataka,13.4749,75.8639,61.9,2021-03-15,2.57,25.2,Structural collapse in Chikkamagaluru urban area triggering trauma and surgical supply surge.,False
+f7ad6ca4-db93-4836-ad1c-47e69041dae1,fire,2,Mandya,Karnataka,12.7456,77.0128,27.5,2021-05-02,1.99,64.4,Major fire incident in Mandya requiring mass casualty response and burn unit supplies.,False
+9e606201-7cfe-45c5-953c-2a37aec32ede,mass_casualty,1,Tumakuru,Karnataka,13.4825,77.0609,14.4,2025-01-17,1.16,90.8,Mass casualty incident in Tumakuru requiring immediate trauma and surgical response.,False
+dd89b9c4-e72c-4896-8011-1b0f201ad0f1,mass_casualty,4,Chikkamagaluru,Karnataka,13.2716,75.7692,84.8,2019-03-11,5.2,47.7,Mass casualty incident in Chikkamagaluru requiring immediate trauma and surgical response.,False
+75e54211-bafc-41bb-ad2d-5ec31022af87,flood,1,Kalaburagi,Karnataka,17.2637,76.8645,22.0,2019-06-08,1.04,143.9,Severe flooding in Kalaburagi district affecting medical supply routes and distribution hubs.,False
+22a7e1dd-bbc4-4ea5-aa08-4f6fffd18ac4,collapse,3,Kalaburagi,Karnataka,17.2025,76.6038,40.7,2023-04-03,2.67,71.6,Structural collapse in Kalaburagi urban area triggering trauma and surgical supply surge.,False
+1d7b774a-ac61-46dd-9915-f4f071b7a159,mass_casualty,5,Chikkamagaluru,Karnataka,13.5174,75.7268,55.2,2025-12-14,4.28,44.1,Mass casualty incident in Chikkamagaluru requiring immediate trauma and surgical response.,False
+a2190c85-e987-424b-93f9-0dbca429707b,cyclone,2,Bidar,Karnataka,17.478,77.7228,29.9,2024-01-09,2.6,73.0,Cyclonic storm impacting Bidar region with wind speeds exceeding 80 km/h.,False
+aa51bb3d-a4cd-43fd-a93a-d0f14e9a9637,fire,5,Kalaburagi,Karnataka,17.1014,76.8037,79.3,2025-12-05,5.62,6.2,Major fire incident in Kalaburagi requiring mass casualty response and burn unit supplies.,False
+804b764d-1957-4a69-8cc8-bae8b17c5ed2,earthquake,5,Mysuru,Karnataka,12.3599,76.627,104.1,2021-09-06,6.19,3.5,Seismic activity near Mysuru causing infrastructure damage and hospital strain.,False
+1c751ade-b410-4ed5-8b60-8f4b742d8fbc,fire,5,Ballari,Karnataka,15.1071,77.0333,87.8,2023-07-11,5.99,20.1,Major fire incident in Ballari requiring mass casualty response and burn unit supplies.,False
+d8e49b33-132c-4f3e-9c7f-277c81e71c25,mass_casualty,5,Kalaburagi,Karnataka,17.2306,76.7666,92.3,2021-03-25,4.0,9.7,Mass casualty incident in Kalaburagi requiring immediate trauma and surgical response.,False
+709f9524-f2d7-4f16-9d2d-0b9f7c386c8e,industrial_accident,1,Bengaluru,Karnataka,12.8933,77.8166,13.0,2022-01-27,1.0,98.7,Industrial accident in Bengaluru causing chemical exposure and respiratory emergency.,False
+8186f1a7-45a8-4613-9327-47113c9ab03e,fire,1,Belagavi,Karnataka,15.8714,74.4376,10.7,2020-08-11,0.94,104.1,Major fire incident in Belagavi requiring mass casualty response and burn unit supplies.,False
+590dcffb-9edf-486b-bbfd-1899cc97de2d,cyclone,1,Udupi,Karnataka,13.4075,74.5606,11.2,2020-12-21,1.29,140.4,Cyclonic storm impacting Udupi region with wind speeds exceeding 80 km/h.,False
+14147043-3cd4-4be2-b71f-02546c59b046,earthquake,3,Chitradurga,Karnataka,14.0637,76.2422,43.4,2021-02-11,2.4,8.4,Seismic activity near Chitradurga causing infrastructure damage and hospital strain.,False
+8dfc3ad8-17c7-419f-84ef-371942e358dc,cyclone,4,Hubballi,Karnataka,14.9816,75.2227,87.9,2019-07-02,3.24,36.4,Cyclonic storm impacting Hubballi region with wind speeds exceeding 80 km/h.,False
+dfa4c6ae-73ee-4475-9dee-19949f721b7b,fire,1,Hassan,Karnataka,13.0527,76.3767,16.4,2021-06-05,1.34,108.3,Major fire incident in Hassan requiring mass casualty response and burn unit supplies.,False
+7782bff4-323a-41f5-b5b8-677afe2a1a30,industrial_accident,4,Bengaluru,Karnataka,13.0775,77.2014,48.0,2021-05-21,3.65,5.2,Industrial accident in Bengaluru causing chemical exposure and respiratory emergency.,False
+a6a3086a-d972-4986-9188-32b60da748ca,earthquake,3,Kolar,Karnataka,13.0747,78.2151,73.8,2022-09-26,2.67,74.8,Seismic activity near Kolar causing infrastructure damage and hospital strain.,False
+7c020f74-66a3-4cba-8865-db2af4c24de7,fire,1,Bengaluru,Karnataka,13.1189,77.7371,22.0,2019-07-07,1.2,185.9,Major fire incident in Bengaluru requiring mass casualty response and burn unit supplies.,False
+8a093de8-d787-44cf-bef3-18560dd63987,flood,1,Mangaluru,Karnataka,13.0325,74.9361,10.5,2021-10-13,1.23,21.1,Severe flooding in Mangaluru district affecting medical supply routes and distribution hubs.,False
+a45fe9f5-1499-4d49-a3f4-f8a5fbdfc900,mass_casualty,1,Udupi,Karnataka,13.3331,74.847,9.9,2024-02-11,1.08,118.8,Mass casualty incident in Udupi requiring immediate trauma and surgical response.,False
+62d4388c-3721-46b2-8720-8412ca53255e,earthquake,5,Kalaburagi,Karnataka,17.2501,76.8888,54.2,2020-02-04,6.68,8.4,Seismic activity near Kalaburagi causing infrastructure damage and hospital strain.,False
+e0dc6a2c-9aac-4158-912a-4c1d94a3bf1e,flood,1,Mandya,Karnataka,12.5187,77.1144,13.9,2021-01-08,1.38,239.3,Severe flooding in Mandya district affecting medical supply routes and distribution hubs.,False
+bde6ae20-af2c-456b-95b5-9dd7a6aa0f98,earthquake,4,Kalaburagi,Karnataka,17.1395,76.7995,98.0,2019-04-09,5.08,21.7,Seismic activity near Kalaburagi causing infrastructure damage and hospital strain.,False
+0c8705cc-72c9-48fc-b618-0ad7f3908da2,industrial_accident,2,Bidar,Karnataka,17.8947,77.6054,47.0,2023-05-04,1.87,72.8,Industrial accident in Bidar causing chemical exposure and respiratory emergency.,False
+eaabc0a2-5805-4e4b-972e-2d65980ba5c8,flood,4,Kalaburagi,Karnataka,17.5067,76.7412,79.6,2021-09-21,3.59,4.7,Severe flooding in Kalaburagi district affecting medical supply routes and distribution hubs.,False
+4b2cd768-d317-4e10-960b-cbf1f5e0503a,industrial_accident,1,Kolar,Karnataka,12.8202,78.1035,9.2,2025-11-20,0.86,191.5,Industrial accident in Kolar causing chemical exposure and respiratory emergency.,False
+45cb7015-c74b-4025-84c4-99775545d18d,flood,5,Kalaburagi,Karnataka,17.0874,77.1266,58.0,2019-12-27,5.35,23.8,Severe flooding in Kalaburagi district affecting medical supply routes and distribution hubs.,False
+a662daa4-c5db-418c-a7fc-a7ddb4bff97d,collapse,3,Udupi,Karnataka,13.1536,74.442,56.0,2019-01-27,2.99,65.4,Structural collapse in Udupi urban area triggering trauma and surgical supply surge.,False
+5a70be4e-a5c9-4589-8a90-36429bbbdfed,collapse,5,Mangaluru,Karnataka,13.0224,75.1555,113.9,2025-07-10,5.75,32.6,Structural collapse in Mangaluru urban area triggering trauma and surgical supply surge.,False
+df251585-165f-494f-93ec-243ab6a398bb,fire,4,Chikkamagaluru,Karnataka,13.2003,75.2491,36.5,2020-03-13,5.08,40.0,Major fire incident in Chikkamagaluru requiring mass casualty response and burn unit supplies.,False
+83303983-94f1-477a-8482-dd93904f2ec1,industrial_accident,5,Bengaluru,Karnataka,12.881,77.5753,40.3,2023-02-05,6.74,41.5,Industrial accident in Bengaluru causing chemical exposure and respiratory emergency.,False
+70274133-0b88-422f-a3cc-c6b4e176291a,collapse,1,Udupi,Karnataka,13.3735,74.5277,9.1,2023-12-03,1.17,136.8,Structural collapse in Udupi urban area triggering trauma and surgical supply surge.,False
+69249e45-b952-46e3-8248-8f62d4b065ac,fire,4,Mangaluru,Karnataka,12.8169,74.8208,81.1,2025-04-26,4.85,33.0,Major fire incident in Mangaluru requiring mass casualty response and burn unit supplies.,False
+adf84748-c4e4-440f-84f3-91fff6e8ad85,mass_casualty,4,Mangaluru,Karnataka,12.8378,74.5308,70.4,2023-06-11,4.79,37.4,Mass casualty incident in Mangaluru requiring immediate trauma and surgical response.,False
+5f89d905-2541-44a5-acd8-5af04914c22b,collapse,5,Mangaluru,Karnataka,13.0466,74.8148,55.9,2021-09-18,4.08,39.9,Structural collapse in Mangaluru urban area triggering trauma and surgical supply surge.,False
+54453782-b77a-4246-86f1-78da02855e1c,earthquake,1,Bidar,Karnataka,17.7227,77.5119,10.2,2025-02-21,0.84,135.4,Seismic activity near Bidar causing infrastructure damage and hospital strain.,False
+e633a61d-f561-4177-af5c-efa1880b800c,cyclone,4,Mandya,Karnataka,12.5228,76.908,69.0,2021-12-14,5.06,30.2,Cyclonic storm impacting Mandya region with wind speeds exceeding 80 km/h.,False
+382a42e7-9a29-4735-b755-a801b693ba94,collapse,2,Tumakuru,Karnataka,13.3795,77.1455,28.6,2021-08-16,2.41,115.7,Structural collapse in Tumakuru urban area triggering trauma and surgical supply surge.,False
+cefa2f3d-9151-4c18-9337-fa46ae2d1513,flood,2,Mandya,Karnataka,12.5882,76.8859,26.6,2020-03-15,2.1,51.3,Severe flooding in Mandya district affecting medical supply routes and distribution hubs.,False
+b1dfe96f-3240-427d-a946-e940a5d581d5,cyclone,5,Chikkamagaluru,Karnataka,13.3375,75.8163,117.5,2019-08-06,4.19,30.7,Cyclonic storm impacting Chikkamagaluru region with wind speeds exceeding 80 km/h.,False
+28b97d46-e085-4424-8c64-e2c06d745356,industrial_accident,1,Chikkamagaluru,Karnataka,13.4538,75.3537,9.8,2025-02-04,1.36,171.9,Industrial accident in Chikkamagaluru causing chemical exposure and respiratory emergency.,False
+52ce2835-de89-4eee-a9df-06ccac4dd911,industrial_accident,5,Hassan,Karnataka,13.0587,76.193,45.3,2022-06-11,6.11,28.3,Industrial accident in Hassan causing chemical exposure and respiratory emergency.,False
+3389fb43-7d26-43a9-8c4b-c119bdbe9d42,earthquake,3,Dharwad,Karnataka,15.595,75.0273,72.8,2023-09-25,2.56,11.5,Seismic activity near Dharwad causing infrastructure damage and hospital strain.,False
+2ccfed9f-dccd-4bfb-990d-2ba36bbadebb,fire,4,Mangaluru,Karnataka,12.9569,75.1566,57.1,2022-02-14,3.69,57.0,Major fire incident in Mangaluru requiring mass casualty response and burn unit supplies.,False
+a88aa70e-a814-45de-ab5e-12d9bd607f63,collapse,4,Mandya,Karnataka,12.5825,76.8627,35.4,2019-12-21,4.01,15.8,Structural collapse in Mandya urban area triggering trauma and surgical supply surge.,False
+d98970ff-ed41-4906-885a-c4407d7f322b,industrial_accident,4,Mysuru,Karnataka,12.2578,76.6193,48.5,2021-03-15,4.18,4.1,Industrial accident in Mysuru causing chemical exposure and respiratory emergency.,False
+b4a5d67e-0aee-44d3-be20-e243b69a7543,mass_casualty,4,Mysuru,Karnataka,12.2752,76.6877,75.6,2020-08-20,3.7,48.9,Mass casualty incident in Mysuru requiring immediate trauma and surgical response.,False
+0b046eda-caf4-4cc4-a5ab-6f9ab8b2f3f3,earthquake,1,Tumakuru,Karnataka,13.2094,77.1776,19.8,2021-10-16,0.82,15.2,Seismic activity near Tumakuru causing infrastructure damage and hospital strain.,False
+642c84d5-6349-49e0-8185-85f6b9815c53,collapse,1,Dharwad,Karnataka,15.4423,75.0858,8.1,2022-04-18,1.01,39.8,Structural collapse in Dharwad urban area triggering trauma and surgical supply surge.,False
+862d26e2-3395-4fce-b38d-4fddaf926b06,mass_casualty,1,Kolar,Karnataka,12.9307,77.9684,10.8,2024-12-04,1.11,132.4,Mass casualty incident in Kolar requiring immediate trauma and surgical response.,False
+871b74ef-26aa-446d-9e25-8162fd79a500,flood,5,Davanagere,Karnataka,14.6021,76.0207,97.5,2023-05-05,5.25,29.8,Severe flooding in Davanagere district affecting medical supply routes and distribution hubs.,False
+32bddc87-23c9-441b-9f41-4ce82bdbaa80,fire,5,Mandya,Karnataka,12.4599,76.8166,51.9,2022-04-27,6.35,29.6,Major fire incident in Mandya requiring mass casualty response and burn unit supplies.,False
+9da6c4b3-5621-4168-8627-880685b66086,earthquake,4,Kolar,Karnataka,13.1916,77.928,95.4,2019-10-08,4.16,39.3,Seismic activity near Kolar causing infrastructure damage and hospital strain.,False
+016bfab6-e8c3-4cd1-8210-e1213dc655a7,collapse,3,Chitradurga,Karnataka,14.1677,76.4645,34.6,2019-11-05,3.28,44.8,Structural collapse in Chitradurga urban area triggering trauma and surgical supply surge.,False
+80657591-ac9e-433e-9931-871ceed95757,earthquake,3,Dharwad,Karnataka,15.351,75.0711,39.9,2022-01-07,3.25,34.1,Seismic activity near Dharwad causing infrastructure damage and hospital strain.,False
+025a8f29-b7c6-48bf-9295-84555031b04f,cyclone,4,Chitradurga,Karnataka,14.2293,76.4633,35.2,2022-09-06,5.13,59.1,Cyclonic storm impacting Chitradurga region with wind speeds exceeding 80 km/h.,False
+d18a0c1f-d45c-492e-99f8-9bf4c40e5d76,cyclone,3,Tumakuru,Karnataka,13.2208,77.1231,66.6,2025-10-18,4.18,45.7,Cyclonic storm impacting Tumakuru region with wind speeds exceeding 80 km/h.,False
+67fb0ddf-513e-49c9-bcf4-05a0545fdb9a,industrial_accident,2,Mysuru,Karnataka,12.2155,76.5076,38.7,2022-11-27,2.17,9.3,Industrial accident in Mysuru causing chemical exposure and respiratory emergency.,False
+6d85d370-0120-49ad-b786-530bf3b3d6e3,collapse,5,Mangaluru,Karnataka,12.9113,75.0486,52.0,2021-07-04,5.37,27.1,Structural collapse in Mangaluru urban area triggering trauma and surgical supply surge.,False
+be4654c3-c1ef-4b28-9354-37a055cebaf5,earthquake,2,Belagavi,Karnataka,15.7111,74.5456,36.4,2024-04-02,1.64,59.4,Seismic activity near Belagavi causing infrastructure damage and hospital strain.,False
+92c9a0f0-ddda-4e33-b8e5-7b67b4875ace,earthquake,3,Dharwad,Karnataka,15.6813,74.8379,26.7,2022-07-02,3.72,49.7,Seismic activity near Dharwad causing infrastructure damage and hospital strain.,False
+b37d45be-1f14-4017-ac9c-a0c91e06636d,flood,2,Bengaluru,Karnataka,13.1534,77.4891,18.4,2019-06-06,2.07,32.9,Severe flooding in Bengaluru district affecting medical supply routes and distribution hubs.,False
+ae8bd7b2-b9ef-40ea-a9f4-57633c4a31f2,collapse,1,Kalaburagi,Karnataka,17.5542,76.8872,20.4,2020-01-26,0.91,214.9,Structural collapse in Kalaburagi urban area triggering trauma and surgical supply surge.,False
+99e1157f-b091-496a-838f-5769c3a812f0,collapse,3,Davanagere,Karnataka,14.6033,75.9104,65.6,2025-10-09,3.0,55.4,Structural collapse in Davanagere urban area triggering trauma and surgical supply surge.,False
+09bd3b61-a84a-4ffa-8c11-20a1add300de,collapse,5,Shivamogga,Karnataka,13.91,75.5133,42.0,2022-06-03,5.21,3.6,Structural collapse in Shivamogga urban area triggering trauma and surgical supply surge.,False
+6904cd0a-e260-4ed6-999f-760516d6a553,industrial_accident,4,Belagavi,Karnataka,16.1021,74.3148,95.5,2020-05-06,4.06,41.3,Industrial accident in Belagavi causing chemical exposure and respiratory emergency.,False
+9eca5a17-cebe-4d13-be05-4ed1d8a1d877,earthquake,2,Ballari,Karnataka,14.9997,77.0242,17.7,2025-09-09,2.66,65.6,Seismic activity near Ballari causing infrastructure damage and hospital strain.,False
+95b591c7-b5f6-4745-8e01-8d633d249eb7,flood,1,Belagavi,Karnataka,15.7201,74.5057,10.7,2020-05-14,0.91,59.5,Severe flooding in Belagavi district affecting medical supply routes and distribution hubs.,False
+2debcd38-49fe-4bac-8ade-489df70cc8ae,flood,1,Vijayapura,Karnataka,16.6088,75.7747,10.8,2021-08-21,1.11,91.0,Severe flooding in Vijayapura district affecting medical supply routes and distribution hubs.,False
+179a1ccf-900a-4535-89bf-85f085c9e3ec,cyclone,1,Vijayapura,Karnataka,16.7746,75.8155,13.3,2023-05-15,0.86,179.0,Cyclonic storm impacting Vijayapura region with wind speeds exceeding 80 km/h.,False
+5bcd9f8e-0c40-48f9-ba07-a15f2f0a9f3f,cyclone,4,Dharwad,Karnataka,15.5328,75.0286,37.8,2021-10-07,4.08,11.7,Cyclonic storm impacting Dharwad region with wind speeds exceeding 80 km/h.,False
+c6e849d5-b012-4d81-b4d0-bc7c76b23feb,industrial_accident,2,Davanagere,Karnataka,14.2685,75.808,35.2,2022-05-22,2.11,29.4,Industrial accident in Davanagere causing chemical exposure and respiratory emergency.,False
+765b6e20-5473-4b8e-96d8-96efba6c6c18,industrial_accident,5,Belagavi,Karnataka,15.7347,74.2742,48.2,2022-04-20,4.0,38.6,Industrial accident in Belagavi causing chemical exposure and respiratory emergency.,False
+03becaf2-fff3-45bd-88c8-0f78626235af,industrial_accident,2,Chitradurga,Karnataka,14.335,76.25,22.9,2024-03-15,1.99,102.4,Industrial accident in Chitradurga causing chemical exposure and respiratory emergency.,False
+6cac1200-31b1-4394-9767-296123c600ea,flood,2,Mangaluru,Karnataka,12.8014,74.9256,35.1,2022-05-10,2.14,36.9,Severe flooding in Mangaluru district affecting medical supply routes and distribution hubs.,False
+47da00c5-fafa-4f4b-9269-7ef0bae45330,cyclone,3,Bidar,Karnataka,17.7846,77.5106,35.8,2023-01-19,3.67,26.4,Cyclonic storm impacting Bidar region with wind speeds exceeding 80 km/h.,False
+64959074-6929-4200-83e5-af3161cb5186,collapse,2,Chikkamagaluru,Karnataka,13.6663,75.8907,29.2,2021-03-02,2.38,39.4,Structural collapse in Chikkamagaluru urban area triggering trauma and surgical supply surge.,False
+6f8691df-1bf6-416e-a15f-d0b82bf8d64f,industrial_accident,2,Davanagere,Karnataka,14.1451,75.7972,24.6,2023-02-06,2.45,107.6,Industrial accident in Davanagere causing chemical exposure and respiratory emergency.,False
+e6d8e491-69ad-4969-b8b5-de53d417b1dc,industrial_accident,2,Bengaluru,Karnataka,12.8515,77.2275,45.4,2025-03-11,2.66,55.0,Industrial accident in Bengaluru causing chemical exposure and respiratory emergency.,False
+6ab2ac3c-af40-4505-8a49-d1af22335a7e,industrial_accident,5,Belagavi,Karnataka,15.7844,74.3506,69.0,2023-12-10,5.79,42.6,Industrial accident in Belagavi causing chemical exposure and respiratory emergency.,False
+94415668-29dd-4cec-ae17-054b85b762bf,earthquake,1,Bengaluru,Karnataka,12.7561,77.9836,17.3,2024-05-10,1.34,48.8,Seismic activity near Bengaluru causing infrastructure damage and hospital strain.,False
+1226ac78-740a-4393-a72f-10ef3edc0b8d,industrial_accident,1,Mysuru,Karnataka,12.1067,76.6612,20.3,2024-06-13,0.85,53.1,Industrial accident in Mysuru causing chemical exposure and respiratory emergency.,False
+56ea6a4f-8989-4315-b37b-6a0a3645bf78,flood,2,Davanagere,Karnataka,14.4368,75.9859,28.5,2020-04-09,2.38,43.7,Severe flooding in Davanagere district affecting medical supply routes and distribution hubs.,False
+946c550d-4e97-4105-9700-91f9bb646415,industrial_accident,2,Vijayapura,Karnataka,16.99,75.3581,27.0,2024-07-15,2.69,18.7,Industrial accident in Vijayapura causing chemical exposure and respiratory emergency.,False
+416b0840-bbf3-4624-b680-e15c09375378,earthquake,1,Belagavi,Karnataka,16.062,74.5758,12.9,2021-01-12,0.92,149.6,Seismic activity near Belagavi causing infrastructure damage and hospital strain.,False
+4b93e2e8-c168-460e-b0e9-9e3c8a6025d1,earthquake,1,Belagavi,Karnataka,15.8226,74.352,13.0,2025-05-11,0.94,148.5,Seismic activity near Belagavi causing infrastructure damage and hospital strain.,False
+4c38b9b3-4f6c-4fcf-92e1-c630d997efa9,fire,2,Hassan,Karnataka,12.9101,75.9781,23.0,2019-12-19,2.79,83.0,Major fire incident in Hassan requiring mass casualty response and burn unit supplies.,False
+71a61d56-7481-412d-9213-a6c3c3ed486d,mass_casualty,1,Udupi,Karnataka,13.2821,74.7365,22.7,2020-12-20,0.89,149.7,Mass casualty incident in Udupi requiring immediate trauma and surgical response.,False
+23e92992-ec25-486f-9dec-80d58a0552d4,industrial_accident,1,Belagavi,Karnataka,16.0417,74.3029,23.2,2020-01-07,1.24,87.1,Industrial accident in Belagavi causing chemical exposure and respiratory emergency.,False
+36e12872-57dd-4901-9b65-7835efba148f,earthquake,4,Mangaluru,Karnataka,12.5708,74.6822,52.0,2019-05-21,3.28,33.8,Seismic activity near Mangaluru causing infrastructure damage and hospital strain.,False
+ee855e6b-a42a-4481-b212-fc40891406d3,industrial_accident,3,Udupi,Karnataka,13.2241,74.8308,42.7,2025-02-20,4.16,18.6,Industrial accident in Udupi causing chemical exposure and respiratory emergency.,False
+d284ffee-c857-4715-99e2-2e37ddb55024,flood,4,Davanagere,Karnataka,14.4674,75.8844,48.7,2019-02-17,3.93,59.0,Severe flooding in Davanagere district affecting medical supply routes and distribution hubs.,False
+4339e725-41fc-465d-a1ce-740114715493,collapse,5,Belagavi,Karnataka,15.9797,74.4348,82.5,2020-12-06,6.67,20.7,Structural collapse in Belagavi urban area triggering trauma and surgical supply surge.,False
+956585f0-992c-46c5-ba97-124b8888d3c4,fire,1,Hubballi,Karnataka,15.2565,74.9433,17.5,2022-12-19,1.37,145.0,Major fire incident in Hubballi requiring mass casualty response and burn unit supplies.,False
+6a4c2b8f-d475-43d9-b55f-b1e17834031d,flood,1,Tumakuru,Karnataka,13.2033,77.1747,10.5,2020-02-10,0.81,29.2,Severe flooding in Tumakuru district affecting medical supply routes and distribution hubs.,False
+d1683ea5-7387-468b-a9cd-9f0dffd84bf4,cyclone,1,Bidar,Karnataka,17.8104,77.3616,14.0,2019-10-25,1.33,208.9,Cyclonic storm impacting Bidar region with wind speeds exceeding 80 km/h.,False
+c3fb6912-2b72-451c-bf90-9cb15aa76f4c,earthquake,4,Raichur,Karnataka,16.4335,77.0666,61.3,2020-11-03,3.77,38.4,Seismic activity near Raichur causing infrastructure damage and hospital strain.,False
+0aa6d2e1-c602-4f38-aeed-8f69f84d23ce,industrial_accident,4,Bengaluru,Karnataka,12.9015,77.4672,71.9,2023-09-18,4.91,49.2,Industrial accident in Bengaluru causing chemical exposure and respiratory emergency.,False
+efc33445-5a61-4dc8-a614-f50b74cb4f37,cyclone,2,Mysuru,Karnataka,12.2866,76.5688,17.2,2023-06-12,2.64,77.6,Cyclonic storm impacting Mysuru region with wind speeds exceeding 80 km/h.,False
+a12668b0-0ed8-430c-b294-794eb801cb56,earthquake,4,Kolar,Karnataka,12.9565,77.838,44.3,2023-07-10,4.6,5.6,Seismic activity near Kolar causing infrastructure damage and hospital strain.,False
+aec305ba-9f88-454f-ad39-d622c69b7547,fire,2,Hassan,Karnataka,12.8474,76.152,28.0,2021-05-19,1.92,8.3,Major fire incident in Hassan requiring mass casualty response and burn unit supplies.,False
+52e13a68-387f-4b9a-b00a-17109cd40265,cyclone,2,Hassan,Karnataka,13.3784,76.0565,43.9,2021-04-19,2.34,89.3,Cyclonic storm impacting Hassan region with wind speeds exceeding 80 km/h.,False
+7ef09b66-1d2c-4593-a409-8386c8102cf7,collapse,1,Raichur,Karnataka,16.2457,77.4259,15.3,2021-03-22,1.27,103.3,Structural collapse in Raichur urban area triggering trauma and surgical supply surge.,False
+00f06b28-45dc-4e9d-b764-0e124a89635e,collapse,4,Mangaluru,Karnataka,12.824,75.1602,66.1,2025-01-22,5.52,42.3,Structural collapse in Mangaluru urban area triggering trauma and surgical supply surge.,False
+40014c2c-a981-4381-bc49-dce49775eac2,earthquake,1,Mandya,Karnataka,12.5664,76.6746,19.1,2021-07-27,1.32,119.8,Seismic activity near Mandya causing infrastructure damage and hospital strain.,False
+3af27a8a-a610-4675-9d65-57dc825ccdab,mass_casualty,3,Belagavi,Karnataka,15.9237,74.433,74.6,2021-04-06,3.86,35.5,Mass casualty incident in Belagavi requiring immediate trauma and surgical response.,False
+dc8b4da4-ac3e-46d9-b073-c0013700d1fb,industrial_accident,4,Hubballi,Karnataka,15.4455,75.4291,73.9,2023-02-01,3.51,33.8,Industrial accident in Hubballi causing chemical exposure and respiratory emergency.,False
+0e02ae0f-abd1-459f-b7eb-4f615e47056e,industrial_accident,2,Bengaluru,Karnataka,12.7075,77.5755,21.9,2021-12-22,2.61,116.4,Industrial accident in Bengaluru causing chemical exposure and respiratory emergency.,False
+5e6faa21-52b7-49e2-a0d8-3f0173006f90,collapse,4,Kalaburagi,Karnataka,17.2467,76.9223,95.2,2020-12-17,5.41,53.7,Structural collapse in Kalaburagi urban area triggering trauma and surgical supply surge.,False
+c84b7fca-3639-4112-985d-dc3dde204602,fire,1,Hubballi,Karnataka,15.5049,74.9701,16.3,2020-12-27,0.9,188.1,Major fire incident in Hubballi requiring mass casualty response and burn unit supplies.,False
+89da8d32-b024-4dfe-857b-a8ce3ae6a2a1,fire,2,Hubballi,Karnataka,15.1687,75.3129,33.9,2020-10-19,2.12,116.1,Major fire incident in Hubballi requiring mass casualty response and burn unit supplies.,False
+af6f2e13-732d-47c0-b2df-068dd5ea9b1f,fire,5,Shivamogga,Karnataka,14.0009,75.6988,66.7,2023-10-08,4.64,10.9,Major fire incident in Shivamogga requiring mass casualty response and burn unit supplies.,False
+7cf5db02-6186-4d3f-9be6-d465b1af72e1,flood,3,Kolar,Karnataka,13.4357,78.2446,64.4,2025-09-07,3.34,19.0,Severe flooding in Kolar district affecting medical supply routes and distribution hubs.,False
+eccc5466-fda3-47a4-a7fb-e9243a74c729,collapse,2,Kalaburagi,Karnataka,17.2425,76.729,32.1,2020-01-22,1.72,71.2,Structural collapse in Kalaburagi urban area triggering trauma and surgical supply surge.,False
+773f7f3a-be7d-48ad-90f6-74e25c5094b9,earthquake,4,Chitradurga,Karnataka,14.0916,76.5032,39.1,2019-08-21,4.42,39.7,Seismic activity near Chitradurga causing infrastructure damage and hospital strain.,False
+a4d57003-2575-4260-831a-89fce1f41989,mass_casualty,5,Mangaluru,Karnataka,12.5627,74.8301,47.0,2019-09-05,4.07,44.0,Mass casualty incident in Mangaluru requiring immediate trauma and surgical response.,False
+d2a2cf79-be55-4222-9882-ce0d0585954b,cyclone,4,Bengaluru,Karnataka,12.8453,77.7832,92.4,2022-08-06,3.77,59.0,Cyclonic storm impacting Bengaluru region with wind speeds exceeding 80 km/h.,False
+3a5bea98-56d3-410e-9c8b-c7edc9951657,mass_casualty,2,Ballari,Karnataka,15.2356,77.0225,23.5,2024-04-24,2.41,46.0,Mass casualty incident in Ballari requiring immediate trauma and surgical response.,False
+0f5572ee-4363-4e3a-80f3-e29bb571bf58,mass_casualty,5,Mandya,Karnataka,12.5138,77.0234,95.1,2019-01-10,5.78,36.8,Mass casualty incident in Mandya requiring immediate trauma and surgical response.,False
+2719d9c7-c0c6-406a-a418-514fc2e6f525,flood,2,Vijayapura,Karnataka,17.0817,75.8349,16.8,2023-03-16,1.87,86.7,Severe flooding in Vijayapura district affecting medical supply routes and distribution hubs.,False
+07332e3b-dbe9-411a-859e-c892bae7c152,fire,5,Kolar,Karnataka,13.2312,78.1255,84.2,2022-10-12,4.13,11.8,Major fire incident in Kolar requiring mass casualty response and burn unit supplies.,False
+709f60f3-36f0-4473-b998-9d9e40b2ef08,earthquake,2,Raichur,Karnataka,16.0461,77.6276,26.0,2025-08-21,2.29,87.6,Seismic activity near Raichur causing infrastructure damage and hospital strain.,False
+b5180ed2-e3da-4e8f-a4b9-ebba934697d7,collapse,5,Belagavi,Karnataka,15.8529,74.6423,99.8,2023-07-19,6.07,23.7,Structural collapse in Belagavi urban area triggering trauma and surgical supply surge.,False
+0b4a44f2-89f5-4fc8-88ee-5782bb67c48f,mass_casualty,4,Hubballi,Karnataka,15.2272,75.0908,98.6,2023-07-14,4.64,19.5,Mass casualty incident in Hubballi requiring immediate trauma and surgical response.,False
+11b4b8c5-a5fd-4cc9-9041-4a00c801871d,flood,1,Davanagere,Karnataka,14.2471,75.9974,18.3,2024-12-20,0.86,150.3,Severe flooding in Davanagere district affecting medical supply routes and distribution hubs.,False
+16c721fe-20d7-4459-b1bc-9c9d92508a69,fire,1,Bidar,Karnataka,17.883,77.6083,12.9,2021-10-23,1.13,69.7,Major fire incident in Bidar requiring mass casualty response and burn unit supplies.,False
+2c46ea19-370a-4173-8b4b-a7acdfb00fa2,collapse,3,Bengaluru,Karnataka,13.261,77.6923,41.2,2024-05-05,3.92,55.2,Structural collapse in Bengaluru urban area triggering trauma and surgical supply surge.,False
+a337dd63-df97-4650-98c8-2f34ec53923d,cyclone,5,Mysuru,Karnataka,12.1444,76.6464,96.0,2023-01-20,5.62,23.9,Cyclonic storm impacting Mysuru region with wind speeds exceeding 80 km/h.,False
+eb458491-d4a2-47a1-bc81-f3ade948b8f3,collapse,1,Raichur,Karnataka,16.471,77.2488,20.1,2020-07-10,1.23,127.8,Structural collapse in Raichur urban area triggering trauma and surgical supply surge.,False
+f2d35a7b-8f0e-4c24-aa79-5966c025ef09,mass_casualty,1,Udupi,Karnataka,13.3359,74.5767,24.7,2022-12-09,1.26,68.5,Mass casualty incident in Udupi requiring immediate trauma and surgical response.,False
+94757200-f82d-4063-b59b-2fa024c30031,mass_casualty,2,Bidar,Karnataka,17.7329,77.6673,30.8,2022-12-23,2.2,16.1,Mass casualty incident in Bidar requiring immediate trauma and surgical response.,False
+e3ac0916-90c6-4c6c-ae08-c43660135fdf,fire,4,Raichur,Karnataka,15.9702,77.5575,76.0,2020-04-06,4.24,23.4,Major fire incident in Raichur requiring mass casualty response and burn unit supplies.,False
+048d0f77-7ca3-49f5-9c15-41b635f3f9da,fire,5,Mysuru,Karnataka,12.2312,76.5577,118.8,2025-04-10,6.65,39.3,Major fire incident in Mysuru requiring mass casualty response and burn unit supplies.,False
+0ea7c9e6-49f2-4ff8-bec4-9406a5c7c540,industrial_accident,4,Ballari,Karnataka,15.1042,76.596,86.8,2020-06-13,4.81,7.6,Industrial accident in Ballari causing chemical exposure and respiratory emergency.,False
+9a05eb6f-b404-4b16-a232-4ac1ce094600,earthquake,2,Raichur,Karnataka,16.4419,77.7235,43.3,2025-01-27,2.59,99.3,Seismic activity near Raichur causing infrastructure damage and hospital strain.,False
+2c8eec22-b509-4bee-b39b-7e960f998f93,collapse,1,Hubballi,Karnataka,15.0593,75.1473,24.5,2023-07-13,1.28,98.0,Structural collapse in Hubballi urban area triggering trauma and surgical supply surge.,False
+d4071860-5e00-41e3-b32b-dee24f6604d0,mass_casualty,3,Chitradurga,Karnataka,14.5532,76.583,34.8,2022-07-14,2.68,41.6,Mass casualty incident in Chitradurga requiring immediate trauma and surgical response.,False
+04d19fd4-396f-478f-84a5-0f9be4402cff,cyclone,4,Raichur,Karnataka,16.2238,77.4363,88.3,2022-12-23,4.95,11.0,Cyclonic storm impacting Raichur region with wind speeds exceeding 80 km/h.,False
+0dcc3364-676f-407c-8b37-d1ee8b4a60b0,flood,5,Udupi,Karnataka,13.4755,74.7125,100.3,2023-10-17,6.18,41.3,Severe flooding in Udupi district affecting medical supply routes and distribution hubs.,False
+5659aca0-be6b-4df6-8a95-4200bb3839b1,collapse,3,Shivamogga,Karnataka,13.9657,75.6309,57.7,2022-12-19,2.93,15.4,Structural collapse in Shivamogga urban area triggering trauma and surgical supply surge.,False
+346125f8-b6f1-40dd-9cb6-03ec559a3210,mass_casualty,3,Shivamogga,Karnataka,13.8614,75.53,50.0,2024-08-01,3.47,13.1,Mass casualty incident in Shivamogga requiring immediate trauma and surgical response.,False
+51164bd2-f518-431e-b7ba-356acd0faadc,cyclone,5,Vijayapura,Karnataka,17.1252,75.5874,122.3,2020-12-14,6.41,4.1,Cyclonic storm impacting Vijayapura region with wind speeds exceeding 80 km/h.,False
+5bb37809-eee1-48d2-b618-b6bf4f350fbb,fire,1,Mysuru,Karnataka,12.3493,76.5243,24.2,2021-08-14,1.16,130.7,Major fire incident in Mysuru requiring mass casualty response and burn unit supplies.,False
+bb50d575-bbef-4a47-96cf-a34fa9729fde,fire,1,Bidar,Karnataka,17.8287,77.575,10.1,2020-12-13,0.8,165.8,Major fire incident in Bidar requiring mass casualty response and burn unit supplies.,False
+b63e743c-4c79-4246-ba9e-c85ada3d978d,industrial_accident,2,Davanagere,Karnataka,14.3643,75.7595,19.3,2022-02-03,2.68,64.4,Industrial accident in Davanagere causing chemical exposure and respiratory emergency.,False
+cb8837da-c3de-4268-9195-271e89aca4ce,collapse,4,Shivamogga,Karnataka,13.8374,75.6659,73.8,2022-04-26,4.65,21.3,Structural collapse in Shivamogga urban area triggering trauma and surgical supply surge.,False
+358e303d-6446-4d98-838f-5abd8f4e74c1,industrial_accident,1,Davanagere,Karnataka,14.728,75.7657,17.6,2020-08-01,1.35,119.1,Industrial accident in Davanagere causing chemical exposure and respiratory emergency.,False
+cfea9f95-fb30-4957-aeb3-f56a6a7c612e,collapse,4,Ballari,Karnataka,15.1686,77.0924,46.3,2025-09-11,5.54,26.6,Structural collapse in Ballari urban area triggering trauma and surgical supply surge.,False
+e063510e-acca-462d-81ae-95d147c5db43,cyclone,2,Bidar,Karnataka,17.8945,77.442,35.7,2024-01-23,2.33,36.2,Cyclonic storm impacting Bidar region with wind speeds exceeding 80 km/h.,False
+ec749ff3-f5f0-47ac-849e-e6587871035e,cyclone,2,Bengaluru,Karnataka,12.8872,77.3484,38.3,2025-03-13,2.12,106.3,Cyclonic storm impacting Bengaluru region with wind speeds exceeding 80 km/h.,False
+5390afa1-663f-4e1c-84d1-d0edc1303cdd,fire,5,Kolar,Karnataka,13.0589,78.0676,43.4,2025-09-09,5.03,21.8,Major fire incident in Kolar requiring mass casualty response and burn unit supplies.,False
+833a7a1d-0bc3-44b6-983b-0d5e331d4f67,fire,3,Kalaburagi,Karnataka,17.1803,76.7067,35.9,2020-07-19,2.47,52.9,Major fire incident in Kalaburagi requiring mass casualty response and burn unit supplies.,False
+c9094a6f-aeb2-48e8-9ca4-e0e8adc95c20,earthquake,1,Davanagere,Karnataka,14.4145,75.9654,9.4,2025-05-10,0.8,93.0,Seismic activity near Davanagere causing infrastructure damage and hospital strain.,False
+6431a0f3-4f1e-4b9e-b98d-cba3a2047042,fire,2,Kalaburagi,Karnataka,17.2324,76.8109,44.0,2021-09-08,1.87,62.4,Major fire incident in Kalaburagi requiring mass casualty response and burn unit supplies.,False
+9c58b141-8467-4739-bf86-9065f2203e9d,fire,1,Belagavi,Karnataka,15.8712,74.3971,16.9,2023-11-27,0.98,239.9,Major fire incident in Belagavi requiring mass casualty response and burn unit supplies.,False
+198f51c4-3772-4f97-aeca-f68b0687b869,flood,2,Mangaluru,Karnataka,12.9406,74.8839,35.9,2021-07-13,1.66,46.6,Severe flooding in Mangaluru district affecting medical supply routes and distribution hubs.,False
+2e6c4ae5-0e4a-4e38-b216-5d599f07cd72,earthquake,1,Shivamogga,Karnataka,14.0629,75.4406,24.3,2022-11-14,1.14,171.2,Seismic activity near Shivamogga causing infrastructure damage and hospital strain.,False
+38a38ca0-1292-4e46-9cd1-63efbeaf8661,earthquake,2,Vijayapura,Karnataka,16.418,75.8456,31.2,2024-09-24,2.4,24.1,Seismic activity near Vijayapura causing infrastructure damage and hospital strain.,False
+f82eccdc-eaf4-4f6c-8c57-2a70f27d5c7b,industrial_accident,2,Bidar,Karnataka,17.8052,77.3209,38.1,2023-01-18,2.75,117.3,Industrial accident in Bidar causing chemical exposure and respiratory emergency.,False
+a3426c94-3413-4394-b7d4-6c739920324e,mass_casualty,2,Belagavi,Karnataka,15.9115,74.4759,49.1,2021-04-11,2.01,76.8,Mass casualty incident in Belagavi requiring immediate trauma and surgical response.,False
+2fafbeb0-682e-474c-9cdf-15041782fadb,industrial_accident,4,Tumakuru,Karnataka,13.2685,77.1159,81.3,2019-12-12,3.48,16.8,Industrial accident in Tumakuru causing chemical exposure and respiratory emergency.,False
+789e0b48-8916-4f80-86f4-73ef20d2af23,industrial_accident,2,Mandya,Karnataka,12.5414,76.9075,35.6,2020-12-10,2.2,38.5,Industrial accident in Mandya causing chemical exposure and respiratory emergency.,False
+e60b4967-5a84-42c0-906f-150904e51cf2,cyclone,2,Tumakuru,Karnataka,13.5756,77.2878,33.3,2022-03-17,2.4,111.2,Cyclonic storm impacting Tumakuru region with wind speeds exceeding 80 km/h.,False
+6c893d6d-0330-4f40-b06a-cd5666094944,flood,3,Belagavi,Karnataka,15.6168,74.3312,70.6,2024-03-23,3.51,68.1,Severe flooding in Belagavi district affecting medical supply routes and distribution hubs.,False
+2a0d7d1f-5a2f-4e36-a8eb-52c63034d9bc,mass_casualty,4,Chitradurga,Karnataka,14.1567,76.3083,47.6,2021-03-05,5.06,27.8,Mass casualty incident in Chitradurga requiring immediate trauma and surgical response.,False
+b1ec13ae-21cd-449f-b4c9-b27f212638c6,industrial_accident,5,Chitradurga,Karnataka,14.2152,76.4704,116.2,2024-10-12,5.86,41.6,Industrial accident in Chitradurga causing chemical exposure and respiratory emergency.,False
+d6c00bd4-4b45-4c85-8cb7-0546a158d4cf,collapse,4,Mysuru,Karnataka,12.331,76.6914,68.9,2020-12-22,3.33,6.4,Structural collapse in Mysuru urban area triggering trauma and surgical supply surge.,False
+44ddec85-c878-4b7b-ab37-16f877469a78,collapse,3,Dharwad,Karnataka,15.1893,74.9341,42.4,2024-08-08,2.51,43.0,Structural collapse in Dharwad urban area triggering trauma and surgical supply surge.,False
+9e736692-17a8-4457-a521-67a88e51caad,flood,2,Kolar,Karnataka,12.9042,78.0143,21.2,2023-03-09,2.54,76.5,Severe flooding in Kolar district affecting medical supply routes and distribution hubs.,False
+44a1b4b5-ba88-466f-835f-9b7b324a6971,fire,3,Kolar,Karnataka,13.1064,77.9125,69.5,2024-11-10,2.55,48.6,Major fire incident in Kolar requiring mass casualty response and burn unit supplies.,False
+6fd1d352-3976-4ed1-bd19-ec1eb67bd66c,industrial_accident,3,Belagavi,Karnataka,15.9504,74.3228,45.3,2024-09-22,3.81,58.7,Industrial accident in Belagavi causing chemical exposure and respiratory emergency.,False
+6e21c15a-020b-4e96-88d5-edf2d33546ef,industrial_accident,4,Ballari,Karnataka,15.1267,77.0477,48.7,2019-01-07,5.37,51.0,Industrial accident in Ballari causing chemical exposure and respiratory emergency.,False
+2ee20c2f-2b84-4b01-8600-e4033b5f4732,mass_casualty,3,Shivamogga,Karnataka,14.1269,75.823,24.4,2025-12-20,3.87,36.5,Mass casualty incident in Shivamogga requiring immediate trauma and surgical response.,False
+3541b8d8-b9cb-496c-aea4-2d8f58dc4c66,industrial_accident,3,Hubballi,Karnataka,15.232,75.2021,27.2,2021-10-27,3.38,62.7,Industrial accident in Hubballi causing chemical exposure and respiratory emergency.,False
+30b6b5e7-09f4-4497-8d9b-a65545c4a0ab,collapse,4,Kolar,Karnataka,13.2902,77.9445,76.1,2025-12-18,5.42,11.0,Structural collapse in Kolar urban area triggering trauma and surgical supply surge.,False
+99a68a77-8d1a-42ba-8ef5-188857f6b185,cyclone,2,Raichur,Karnataka,16.0784,77.2014,40.1,2023-04-07,1.71,8.9,Cyclonic storm impacting Raichur region with wind speeds exceeding 80 km/h.,False
+2c3369a4-473a-4d00-bb21-6b87a831b981,earthquake,2,Ballari,Karnataka,15.071,77.0723,28.8,2022-04-01,1.87,90.2,Seismic activity near Ballari causing infrastructure damage and hospital strain.,False

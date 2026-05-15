@@ -164,9 +164,18 @@ async def simulate_disaster(db: Session = Depends(get_db)):
         )
         db.add(pred)
 
-    # 3. Affected Routes (Demo: Delay a realistic set of pending/in-transit orders)
-    pending_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).limit(8).all()
-    for order in pending_orders:
+    # 3. Affected Routes (Demo: delay live orders, or recent historical orders for dataset-only demos)
+    impacted_orders = db.query(Order).filter(Order.status.in_(["pending", "in_transit"])).limit(8).all()
+    if not impacted_orders:
+        impacted_orders = (
+            db.query(Order)
+            .filter(Order.status == "delivered")
+            .order_by(Order.order_date.desc())
+            .limit(8)
+            .all()
+        )
+
+    for order in impacted_orders:
         order.status = "delayed"
         supplier = db.query(Supplier).filter(Supplier.supplier_id == order.supplier_id).first()
         if not supplier:

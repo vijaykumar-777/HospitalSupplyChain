@@ -1,0 +1,146 @@
+supplier_id,name,city,state,lat,lng,reliability_score,avg_lead_days,supply_categories,is_emergency_certified,is_govt_reserve
+0170efbf-516b-4583-840e-1af80043efc5,Cipla Limited,Bengaluru,Karnataka,12.9998,77.5361,0.497,2,"[""medicine"", ""equipment"", ""surgical""]",False,False
+966fdd58-5113-4d39-8fcd-4dafa28ecdbd,Sun Pharmaceutical Industries,Bengaluru,Karnataka,12.9621,77.5941,0.59,3,"[""surgical""]",False,False
+8ad00803-e6d8-456c-99ef-a60f50d83edb,Dr. Reddy's Laboratories,Bengaluru,Karnataka,12.9736,77.6284,0.924,1,"[""medicine""]",True,False
+548b4452-4654-43ff-ac5a-96e33475ff25,Abbott India,Bengaluru,Karnataka,12.9827,77.5658,0.837,3,"[""medicine"", ""consumable"", ""surgical""]",True,False
+d17d2426-a5e9-404f-938d-69b0a523d1c6,Biocon,Bengaluru,Karnataka,12.9512,77.6313,0.576,1,"[""medicine""]",False,False
+db99ea87-9c3d-46aa-b912-8ca2da9fceed,Strides Pharma Science,Bengaluru,Karnataka,12.961,77.6106,0.546,3,"[""surgical""]",False,False
+ed4703f2-56e4-4fa1-b1aa-16145a6e93c3,Micro Labs Limited,Bengaluru,Karnataka,13.0358,77.5824,0.901,3,"[""medicine""]",True,False
+fc239fc2-e719-47dc-bb8b-f8f45585ff11,Karnataka Antibiotics & Pharmaceuticals,Bengaluru,Karnataka,12.9901,77.6285,0.839,3,"[""surgical"", ""consumable"", ""equipment""]",True,False
+32aa9362-9840-4cfb-8fad-592dda026ef4,Syngene International,Bengaluru,Karnataka,12.9911,77.6169,0.838,1,"[""equipment""]",True,False
+55267123-381b-40a9-b055-0e477ec408b7,Aurobindo Pharma,Bengaluru,Karnataka,12.9879,77.5746,0.486,1,"[""consumable"", ""medicine"", ""equipment""]",False,False
+7672f549-cb7d-42c5-858b-5ceb2a4784cf,Medline Industries India,Mysuru,Karnataka,12.3219,76.6461,0.589,3,"[""equipment"", ""surgical"", ""consumable""]",False,False
+f7b2e065-29de-45e4-bfc8-9db5c7c46c98,3M Healthcare India,Bengaluru,Karnataka,12.9803,77.6135,0.883,1,"[""surgical""]",True,False
+567b2c27-dd0a-428d-8db9-be9209d06c99,B. Braun India,Bengaluru,Karnataka,12.9524,77.5863,0.554,2,"[""medicine"", ""equipment""]",False,False
+2b7beff3-78b2-495d-8e97-5d12153740da,Baxter India,Bengaluru,Karnataka,13.0006,77.5441,0.837,2,"[""medicine"", ""surgical""]",True,False
+ca965c6b-bedf-42a7-b43c-a426e52070ba,Becton Dickinson India,Bengaluru,Karnataka,12.9929,77.6184,0.593,2,"[""consumable"", ""medicine""]",False,False
+4f3fb46f-2ead-4c77-954d-ec3a39d90f6b,Cardinal Health India,Bengaluru,Karnataka,12.9973,77.5889,0.857,2,"[""equipment"", ""consumable"", ""medicine""]",True,False
+a7a0c0ac-0ee2-4981-95a0-c809a791ef5b,Karnataka State Medical Supplies Corporation,Bengaluru,Karnataka,12.9865,77.5989,0.489,3,"[""medicine"", ""consumable""]",True,True
+a01fa1ab-b078-4b98-8bfc-fedf7e82420a,Central Medical Stores Society Karnataka,Bengaluru,Karnataka,12.9764,77.6134,0.859,1,"[""consumable"", ""equipment""]",True,True
+f5ec768b-e7d0-4225-9c7e-ab78c8bc713a,Medtronic India,Bengaluru,Karnataka,12.9607,77.5831,0.903,1,"[""medicine""]",True,False
+34f47558-562e-4cc7-a400-d212e44e9787,Johnson & Johnson India,Bengaluru,Karnataka,12.9575,77.595,0.619,1,"[""surgical""]",False,False
+2bcc378c-24a9-455c-88f4-cef3dc8b8d49,Philips Healthcare India,Bengaluru,Karnataka,12.9686,77.5819,0.902,2,"[""medicine"", ""equipment""]",True,False
+2afec44f-738c-4221-82df-b6c1e5556903,GE Healthcare India,Bengaluru,Karnataka,12.9282,77.5549,0.796,2,"[""equipment""]",True,False
+e29224ee-5f36-4985-a3a2-8c3a76225c05,Siemens Healthineers India,Bengaluru,Karnataka,12.9603,77.6336,0.612,2,"[""equipment"", ""consumable""]",False,False
+f1c4f152-31af-4543-b0b7-2256d245859a,Roche Diagnostics India,Bengaluru,Karnataka,12.9436,77.5884,0.639,3,"[""surgical"", ""equipment""]",False,False
+18c76ed6-d61b-42ca-bda4-dd30a3471e16,Thermo Fisher Scientific India,Bengaluru,Karnataka,12.9198,77.6076,0.863,1,"[""surgical"", ""consumable""]",True,False
+4366c808-076f-4fb1-ad10-2dba2d0d5198,Dräger India,Bengaluru,Karnataka,12.9282,77.5968,0.85,2,"[""medicine"", ""consumable""]",True,False
+ae1d5447-6dc8-445c-82c3-4d66b112c34e,Mindray India,Bengaluru,Karnataka,13.0197,77.5874,0.599,1,"[""surgical"", ""consumable"", ""medicine""]",False,False
+19a1e446-4926-4e18-b322-f63e2e808b7f,Wipro GE Healthcare,Bengaluru,Karnataka,12.9782,77.6354,0.889,2,"[""equipment""]",True,False
+6843d4f1-d908-4263-98e3-02cd67466074,Trivitron Healthcare,Bengaluru,Karnataka,12.9359,77.5754,0.898,3,"[""consumable"", ""equipment""]",True,False
+15ba9c61-bd94-4203-b3b0-676372438304,Agappe Diagnostics,Bengaluru,Karnataka,12.9303,77.6137,0.549,1,"[""surgical"", ""consumable"", ""equipment""]",False,False
+06090e30-a9cf-4483-bfcf-568e70366f2d,Sri Ramakrishna Medical Supplies,Mysuru,Karnataka,12.3052,76.6645,0.806,2,"[""surgical""]",True,False
+d8ce04bc-d48a-4e66-a322-d3b789dc4da3,Deccan Medical Distributors,Hubballi,Karnataka,15.3771,75.0943,1.0,2,"[""consumable""]",True,False
+7589d2f0-09e5-4853-b476-62838c8e9482,Cauvery Medical Suppliers,Mysuru,Karnataka,12.2833,76.621,0.893,3,"[""consumable"", ""medicine""]",True,False
+cc201905-6e71-47a4-80f9-c1e7423d0d26,Coastal Medical Supplies,Mangaluru,Karnataka,12.9188,74.8512,0.933,1,"[""consumable""]",True,False
+77e97343-130d-46c5-9c84-19094ccbca2e,North Karnataka Pharma,Belagavi,Karnataka,15.8481,74.5507,0.796,3,"[""equipment""]",True,False
+8b0b04ae-fd6e-487f-a4dd-ca6d57fcfb65,Hyderabad-Karnataka Medical Hub,Kalaburagi,Karnataka,17.3147,76.7988,0.659,4,"[""equipment"", ""medicine""]",False,False
+a37a4a3b-6059-48d6-a98c-9d3192d35be3,Vinayaka Medical Stores,Davanagere,Karnataka,14.4398,75.947,0.844,2,"[""surgical"", ""medicine""]",True,False
+4bcb0139-5a92-451d-813e-2580d66e725c,Bellary Medicals,Ballari,Karnataka,15.1509,76.9167,0.927,2,"[""consumable"", ""equipment"", ""surgical""]",True,False
+e7a97a77-c886-437b-a253-c5be5006ea58,JSW Medical Supplies,Ballari,Karnataka,15.1258,76.8846,0.847,1,"[""equipment"", ""surgical"", ""medicine""]",True,False
+907f88b5-d199-4711-9a3a-14230ad2d67f,Bijapur Medical Corporation,Vijayapura,Karnataka,16.8776,75.7148,0.594,2,"[""equipment""]",False,False
+0a677aad-7264-461c-be46-7b1d432aa291,Arogya Medical Supplies,Hubballi,Karnataka,15.3735,75.1076,0.603,2,"[""medicine"", ""consumable""]",False,False
+bbe347ef-05e2-456f-b357-228e189541ad,Sahyadri Pharma Distribution,Mysuru,Karnataka,12.3572,76.6467,0.901,1,"[""medicine"", ""surgical""]",True,False
+d6bd46f7-4e0c-4660-9dc9-538b06b18dc4,Nandini Medical Hub,Mangaluru,Karnataka,12.983,74.8488,0.471,1,"[""medicine"", ""consumable"", ""equipment""]",False,False
+4de8fe09-24a6-44f7-b114-f11fdf5c5ac2,Kaveri Healthcare Logistics,Belagavi,Karnataka,15.8054,74.4619,0.953,2,"[""consumable"", ""surgical""]",True,False
+878541bf-894c-4ef9-8290-fa99f1dc41a6,Mysore Medicals & Surgicals,Kalaburagi,Karnataka,17.3232,76.8478,0.548,3,"[""surgical"", ""consumable""]",False,False
+24d5ff7e-2d7e-4be3-b1aa-52ad19425b51,Tungabhadra Pharma,Bidar,Karnataka,17.9362,77.4379,0.885,3,"[""medicine""]",True,False
+68ef4b44-dddb-465b-8333-3391b88c0a50,Chamundeshwari Medical,Kolar,Karnataka,13.1018,78.1163,0.838,3,"[""medicine"", ""consumable""]",True,False
+21e171fb-da18-4b3e-8256-5348ae0c2b02,Vijayanagara Surgical Supplies,Hubballi,Karnataka,15.3659,75.1046,0.474,2,"[""surgical""]",False,False
+15567672-ec8f-406e-89d5-9805296d18a0,Kuvempu Health Systems,Raichur,Karnataka,16.2655,77.3377,0.93,3,"[""equipment""]",True,False
+4743cfdd-d1a5-4f3d-9eff-2623f6580c6e,Malnad Medicals,Raichur,Karnataka,16.2217,77.351,0.562,3,"[""medicine"", ""consumable""]",False,False
+fb57b345-37f5-4336-a1fe-be241faebbc5,Dakshina Med Corp,Kolar,Karnataka,13.2376,78.2048,0.885,3,"[""consumable"", ""surgical""]",True,False
+629237db-9498-4469-9f8b-1f4e99b90e3c,Sharavathi Medical Supplies,Hassan,Karnataka,12.9484,76.0768,0.557,2,"[""medicine"", ""equipment""]",False,False
+59e1e9f6-64df-4f3c-b5a4-01455f13f4e4,Hemavathi Pharma,Chitradurga,Karnataka,14.2038,76.3121,0.94,1,"[""medicine""]",True,False
+d9cc1690-7cff-4807-b675-b3ff5c23f6c9,Aghanashini Medicals,Vijayapura,Karnataka,16.809,75.6749,0.827,4,"[""consumable""]",True,False
+3813c393-6ef9-4148-8eb1-b31a9e9df2b1,Netravathi Health Supplies,Mandya,Karnataka,12.6088,76.8444,0.792,1,"[""medicine"", ""surgical""]",True,False
+6dc5a6ed-4fea-42d5-bfde-17e89aa1f202,Mahadayi Medical Corporation,Bengaluru,Karnataka,13.0878,77.5477,0.727,2,"[""equipment""]",False,False
+263fb354-44ea-4656-80a3-fb823fb59b07,Bhadra Medical Distributors,Mangaluru,Karnataka,12.8746,74.8462,0.897,1,"[""medicine"", ""consumable""]",True,False
+1340bf40-0062-42ea-b2db-19df5753a87f,Cauvery Surgical Hub,Mandya,Karnataka,12.5086,76.8905,0.615,3,"[""surgical""]",False,False
+2a6e59ca-520d-420d-af6a-fca628ffdcc3,Tungabhadra Medical Equipments,Vijayapura,Karnataka,16.8395,75.6878,0.868,4,"[""equipment""]",True,False
+bb8d1c7c-24e8-444f-874c-01d085ead720,Vedavathi Pharma,Tumakuru,Karnataka,13.3441,77.1314,0.931,1,"[""medicine""]",True,False
+2d818dfc-fac5-442d-9d82-8daccdc8ef6d,Penna Medical Supplies,Mangaluru,Karnataka,12.9268,74.8521,0.88,3,"[""consumable"", ""surgical""]",True,False
+c903e7d2-db13-4992-a4e8-6a76b11cb4d7,Shimsha Medicals,Shivamogga,Karnataka,13.9453,75.5376,0.959,3,"[""medicine""]",True,False
+0245c919-2103-496e-88fe-4b6478268aad,Ghataprabha Healthcare,Bidar,Karnataka,17.958,77.5304,0.893,4,"[""equipment""]",True,False
+559d2705-0180-4170-8964-e2dc6280da81,Markandeya Medical Corp,Kalaburagi,Karnataka,17.3668,76.8525,0.44,2,"[""medicine"", ""consumable""]",False,False
+89a85a4c-d6ec-4e46-bb34-252d50846f15,Malaprabha Pharma,Hassan,Karnataka,13.009,76.0887,0.542,2,"[""medicine"", ""surgical""]",False,False
+e4efffb1-0bee-481e-852d-84d9822e599d,Amaraja Surgical Supplies,Bengaluru,Karnataka,12.9777,77.6535,0.867,3,"[""surgical""]",True,False
+ee36f78b-573f-43a8-8d0a-5c330b22d5e9,Bedthi Medical Hub,Vijayapura,Karnataka,16.842,75.6951,0.868,4,"[""consumable""]",True,False
+b21634e4-09b7-48d6-be3e-699987075877,Kali River Medicals,Chitradurga,Karnataka,14.2991,76.3366,0.896,2,"[""medicine""]",True,False
+c7782aee-6595-4001-9ceb-bbe8b1dd5d39,Sauparnika Health Systems,Kalaburagi,Karnataka,17.2876,76.8209,0.864,3,"[""equipment""]",True,False
+563e0762-71ea-49ef-bec4-69d8e50a5870,Gangavali Medical Supplies,Chitradurga,Karnataka,14.2993,76.4451,0.627,2,"[""medicine"", ""consumable""]",False,False
+bf4729f0-80f3-40a9-b152-2fddc2d40dda,Varahi Pharma,Mangaluru,Karnataka,12.9472,74.8441,0.967,2,"[""medicine""]",True,False
+8cd083ca-cbc1-4ff8-a8a2-e89579208c66,Payaswini Surgical Corp,Shivamogga,Karnataka,13.9695,75.521,0.845,2,"[""surgical""]",True,False
+209e997e-8b02-474e-a286-828eb59dd861,Swarna Medical Distributors,Chitradurga,Karnataka,14.26,76.4708,0.87,3,"[""medicine"", ""equipment""]",True,False
+f2817a40-c0c2-4bb1-8ec7-2decbdafc082,Yagachi Medicals,Kolar,Karnataka,13.1342,78.0828,0.801,2,"[""consumable""]",True,False
+e94e02dd-1fba-45f2-887e-3c5a8377bc68,Arkavathi Healthcare,Davanagere,Karnataka,14.4364,75.8813,0.701,2,"[""medicine"", ""surgical""]",False,False
+489d769e-a2e4-4897-aba3-9ea81c2aff8f,Lakshmana Tirtha Supplies,Belagavi,Karnataka,15.8229,74.5102,0.819,4,"[""consumable""]",True,False
+55a5e70c-8e50-431b-8134-b63ee6c1c581,Kabini Pharma Hub,Udupi,Karnataka,13.3531,74.745,0.91,2,"[""medicine""]",True,False
+76b263ec-cd70-4319-9cba-b3ca96157ed2,Nugu Medical Systems,Kalaburagi,Karnataka,17.2472,76.8107,0.709,3,"[""equipment""]",False,False
+8bd54457-48de-4584-a26d-95fd549f77ad,Taraka Medical Corp,Mandya,Karnataka,12.5383,76.9298,0.801,3,"[""medicine"", ""consumable""]",True,False
+d0807bd0-f24c-4162-9743-b14486066cd0,Ramtha Healthcare,Chitradurga,Karnataka,14.2727,76.4073,0.645,1,"[""surgical""]",False,False
+77c4f869-48be-43df-a6c4-4672795d5aaa,Pinakini Medical Supplies,Bengaluru,Karnataka,12.9657,77.5885,0.602,3,"[""medicine""]",False,False
+27a249a5-54b2-44a0-9d2a-a9a78ee78f04,Vedavati Surgical Hub,Kolar,Karnataka,13.0946,78.1247,0.93,2,"[""surgical""]",True,False
+d2dc8c30-d425-44fb-ae6c-b7ac7a3adaf3,Papagni Medicals,Tumakuru,Karnataka,13.346,77.1511,0.521,3,"[""consumable""]",False,False
+2f3891c5-6adc-49a2-8356-00c27e43c725,Chitravathi Healthcare,Dharwad,Karnataka,15.4932,75.0415,0.946,3,"[""medicine""]",True,False
+770bdd47-77b1-4d53-98bc-163ec7245bc7,Hagari Pharma,Bengaluru,Karnataka,12.8915,77.6588,0.996,3,"[""medicine"", ""consumable""]",True,False
+06451a22-c43c-4a31-b3fb-12174a85dc54,Veda Medical Equipments,Mangaluru,Karnataka,12.9665,74.7919,0.885,2,"[""equipment""]",True,False
+09948ea4-32dc-4f38-b923-649c63706f8f,Kanva Health Systems,Udupi,Karnataka,13.3585,74.7631,0.8,1,"[""medicine"", ""surgical""]",True,False
+1ed62eff-33ca-425c-bb77-664b57261133,Lokapavani Medical Corp,Shivamogga,Karnataka,13.8375,75.5703,0.467,2,"[""consumable""]",False,False
+c566e95c-f19f-4764-b8c9-1f8069b278d8,Suvarnamukhi Pharma,Ballari,Karnataka,15.1449,76.9518,0.903,1,"[""medicine""]",True,False
+d6c74e30-9610-4105-ace5-d51fb4d5d5cd,Bahuda Medical Supplies,Mysuru,Karnataka,12.2676,76.6322,0.622,1,"[""surgical"", ""equipment""]",False,False
+82c94e57-35c8-4131-b013-fc55dddb5ee5,Kapila Medicals,Ballari,Karnataka,15.1602,76.9108,0.646,1,"[""medicine""]",False,False
+cba79362-50cc-4fa0-b857-41ff6de28fe9,Phalguni Healthcare,Chikkamagaluru,Karnataka,13.2364,75.7201,0.921,3,"[""consumable""]",True,False
+2a292d90-5239-45f7-94d7-d391e924201c,Kumaradhara Pharma,Hubballi,Karnataka,15.3947,75.1126,0.763,1,"[""medicine"", ""surgical""]",True,False
+0fd93706-33dd-4421-b45c-db36df4c50ea,Solagi Medical Corp,Hubballi,Karnataka,15.4178,75.1212,0.667,1,"[""equipment""]",False,False
+16ac6e0f-8ecb-4eeb-b188-957f27e0452b,Vrishabhavathi Supplies,Dharwad,Karnataka,15.4626,74.9743,0.875,2,"[""consumable"", ""medicine""]",True,False
+a88e6305-f30c-4dbe-9150-a9168f4ed20c,Uttara Kannada Medicals,Hubballi,Karnataka,15.3292,75.1097,0.806,3,"[""medicine""]",True,False
+2cf19be3-72e3-4c2d-943f-f641f29934c5,Dakshina Kannada Health Hub,Mandya,Karnataka,12.5393,76.8543,0.718,3,"[""surgical"", ""equipment""]",False,False
+3d799058-18c9-4e65-adfe-9f6a9d6ba432,Shivagange Medical Corp,Belagavi,Karnataka,15.7765,74.5348,0.873,3,"[""medicine""]",True,False
+1c6bd8f9-bebb-4ef4-8162-dbe16c852f24,Savadatti Pharma,Belagavi,Karnataka,15.8235,74.5148,0.853,3,"[""medicine"", ""consumable""]",True,False
+60ea8174-19c3-41b8-a9ce-ffa752e36438,Gokak Medical Supplies,Dharwad,Karnataka,15.4734,75.0606,0.896,3,"[""consumable""]",True,False
+05fbd8c5-e682-49b1-b036-02f540af04f0,Dharmasthala Health Systems,Mandya,Karnataka,12.5103,76.9405,0.806,2,"[""equipment""]",True,False
+6f74d68d-abc5-429e-9144-d09db2acf09c,Kukke Medical Corp,Kalaburagi,Karnataka,17.3437,76.9123,0.873,4,"[""medicine"", ""surgical""]",True,False
+7540d4d2-e984-4107-967a-72f93afdbf94,Kollur Medicals,Vijayapura,Karnataka,16.8732,75.6762,0.883,4,"[""consumable""]",True,False
+3b6e88a6-8905-48da-86cb-a82b7a92ef58,Yadgir Pharma Hub,Chitradurga,Karnataka,14.2426,76.3647,0.879,1,"[""medicine""]",True,False
+a8c4c4dd-1c21-422c-831f-f71f89e05b45,Koppal Medical Supplies,Kolar,Karnataka,13.1186,78.118,0.776,2,"[""consumable"", ""surgical""]",True,False
+c53c7469-b4bd-47ea-8143-5500a3459818,Gadag Healthcare Corp,Bidar,Karnataka,17.8719,77.5338,0.935,2,"[""medicine""]",True,False
+412d897a-38e8-41bd-99dd-f834e5d4c51b,Haveri Medicals,Davanagere,Karnataka,14.4892,75.9082,0.557,2,"[""medicine"", ""consumable""]",False,False
+fa5fcf80-f2a4-43d4-b09a-cc66fcb5d90b,Bagalkot Medical Supplies,Mandya,Karnataka,12.5239,76.9998,0.823,2,"[""surgical""]",True,False
+3192fac3-a241-4b06-aa9c-f7cb3293e4a6,Chikkaballapur Pharma,Davanagere,Karnataka,14.4876,75.9195,0.952,2,"[""medicine""]",True,False
+3f488925-dd52-4439-8b2f-338e2708b2cb,Ramanagara Healthcare,Shivamogga,Karnataka,13.9471,75.534,0.841,3,"[""consumable""]",True,False
+99836ff6-1a65-41b9-9d92-057ac13402f2,Channapatna Medicals,Raichur,Karnataka,16.2554,77.3586,0.911,2,"[""medicine"", ""equipment""]",True,False
+9ba1b8bc-acf7-4ad3-ac5a-39971ea80d3d,Magadi Surgical Corp,Udupi,Karnataka,13.3286,74.7795,0.903,1,"[""surgical""]",True,False
+1560f4b1-e050-4ecb-a76c-f75252eda426,Doddaballapur Medical Hub,Hassan,Karnataka,12.9471,76.155,0.553,2,"[""consumable""]",False,False
+cba8eea9-bc50-491f-a738-d7633154e90b,Nelamangala Pharma,Chitradurga,Karnataka,14.1699,76.2794,0.844,3,"[""medicine""]",True,False
+8f90b0ca-8c0a-4de7-8e74-e2152a1d6c69,Devanahalli Healthcare,Hassan,Karnataka,12.9845,76.119,0.774,2,"[""medicine"", ""surgical""]",True,False
+c0c00f68-2059-43e0-abdb-fb62a2b462aa,Anekal Medical Supplies,Mangaluru,Karnataka,12.9181,74.8526,0.556,3,"[""consumable""]",False,False
+3f3879bb-7483-4cb8-b68b-1f9ebc67c731,Hosakote Medicals,Ballari,Karnataka,15.1119,76.9573,0.897,2,"[""medicine""]",True,False
+487b400f-f075-4c06-87ec-aef83d0aeefd,Hoskote Pharma Corp,Ballari,Karnataka,15.1039,76.9748,0.502,1,"[""medicine"", ""consumable""]",False,False
+a7b9bc81-8894-4772-ae45-f02a4b41992d,Sarjapura Health Systems,Hubballi,Karnataka,15.4229,75.1293,0.95,3,"[""equipment""]",True,False
+6904ee03-f1b8-4278-9c31-b2508cef23de,Whitefield Medical Corp,Tumakuru,Karnataka,13.3234,77.0797,0.958,2,"[""medicine"", ""surgical""]",True,False
+9383b09c-e6b9-43c0-9fb6-0d732ac5d632,Yeshwanthpur Pharma,Bengaluru,Karnataka,12.9971,77.573,0.616,2,"[""medicine"", ""consumable""]",False,False
+6247438f-47fc-4f02-bce0-63aba79dde19,Peenya Industrial Medical,Chikkamagaluru,Karnataka,13.2846,75.7045,0.76,1,"[""equipment""]",True,False
+2321cae1-499c-4888-bfb0-1d0504a82984,Hebbal Healthcare,Mandya,Karnataka,12.5135,76.8895,0.6,2,"[""medicine""]",False,False
+7b21d00f-befc-477a-a733-032f2add293f,Yelahanka Medical Supplies,Ballari,Karnataka,15.1677,76.9479,0.83,2,"[""consumable"", ""surgical""]",True,False
+62e83647-568d-4e56-a814-b75779bb32a1,Jayanagar Medicals,Chikkamagaluru,Karnataka,13.3975,75.7685,0.625,2,"[""medicine""]",False,False
+45aa3b27-a363-4988-9a4a-0128eb6386f3,Koramangala Health Hub,Ballari,Karnataka,15.0981,76.8716,0.52,3,"[""medicine"", ""equipment""]",False,False
+57ca1cb4-b4d3-4363-b3b7-ef6ed0c9fad5,Indiranagar Pharma,Bengaluru,Karnataka,12.9688,77.608,0.854,2,"[""medicine"", ""consumable""]",True,False
+3b2a826d-2385-425a-abcd-6d3c73dc85d0,Rajajinagar Medical Corp,Hubballi,Karnataka,15.4007,75.1536,0.842,1,"[""surgical""]",True,False
+f38962e3-4e91-4872-bd0e-cd1aa213f72f,Basavanagudi Medicals,Mysuru,Karnataka,12.3033,76.5815,0.847,3,"[""medicine""]",True,False
+8f52d73e-4aef-47e3-89db-9752241bdb6e,JP Nagar Healthcare,Ballari,Karnataka,15.1034,76.929,0.893,2,"[""consumable""]",True,False
+c98f203f-432f-4912-ace9-6e53dee7bf75,BTM Layout Pharma,Hubballi,Karnataka,15.3546,75.1385,0.687,3,"[""medicine""]",False,False
+bf0425b1-4f0b-44c6-a4db-872d37e2466f,Banashankari Medical Supplies,Mysuru,Karnataka,12.284,76.5965,0.487,2,"[""surgical"", ""equipment""]",False,False
+7188e8b9-17d1-421b-b635-96035cf7fa6d,Kengeri Healthcare Corp,Tumakuru,Karnataka,13.3044,77.1267,0.98,3,"[""medicine""]",True,False
+d6c2261b-63ac-4d69-be61-44d889c5f877,Vijayanagara Medicals Blr,Hubballi,Karnataka,15.3747,75.1969,0.482,2,"[""consumable"", ""medicine""]",False,False
+e2dd19a1-fd38-4735-a764-760c10dae490,Tumkur Road Medical Hub,Chitradurga,Karnataka,14.1788,76.3811,0.546,1,"[""medicine""]",False,False
+2dd5b1f5-2721-43be-83ee-cacc90178e99,Hosur Road Pharma,Ballari,Karnataka,15.1491,76.8504,0.921,1,"[""consumable""]",True,False
+59c69a88-6071-4d59-9d15-4a6f6f46aaab,Electronic City Medical Corp,Vijayapura,Karnataka,16.8051,75.6845,0.851,3,"[""equipment""]",True,False
+9caa758c-c880-4165-be0e-b97463a58c7a,Bommanahalli Healthcare,Dharwad,Karnataka,15.4768,74.9404,0.641,1,"[""medicine"", ""consumable""]",False,False
+eacf9b97-c7c9-40e7-bfab-da5a591838a2,Sarjapur Road Medicals,Davanagere,Karnataka,14.4075,75.9397,0.828,3,"[""surgical""]",True,False
+6cde6063-7ad8-4977-9d61-b5d88ce4870c,HSR Layout Pharma Corp,Mandya,Karnataka,12.5522,76.9056,0.477,3,"[""medicine""]",False,False
+e0897e57-a1cb-4f2a-bee8-438283bf639d,Marathahalli Medical Hub,Belagavi,Karnataka,15.851,74.5085,0.953,2,"[""medicine"", ""equipment""]",True,False
+369337e5-9c70-479e-9422-fba9e7166ad4,KR Puram Healthcare,Chikkamagaluru,Karnataka,13.2948,75.7555,0.904,3,"[""consumable"", ""medicine""]",True,False
+35082b7c-e98a-4f0a-9ff4-3db34a58aa07,Banaswadi Medical Corp,Chikkamagaluru,Karnataka,13.3805,75.874,0.828,2,"[""surgical""]",True,False
+f532a58c-57d0-43ee-aa0a-6b6fd43655be,Thanisandra Pharma,Dharwad,Karnataka,15.4465,74.9964,0.783,3,"[""medicine""]",True,False
+b43d1653-4889-4bbf-b780-7f198a74932c,Jakkur Medical Supplies,Ballari,Karnataka,15.1604,76.8616,0.491,3,"[""consumable""]",False,False

@@ -1,0 +1,46 @@
+facility_id,name,hospital_type,city,state,lat,lng,bed_count,has_emergency,has_trauma,has_icu,has_blood_bank,has_ambulance,source,source_url
+fc379ba5-711c-44fd-8fd8-92740cbf1b1c,Apollo Hospitals Bangalore,Teaching / Institute,Bengaluru,Karnataka,12.9702,77.6437,150,True,True,True,False,True,scraped,https://www.apollohospitals.com/bangalore/
+7aff3511-d078-448e-a99d-90bfc23f7d81,Manipal Hospitals Bangalore,Teaching / Institute,Bengaluru,Karnataka,12.9529,77.6195,650,True,True,True,True,True,scraped,https://www.manipalhospitals.com/bangalore/
+6ebb1cd6-4336-4042-a427-21e6d887b651,Sakra World Hospital,Teaching / Institute,Bengaluru,Karnataka,12.9547,77.6492,323,True,False,True,False,False,scraped,https://www.sakraworldhospital.com/
+31a28173-ca6a-4d67-9360-2838c27e34b7,BGS Gleneagles Global Hospital Bengaluru,Unknown,Bengaluru,Karnataka,12.9971,77.5729,498,True,False,True,False,False,scraped,https://www.gleneagleshospitals.co.in/bengaluru
+b49a2296-bdce-41bc-bf54-85c773ddb57d,Aster CMI Hospital,Teaching / Institute,Bengaluru,Karnataka,13.0288,77.6557,500,True,True,True,False,False,scraped,https://www.asterhospitals.in/hospitals/aster-cmi-bangalore
+f067a3f8-7132-4fb0-a81a-596b322e6731,Aster RV Hospital,Teaching / Institute,Bengaluru,Karnataka,12.9602,77.5994,250,True,True,True,False,False,scraped,https://www.asterhospitals.in/hospitals/aster-rv-bangalore
+943dcbc1-e0cf-405d-924d-ff309d9a66b2,SPARSH Hospital,Teaching / Institute,Bengaluru,Karnataka,12.9994,77.5354,297,True,False,True,True,True,scraped,https://www.sparshhospital.com/
+a8f9f3d4-e4fb-4797-abf5-2ab8c2948574,Kauvery Hospital Marathahalli,Teaching / Institute,Bengaluru,Karnataka,13.0023,77.5777,323,True,False,True,True,False,scraped,https://www.kauveryhospital.com/our-hospitals/marathahalli-bengaluru/
+d5b5ef8f-7f44-4963-bd2b-b0d9257a7e70,Apollo Hospitals Bangalore,Government,Bengaluru,Karnataka,12.9058,77.6046,400,True,True,True,False,True,scraped,https://www.apollohospitals.com/
+a0c953e6-f4d9-404d-9135-488a257b9e39,Manipal Hospitals Bangalore,Private / Multi-specialty,Bengaluru,Karnataka,12.9376,77.547,12600,True,True,True,True,True,scraped,https://www.manipalhospitals.com/
+eb0a1ffc-6610-461d-8093-6a12d4937469,Fortis Hospitals Bangalore,Teaching / Institute,Bengaluru,Karnataka,12.9827,77.6341,272,True,True,True,True,False,scraped,https://www.fortishealthcare.com/
+6f8122ca-4ab3-4370-aaa4-24715eb38f9a,KIMS Hospitals,Teaching / Institute,Bengaluru,Karnataka,13.0072,77.6145,8300,True,True,True,True,False,scraped,https://www.kimshospitals.com/
+dd834eb1-aaae-4891-b2ad-374d652abd13,BGS Gleneagles Global Hospital Bengaluru,Trust / Charitable,Bengaluru,Karnataka,12.9304,77.578,376,False,False,False,False,False,scraped,https://www.gleneagleshospitals.co.in/
+65dc85ee-f185-47d6-84aa-43ca635e1c0b,Felix Hospital,Government,Bengaluru,Karnataka,13.004,77.5777,488,True,True,True,True,True,scraped,https://www.felixhospital.com/
+bed2c1aa-514a-41ac-a282-a483af506301,Rainbow Children's Hospital,Teaching / Institute,Bengaluru,Karnataka,12.9593,77.6162,165,True,False,True,False,False,scraped,https://www.rainbowhospitals.in/
+a808bba1-23fa-4a2c-96c5-495ca4360c3f,Victoria Hospital Bengaluru,Government,Bengaluru,Karnataka,12.9802,77.5896,1200,True,True,True,True,True,curated,
+96dc98c7-a0ad-4c3a-aed1-07de9e210bb7,Bowring & Lady Curzon Hospital,Government,Bengaluru,Karnataka,12.9855,77.5514,800,True,True,True,True,True,curated,
+e37b51fd-2d91-40ea-892d-e5fa0abd7d93,K.R. Hospital Mysuru,Government,Mysuru,Karnataka,12.2741,76.6301,600,True,True,True,True,False,curated,
+e75c24ce-ea39-4952-8e06-5f2f0f0b6f04,District Hospital Hubballi,Government,Hubballi,Karnataka,15.3882,75.0951,400,True,False,True,True,True,curated,
+77292609-8620-483b-a2b9-e7a1c72fd793,District Hospital Mangaluru,Government,Mangaluru,Karnataka,12.9134,74.8623,500,True,True,True,True,True,curated,
+f4b4a7a3-22b2-42b2-83ed-636f0947ef6d,Kidwai Memorial Institute of Oncology,Government,Bengaluru,Karnataka,12.9766,77.5926,350,True,False,True,False,True,curated,
+820f482b-7d4c-4705-b3e9-eea15ecd8762,Sri Jayadeva Institute of Cardiovascular Sciences,Government,Bengaluru,Karnataka,12.9592,77.5897,450,True,False,True,True,True,curated,
+401cb2c4-3d8c-4c79-8693-b66fb8c9f768,National Institute of Mental Health and Neuro Sciences,Government,Bengaluru,Karnataka,12.9911,77.5808,600,True,False,True,True,True,curated,
+92366c87-92d8-4174-bdac-9d3aedc179b0,St. Martha's Hospital,Private / Multi-specialty,Bengaluru,Karnataka,12.9284,77.6039,450,True,True,True,True,True,curated,
+cc8b8416-bfe6-4b78-9ae0-dc3a028df947,Ramaiah Memorial Hospital,Teaching / Institute,Bengaluru,Karnataka,13.0015,77.5736,750,True,True,True,True,True,curated,
+2c10669e-877f-49df-988b-6f88cea0c8db,SDM College of Medical Sciences,Teaching / Institute,Dharwad,Karnataka,15.4861,75.0182,750,True,True,True,True,True,curated,
+78399964-5347-49c7-bcbf-e7353d627e13,S Nijalingappa Medical College,Teaching / Institute,Bengaluru,Karnataka,12.9485,77.5805,700,True,True,True,True,False,curated,
+57229351-d8e3-4fab-951c-dc8c980d72c0,District Hospital Belagavi,Government,Belagavi,Karnataka,15.8347,74.5011,500,True,True,True,True,True,curated,
+98e0d752-46c0-4b17-8810-4308cc191df8,Shri B M Patil Medical College,Teaching / Institute,Vijayapura,Karnataka,16.8266,75.7321,600,True,False,True,True,True,curated,
+806b17c7-d044-4858-be75-d4ad2a0be545,District Hospital Kalaburagi,Government,Kalaburagi,Karnataka,17.3467,76.8034,450,True,True,True,True,True,curated,
+bb873a93-3bde-4136-a0f3-0c7b476f70af,Kasturba Medical College Manipal,Teaching / Institute,Mangaluru,Karnataka,12.8857,74.8683,850,True,True,True,True,True,curated,
+dfb79b7d-fda2-41d6-bdd4-38ec2404c401,Wenlock District Hospital,Government,Mangaluru,Karnataka,12.9038,74.8525,700,True,True,True,True,True,curated,
+e5506a3a-f3b6-42fa-a22d-00cff9e0acad,District Hospital Shivamogga,Government,Shivamogga,Karnataka,13.9408,75.5853,350,True,False,True,True,True,curated,
+fc9a1edb-f1e0-4eb4-af44-f6a3e33ce7b1,District Hospital Davangere,Government,Davanagere,Karnataka,14.4397,75.8774,400,True,False,True,True,False,curated,
+4de9da93-ced1-40d4-ab48-6dccb51417e7,District Hospital Tumakuru,Government,Tumakuru,Karnataka,13.3356,77.1002,350,True,False,True,True,False,curated,
+b40a7c7e-eb84-47cf-91a0-5e73e42702ca,Columbia Asia Hospital Hebbal,Private / Multi-specialty,Bengaluru,Karnataka,12.9729,77.5928,300,True,False,True,False,True,curated,
+583abb54-6df1-4432-b2a0-fd6d6fb36ec1,Sagar Hospitals Kumaraswamy,Private / Multi-specialty,Bengaluru,Karnataka,12.9521,77.6363,300,True,False,True,True,True,curated,
+1760cf46-90e5-4fc8-b564-21695685a3a7,Vikram Hospital Millers Road,Private / Multi-specialty,Bengaluru,Karnataka,12.9719,77.5831,200,True,False,True,False,True,curated,
+fae91a59-d210-46e8-955c-fe2322805d7f,Cloudnine Hospital Jayanagar,Private / Multi-specialty,Bengaluru,Karnataka,12.9736,77.6052,150,True,False,True,False,True,curated,
+886a5c01-1a69-44af-bbd8-bfac1c904067,Meenakshi Mission Hospital,Private / Multi-specialty,Mysuru,Karnataka,12.2831,76.6858,250,True,True,True,True,True,curated,
+0147e730-a075-4a8a-bd7b-b1b7e82da23d,District Hospital Ballari,Government,Ballari,Karnataka,15.1089,76.8923,400,True,True,True,True,True,curated,
+991f7eff-0c45-4d05-9bc6-2c1d3a58c947,District Hospital Hassan,Government,Hassan,Karnataka,12.9749,76.1005,300,True,False,True,True,False,curated,
+3aab1dd4-f79d-4d8d-bb46-cfa3e2513c71,District Hospital Mandya,Government,Mandya,Karnataka,12.5331,76.8893,300,True,False,True,True,False,curated,
+a358466a-5265-40d0-852b-00e114b60fbe,District Hospital Raichur,Government,Raichur,Karnataka,16.2214,77.353,350,True,True,True,True,True,curated,
+fe33aec8-62ce-493c-9772-7256c3bc157b,District Hospital Bidar,Government,Bidar,Karnataka,17.9032,77.5284,300,True,False,True,True,False,curated,
