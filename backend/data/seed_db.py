@@ -285,6 +285,12 @@ def seed(reset: bool = False):
         print(f"  ✓ inventory — {len(inventory_df)} rows")
 
         disaster_df = read_csv("disaster_events.csv")
+        active_candidates = disaster_df[~disaster_df["is_historical"].map(parse_bool)].copy()
+        active_event_id = None
+        if not active_candidates.empty:
+            active_candidates["_event_date"] = pd.to_datetime(active_candidates["event_date"])
+            active_event_id = active_candidates.sort_values("_event_date", ascending=False).iloc[0]["event_id"]
+
         for _, r in disaster_df.iterrows():
             detected_at = parse_dt(r["event_date"])
             db.add(DisasterEvent(
@@ -298,7 +304,7 @@ def seed(reset: bool = False):
                 lng=float(r["lng"]),
                 affected_radius_km=int(round(float(r["radius_km"]))),
                 detected_at=detected_at,
-                is_active=not parse_bool(r["is_historical"]),
+                is_active=r["event_id"] == active_event_id,
                 raw_text=r["ai_summary"],
                 ai_summary=r["ai_summary"],
             ))
